@@ -14,6 +14,11 @@ buildDrafts = false
 
 [params]
   site_tagline = "Latency-first VPS region picks for China, Asia & global traffic."
+
+  # Homepage SEO
+  home_title = "Best VPS Regions for China Traffic (HK, Tokyo, SG) | VPSComparison"
+  home_description = "Latency-first VPS picks for China traffic. Compare Hong Kong, Tokyo and Singapore regions with real routing notes, provider reviews and deployment checklists."
+
   # Vultr affiliate link
   vultr_ref = "https://www.vultr.com/?ref=9875406"
 
