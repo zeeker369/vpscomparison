@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {{ with .Params.description }}<meta name="description" content="{{ . }}">{{ end }}
-  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+  <meta charset="UTF-8" />
+
+  {{/* ---------- Title (Homepage / Page) ---------- */}}
+  {{ $siteTitle := .Site.Title }}
+  {{ $pageTitle := .Title }}
+  {{ if .IsHome }}
+    {{ with .Site.Params.home_title }}
+      <title>{{ . }}</title>
+    {{ else }}
+      <title>{{ $siteTitle }}</title>
+    {{ end }}
+  {{ else }}
+    <title>{{ $pageTitle }} | {{ $siteTitle }}</title>
+  {{ end }}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  {{/* ---------- Description fallback order ---------- */}}
+  {{ $desc := "" }}
+  {{ with .Params.description }}{{ $desc = . }}{{ end }}
+  {{ if and (eq $desc "") .IsHome }}
+    {{ with .Site.Params.home_description }}{{ $desc = . }}{{ end }}
+  {{ end }}
+  {{ if eq $desc "" }}
+    {{ with .Site.Params.site_tagline }}{{ $desc = . }}{{ end }}
+  {{ end }}
+  {{ if ne $desc "" }}
+    <meta name="description" content="{{ $desc }}" />
+  {{ end }}
+
+  {{/* ---------- Canonical ---------- */}}
+  <link rel="canonical" href="{{ .Permalink }}" />
+
+  {{/* ---------- Open Graph ---------- */}}
+  <meta property="og:site_name" content="{{ $siteTitle }}" />
+  <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
+  <meta property="og:title" content="{{ if .IsHome }}{{ with .Site.Params.home_title }}{{ . }}{{ else }}{{ $siteTitle }}{{ end }}{{ else }}{{ $pageTitle }}{{ end }}" />
+  {{ if ne $desc "" }}<meta property="og:description" content="{{ $desc }}" />{{ end }}
+  <meta property="og:url" content="{{ .Permalink }}" />
+
+  {{/* ---------- Twitter ---------- */}}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{{ if .IsHome }}{{ with .Site.Params.home_title }}{{ . }}{{ else }}{{ $siteTitle }}{{ end }}{{ else }}{{ $pageTitle }}{{ end }}" />
+  {{ if ne $desc "" }}<meta name="twitter:description" content="{{ $desc }}" />{{ end }}
+
+  {{/* ---------- CSS ---------- */}}
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}" />
 </head>
 <body>
 
