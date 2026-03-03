@@ -61,7 +61,7 @@ China performance is primarily controlled by:
 A cheap Hong Kong VPS with bad routing can be worse than a stable Tokyo VPS.
 
 Internal links (recommended reading):
-- **China Hub:** /china/
+- **China Hub:** [/china/](/china/)
 - **China Traffic Routing 101:** [guides/china-traffic-routing-101-2026](/guides/china-traffic-routing-101-2026/)
 - **BGP labels explained:** [guides/bgp-cn2-cmi-pccw-ntt-explained](/guides/bgp-cn2-cmi-pccw-ntt-explained/)
 
