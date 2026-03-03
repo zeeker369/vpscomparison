@@ -1,0 +1,49 @@
+{{- /* layouts/partials/datacenter/dc_collect.html */ -}}
+{{- $opts := . | default dict -}}
+
+{{- $providerKey := lower (index $opts "provider_key" | default "") -}}
+{{- $regionKey   := lower (index $opts "region_key"   | default "") -}}
+{{- $city        := lower (index $opts "city"         | default "") -}}
+{{- $chinaOnly   := (index $opts "china_only" | default false) -}}
+{{- $includeLegacy := (index $opts "include_legacy" | default false) -}}
+
+{{- /* Collect all datacenter pages in datacenter section */ -}}
+{{- $dcs := where site.RegularPages "Section" "in" (slice "datacenter" "Datacenter") -}}
+{{- $dcs = where $dcs "Params.page_type" "datacenter" -}}
+
+{{- $filtered := slice -}}
+{{- range $dcs -}}
+  {{- /* 1) Skip legacy year pages if they still exist (avoid duplicates like *(2026)) */ -}}
+  {{- $base := "" -}}
+  {{- with .File }}{{ $base = .BaseFileName }}{{ end -}}
+  {{- $isLegacy := false -}}
+  {{- if and $base (gt (len (findRE `-(19|20)\d{2}$` $base)) 0) -}}
+    {{- $isLegacy = true -}}
+  {{- end -}}
+  {{- if and (not $includeLegacy) $isLegacy -}}
+    {{- continue -}}
+  {{- end -}}
+
+  {{- /* 2) Normalize keys */ -}}
+  {{- $pkey := lower ((.Params.provider_key | default (urlize (.Params.provider_name | default ""))) | default "") -}}
+  {{- $rkey := lower ((.Params.region_key   | default (urlize (.Params.region | default "")))        | default "") -}}
+  {{- $cty  := lower (.Params.city | default "") -}}
+  {{- $china := or (eq (.Params.china_pick) true) (eq (.Params.china_pick) "true") -}}
+
+  {{- /* 3) Apply filters */ -}}
+  {{- $ok := true -}}
+  {{- if and $providerKey (ne $pkey $providerKey) }}{{ $ok = false }}{{ end -}}
+  {{- if and $regionKey   (ne $rkey $regionKey)     }}{{ $ok = false }}{{ end -}}
+  {{- if and $city        (ne $cty  $city)          }}{{ $ok = false }}{{ end -}}
+  {{- if and $chinaOnly (not $china)                }}{{ $ok = false }}{{ end -}}
+
+  {{- if $ok -}}
+    {{- $filtered = $filtered | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Sort: intent desc, then title asc */ -}}
+{{- $filtered = sort $filtered "Title" "asc" -}}
+{{- $filtered = sort $filtered "Params.intent_score" "desc" -}}
+
+{{- return $filtered -}}

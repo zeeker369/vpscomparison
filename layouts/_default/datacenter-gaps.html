@@ -1,0 +1,168 @@
+{{ define "main" }}
+
+<div class="container">
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.description }}<p class="muted">{{ . }}</p>{{ end }}
+
+  {{/* 1) Collect canonical datacenter pages */}}
+  {{ $dcs := where site.RegularPages "Section" "in" (slice "datacenter" "Datacenter") }}
+  {{ $dcs = where $dcs "Params.page_type" "datacenter" }}
+
+  {{/* Skip legacy year copies by filename suffix -YYYY */}}
+  {{ $canon := slice }}
+  {{ range $dcs }}
+    {{ $base := "" }}
+    {{ with .File }}{{ $base = .BaseFileName }}{{ end }}
+    {{ if and $base (gt (len (findRE `-(19|20)\d{2}$` $base)) 0) }}
+      {{ continue }}
+    {{ end }}
+    {{ $canon = $canon | append . }}
+  {{ end }}
+
+  {{/* 2) Build sets: providers, cities, and existing matrix */}}
+  {{ $providers := dict }} {{/* key -> display name */}}
+  {{ $cities := dict }}     {{/* city -> true */}}
+  {{ $matrix := dict }}     {{/* "pkey||city" -> true */}}
+
+  {{ range $canon }}
+    {{ $pname := (.Params.provider_name | default "") }}
+    {{ $pkey := lower ((.Params.provider_key | default (urlize $pname)) | default "") }}
+    {{ $city := (.Params.city | default "") }}
+
+    {{ if and $pkey $pname }}{{ $providers = merge $providers (dict $pkey $pname) }}{{ end }}
+    {{ if $city }}{{ $cities = merge $cities (dict $city true) }}{{ end }}
+
+    {{ if and $pkey $city }}
+      {{ $k := printf "%s||%s" $pkey $city }}
+      {{ $matrix = merge $matrix (dict $k true) }}
+    {{ end }}
+  {{ end }}
+
+  {{/* 3) Expected lists (derived), plus optional priority lists */}}
+  {{ $providerKeys := slice }}
+  {{ range $k, $v := $providers }}{{ $providerKeys = $providerKeys | append $k }}{{ end }}
+  {{ $providerKeys = sort $providerKeys }}
+
+  {{ $cityNames := slice }}
+  {{ range $k, $_ := $cities }}{{ $cityNames = $cityNames | append $k }}{{ end }}
+  {{ $cityNames = sort $cityNames }}
+
+  {{ $priorityProviders := .Params.priority_providers | default (slice) }}
+  {{ $priorityCities := .Params.priority_cities | default (slice) }}
+
+  {{/* 4) Compute gaps */}}
+  {{ $gaps := slice }}
+  {{ range $providerKeys }}
+    {{ $pkey := . }}
+    {{ range $cityNames }}
+      {{ $city := . }}
+      {{ $k := printf "%s||%s" $pkey $city }}
+      {{ if not (index $matrix $k) }}
+        {{ $gaps = $gaps | append (dict "pkey" $pkey "city" $city) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* 5) Priority gaps */}}
+  {{ $priorityGaps := slice }}
+  {{ if and (gt (len $priorityProviders) 0) (gt (len $priorityCities) 0) }}
+    {{ range $priorityProviders }}
+      {{ $pkey := lower . }}
+      {{ range $priorityCities }}
+        {{ $city := . }}
+        {{ $k := printf "%s||%s" $pkey $city }}
+        {{ if not (index $matrix $k) }}
+          {{ $priorityGaps = $priorityGaps | append (dict "pkey" $pkey "city" $city) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* 6) Summary */}}
+  {{ $providersCount := len $providerKeys }}
+  {{ $citiesCount := len $cityNames }}
+  {{ $expected := mul $providersCount $citiesCount }}
+  {{ $have := len $matrix }}
+  {{ $gapCount := len $gaps }}
+
+  <div class="card" style="padding:16px;margin:16px 0;">
+    <div><strong>Providers:</strong> {{ $providersCount }}</div>
+    <div><strong>Cities:</strong> {{ $citiesCount }}</div>
+    <div><strong>Expected combos:</strong> {{ $expected }}</div>
+    <div><strong>Existing combos:</strong> {{ $have }}</div>
+    <div><strong>Missing combos:</strong> {{ $gapCount }}</div>
+  </div>
+
+  {{/* 7) Priority section */}}
+  {{ if gt (len $priorityGaps) 0 }}
+    <h2>Priority gaps (fill these first)</h2>
+    <p class="muted">Based on <code>priority_providers</code> × <code>priority_cities</code> in this page front matter.</p>
+
+    <ul>
+      {{ range $priorityGaps }}
+        {{ $pkey := .pkey }}
+        {{ $city := .city }}
+        {{ $pname := (index $providers $pkey) | default $pkey }}
+        {{ $citySlug := urlize $city }}
+        <li>
+          <strong>{{ $pname }}</strong> × <strong>{{ $city }}</strong>
+          — open hubs:
+          <a href="/datacenter/{{ $pkey }}/">/datacenter/{{ $pkey }}/</a>,
+          <a href="/datacenter/{{ $citySlug }}/">/datacenter/{{ $citySlug }}/</a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    <h2>Priority gaps</h2>
+    <p class="muted">No priority gaps found (or you didn’t set priority lists).</p>
+  {{ end }}
+
+  {{/* 8) Full gap map grouped by provider */}}
+  <h2>Full gap map (Provider → missing cities)</h2>
+
+  {{ range $providerKeys }}
+    {{ $pkey := . }}
+    {{ $pname := (index $providers $pkey) | default $pkey }}
+
+    {{ $missingCities := slice }}
+    {{ range $cityNames }}
+      {{ $city := . }}
+      {{ $k := printf "%s||%s" $pkey $city }}
+      {{ if not (index $matrix $k) }}
+        {{ $missingCities = $missingCities | append $city }}
+      {{ end }}
+    {{ end }}
+
+    <h3 style="margin-top:22px;">
+      <a href="/datacenter/{{ $pkey }}/">{{ $pname }}</a>
+      <span class="muted">({{ len $missingCities }} missing)</span>
+    </h3>
+
+    {{ if gt (len $missingCities) 0 }}
+      <div class="card" style="padding:14px;">
+        {{ range $missingCities }}
+          {{ $city := . }}
+          {{ $citySlug := urlize $city }}
+          <a class="chip chip--muted" style="margin:4px 6px 0 0; display:inline-block;" href="/datacenter/{{ $citySlug }}/">
+            {{ $city }}
+          </a>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p class="muted">No gaps for this provider.</p>
+    {{ end }}
+  {{ end }}
+
+  <h2>How to close a gap</h2>
+  <p class="muted">
+    For a missing combo, add one datacenter page with:
+    <code>page_type: datacenter</code>,
+    <code>provider_key</code>,
+    <code>provider_name</code>,
+    <code>city</code>,
+    and a canonical slug.
+    It will automatically appear in Provider Hub + City Hub + filters.
+  </p>
+</div>
+
+{{ end }}

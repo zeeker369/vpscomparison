@@ -1,0 +1,259 @@
+{{ define "main" }}
+{{ $p := . }}
+{{ $year := $p.Params.review_year | default (now.Format "2006") }}
+{{ $nav := $p.Params.hub_nav | default (slice) }}
+{{ $sections := $p.Params.hub_sections | default (slice) }}
+{{ $featured := $p.Params.featured | default (slice) }}
+
+{{/* Index pages by RelPermalink so hub refs can use permalinks/slugs (not only file paths). */}}
+{{ $idx := newScratch }}
+{{ range site.RegularPages }}
+  {{ $idx.Set .RelPermalink . }}
+  {{ $idx.Set (replaceRE "/$" "" .RelPermalink) . }}
+{{ end }}
+
+
+<section class="hero hero--compact">
+  <div class="container">
+    <h1>{{ $p.Title }}</h1>
+    {{ with $p.Params.subtitle }}<p class="muted">{{ . }}</p>{{ end }}
+
+    <div class="hero-brands muted">
+      <span class="chip chip--china">China</span>
+      <span class="chip">Updated {{ $year }}</span>
+      <span class="chip chip--muted">Routing · CDN · Testing · Compliance</span>
+    </div>
+
+    <div class="hero-cta">
+      {{ with $p.Params.cta.primary_href }}
+        <a class="btn-primary" href="{{ . }}">{{ $p.Params.cta.primary_label | default "Browse comparisons →" }}</a>
+      {{ else }}
+        <a class="btn-primary" href="/vs/">Browse comparisons →</a>
+      {{ end }}
+
+      {{ with $p.Params.cta.secondary_href }}
+        <a class="btn-secondary btn-provider" href="{{ . }}">{{ $p.Params.cta.secondary_label | default "All provider reviews →" }}</a>
+      {{ else }}
+        <a class="btn-secondary btn-provider" href="/provider/">All provider reviews →</a>
+      {{ end }}
+
+      {{ with $p.Params.cta.third_href }}
+        <a class="btn-secondary btn-dc" href="{{ . }}">{{ $p.Params.cta.third_label | default "Explore data centers →" }}</a>
+      {{ else }}
+        <a class="btn-secondary btn-dc" href="/datacenter/">Explore data centers →</a>
+      {{ end }}
+    </div>
+
+    {{ if gt (len $nav) 0 }}
+      <div class="hero-provider-nav" style="margin-top:16px;">
+        <a class="provider-pill pill-all" href="#top">Start here</a>
+        {{ range $nav }}
+          <a class="provider-pill" href="#{{ .id }}">{{ .title }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</section>
+
+<section id="top">
+  <div class="container">
+
+    {{/* =========================
+       Featured / Top picks
+    ========================= */}}
+    {{ if gt (len $featured) 0 }}
+      <div class="section-head">
+        <h2>Top picks</h2>
+        <p class="muted">If you only read three pages, start here.</p>
+      </div>
+
+      <div class="recommend-grid">
+        {{ range $featured }}
+          {{ $ref := .ref | default "" }}
+          {{ $pg := site.GetPage $ref }}
+
+          {{/* Try resolve by RelPermalink (ref values are usually URL paths) */}}
+          {{ if not $pg }}
+            {{ $p2 := $idx.Get $ref }}
+            {{ if $p2 }}{{ $pg = $p2 }}{{ end }}
+          {{ end }}
+          {{ if not $pg }}
+            {{ $r2 := replaceRE "/$" "" $ref }}
+            {{ $p3 := $idx.Get $r2 }}
+            {{ if $p3 }}{{ $pg = $p3 }}{{ end }}
+          {{ end }}
+
+          {{ if not $pg }}
+            {{ $clean := trim $ref "/" }}
+            {{ $parts := split $clean "/" }}
+            {{ $base := $clean }}
+            {{ if gt (len $parts) 0 }}{{ $base = index $parts (sub (len $parts) 1) }}{{ end }}
+
+            {{ $tries := slice
+              (printf "/guides/%s/" $base)
+              (printf "/china/%s/" $base)
+              (printf "/usecase/%s/" $base)
+              (printf "/provider/%s/" $base)
+              (printf "/vs/%s/" $base)
+            }}
+            {{ range $tries }}
+              {{ if not $pg }}
+                {{ $try := . }}
+                {{ $pg = site.GetPage $try }}
+                {{ if not $pg }}
+                  {{ $pTry := $idx.Get $try }}
+                  {{ if $pTry }}{{ $pg = $pTry }}{{ end }}
+                {{ end }}
+                {{ if not $pg }}
+                  {{ $pTry2 := $idx.Get (replaceRE "/$" "" $try) }}
+                  {{ if $pTry2 }}{{ $pg = $pTry2 }}{{ end }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+
+            {{ if not $pg }}
+              {{ $byFile := where site.RegularPages "File.BaseFileName" "eq" $base }}
+              {{ if gt (len $byFile) 0 }}{{ $pg = index $byFile 0 }}{{ end }}
+            {{ end }}
+          {{ end }}
+
+          {{ if $pg }}
+            {{ $date := $pg.Lastmod | default $pg.Date }}
+            <article class="card">
+              <h3><a href="{{ $pg.RelPermalink }}">{{ $pg.Title }}</a></h3>
+
+              <div class="meta-row">
+                <span class="chip chip--china">China</span>
+                {{ with $pg.Params.review_year }}<span class="chip chip--muted">Updated {{ . }}</span>{{ end }}
+                {{ with $date }}<span class="chip chip--muted">{{ .Format "2006-01-02" }}</span>{{ end }}
+              </div>
+
+              <p>{{ $pg.Params.summary | default $pg.Summary | plainify }}</p>
+              <a class="btn-primary" href="{{ $pg.RelPermalink }}">Open →</a>
+            </article>
+          {{ else if hugo.IsServer }}
+            <article class="card" style="border-style:dashed;">
+              <h3>Missing page</h3>
+              <p class="muted" style="word-break:break-word;">ref: {{ $ref }}</p>
+              <p class="muted">Fix the ref to match the actual permalink/slug.</p>
+            </article>
+          {{ end }}
+        {{ end }}
+      </div>
+
+      <hr style="margin:34px 0 24px;">
+    {{ end }}
+
+    {{/* =========================
+       Hub Sections
+    ========================= */}}
+    {{ range $sections }}
+      {{ $sid := .id | default "" }}
+      {{ $stitle := .title | default "Section" }}
+      {{ $sdesc := .desc | default "" }}
+      {{ $items := .items | default (slice) }}
+
+      <div id="{{ $sid }}" style="scroll-margin-top:90px;"></div>
+
+      <div class="section-head">
+        <h2>{{ $stitle }}</h2>
+        {{ if $sdesc }}<p class="muted">{{ $sdesc }}</p>{{ end }}
+      </div>
+
+      <div class="recommend-grid">
+        {{ range $items }}
+          {{ $ref := .ref | default "" }}
+          {{ $pg := site.GetPage $ref }}
+
+          {{/* Try resolve by RelPermalink (ref values are usually URL paths) */}}
+          {{ if not $pg }}
+            {{ $p2 := $idx.Get $ref }}
+            {{ if $p2 }}{{ $pg = $p2 }}{{ end }}
+          {{ end }}
+          {{ if not $pg }}
+            {{ $r2 := replaceRE "/$" "" $ref }}
+            {{ $p3 := $idx.Get $r2 }}
+            {{ if $p3 }}{{ $pg = $p3 }}{{ end }}
+          {{ end }}
+
+          {{ if not $pg }}
+            {{ $clean := trim $ref "/" }}
+            {{ $parts := split $clean "/" }}
+            {{ $base := $clean }}
+            {{ if gt (len $parts) 0 }}{{ $base = index $parts (sub (len $parts) 1) }}{{ end }}
+
+            {{ $tries := slice
+              (printf "/guides/%s/" $base)
+              (printf "/china/%s/" $base)
+              (printf "/usecase/%s/" $base)
+              (printf "/provider/%s/" $base)
+              (printf "/vs/%s/" $base)
+            }}
+            {{ range $tries }}
+              {{ if not $pg }}
+                {{ $try := . }}
+                {{ $pg = site.GetPage $try }}
+                {{ if not $pg }}
+                  {{ $pTry := $idx.Get $try }}
+                  {{ if $pTry }}{{ $pg = $pTry }}{{ end }}
+                {{ end }}
+                {{ if not $pg }}
+                  {{ $pTry2 := $idx.Get (replaceRE "/$" "" $try) }}
+                  {{ if $pTry2 }}{{ $pg = $pTry2 }}{{ end }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+
+            {{ if not $pg }}
+              {{ $byFile := where site.RegularPages "File.BaseFileName" "eq" $base }}
+              {{ if gt (len $byFile) 0 }}{{ $pg = index $byFile 0 }}{{ end }}
+            {{ end }}
+          {{ end }}
+
+          {{ if $pg }}
+            {{ $date := $pg.Lastmod | default $pg.Date }}
+            <article class="card">
+              <h3><a href="{{ $pg.RelPermalink }}">{{ $pg.Title }}</a></h3>
+
+              <div class="meta-row">
+                <span class="chip chip--china">China</span>
+                {{ with $pg.Params.review_year }}<span class="chip chip--muted">Updated {{ . }}</span>{{ end }}
+                {{ with $date }}<span class="chip chip--muted">{{ .Format "2006-01-02" }}</span>{{ end }}
+              </div>
+
+              <p>{{ $pg.Params.summary | default $pg.Summary | plainify }}</p>
+              <a class="btn-primary" href="{{ $pg.RelPermalink }}">Open →</a>
+            </article>
+          {{ else if hugo.IsServer }}
+            <article class="card" style="border-style:dashed;">
+              <h3>Missing page</h3>
+              <p class="muted" style="word-break:break-word;">ref: {{ $ref }}</p>
+            </article>
+          {{ end }}
+        {{ end }}
+      </div>
+
+      <div class="section-foot">
+        <a href="#top">Back to top →</a>
+      </div>
+
+      <hr style="margin:34px 0 24px;">
+    {{ end }}
+
+    {{/* =========================
+       Bottom CTA
+    ========================= */}}
+    <div class="card" style="padding:22px;">
+      <h2 style="margin:0 0 8px;">Next steps</h2>
+      <p class="muted" style="margin:0 0 14px;">Turn these guides into a provider decision and a test plan.</p>
+      <div class="hero-cta" style="margin-top:0;">
+        <a class="btn-primary" href="{{ $p.Params.cta.primary_href | default "/vs/" }}">{{ $p.Params.cta.primary_label | default "Browse comparisons →" }}</a>
+        <a class="btn-secondary btn-provider" href="{{ $p.Params.cta.secondary_href | default "/provider/" }}">{{ $p.Params.cta.secondary_label | default "All provider reviews →" }}</a>
+        <a class="btn-secondary btn-dc" href="{{ $p.Params.cta.third_href | default "/datacenter/" }}">{{ $p.Params.cta.third_label | default "Explore data centers →" }}</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{{ end }}

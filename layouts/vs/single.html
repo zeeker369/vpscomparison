@@ -1,0 +1,67 @@
+{{ define "main" }}
+
+{{/* ===== VS Page Single =====
+Principles:
+- VS pages don't use city/region chips.
+- Providers are derived from front matter OR inferred from slug.
+*/}}
+
+{{ $left  := .Params.left_provider | default "" }}
+{{ $right := .Params.right_provider | default "" }}
+
+{{/* Infer from slug like "vultr-vs-digitalocean" */}}
+{{ if or (eq $left "") (eq $right "") }}
+  {{ $slug := .Params.slug | default .File.BaseFileName | default "" }}
+  {{ $parts := split $slug "-vs-" }}
+  {{ if and (ge (len $parts) 2) (or (eq $left "") (eq $right "")) }}
+    {{ if eq $left "" }}{{ $left = title (index $parts 0) }}{{ end }}
+    {{ if eq $right "" }}{{ $right = title (index $parts 1) }}{{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $intent := .Params.intent_score | default 0 }}
+
+<section class="hero compact">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+
+    <div class="hero-brands muted">
+      {{ if $left }}<span class="chip">{{ $left }}</span>{{ end }}
+      {{ if $right }}<span class="chip">{{ $right }}</span>{{ end }}
+
+      {{/* show date if exists */}}
+      {{ with .Date }}
+        {{ if ne (.Year) 1 }}
+          <span class="chip chip--muted">Updated {{ .Format "2006-01-02" }}</span>
+        {{ end }}
+      {{ end }}
+
+      {{ if gt $intent 0 }}
+        <span class="chip chip--score">Intent {{ $intent }}</span>
+      {{ end }}
+    </div>
+
+    {{/* Optional CTA row */}}
+    {{ $cta1 := .Params.cta_primary_url | default "" }}
+    {{ $cta2 := .Params.cta_secondary_url | default "" }}
+    {{ if or $cta1 $cta2 }}
+      <div class="hero-cta" style="margin-top:12px;">
+        {{ if $cta1 }}
+          <a class="btn-primary" href="{{ $cta1 }}">Go to {{ $left | default "Provider" }} →</a>
+        {{ end }}
+        {{ if $cta2 }}
+          <a class="btn-secondary btn-provider" href="{{ $cta2 }}">Go to {{ $right | default "Provider" }} →</a>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</section>
+
+<section>
+  <div class="container prose">
+    {{ .Content }}
+  </div>
+</section>
+
+{{ end }}

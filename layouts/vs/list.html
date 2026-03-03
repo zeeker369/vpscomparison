@@ -1,0 +1,306 @@
+{{ define "main" }}
+
+{{/* =========================
+   VS list page (content/vs/_index.md)
+   Upgraded Hub:
+   - Supports provider_a/provider_b + left_provider/right_provider
+   - Parses from Title ("A vs B (2026)" / "A 与 B")
+   - Parses from filename ("a-vs-b" / "a-vs-b-2026")
+   - Keeps JS filter
+   - Adds static "Compare by Provider" section for SEO
+========================= */}}
+
+{{/* 1) safest collection: on /vs/ section page, .RegularPages are the comparisons */}}
+{{ $vsPages := .RegularPages }}
+
+{{/* Sort: Lastmod desc, then Title asc */}}
+{{ $vsPages = sort $vsPages "Title" "asc" }}
+{{ $vsPages = sort $vsPages "Lastmod" "desc" }}
+
+{{/* 2) Build items with provider A/B */}}
+{{ $items := slice }}
+{{ range $vsPages }}
+  {{ $p := . }}
+  {{ $t := ($p.Title | default "") }}
+
+  {{/* ---- Front matter (preferred) ---- */}}
+  {{ $a := "" }}{{ $b := "" }}
+
+  {{/* New standard */}}
+  {{ with $p.Params.provider_a }}{{ $a = trim (printf "%v" .) " \t\n\r" }}{{ end }}
+  {{ with $p.Params.provider_b }}{{ $b = trim (printf "%v" .) " \t\n\r" }}{{ end }}
+
+  {{/* Backward compat */}}
+  {{ if eq $a "" }}{{ with $p.Params.left_provider }}{{ $a = trim (printf "%v" .) " \t\n\r" }}{{ end }}{{ end }}
+  {{ if eq $b "" }}{{ with $p.Params.right_provider }}{{ $b = trim (printf "%v" .) " \t\n\r" }}{{ end }}{{ end }}
+
+  {{/* ---- Parse from title ----
+     Support:
+     - "A vs B (2026)"
+     - "A vs. B"
+     - "A versus B"
+     - "A 与 B"
+  */}}
+  {{ if or (eq $a "") (eq $b "") }}
+    {{/* vs / versus */}}
+    {{ $ra := trim (replaceRE `(?i)^(.*?)\s+(?:vs\.?|versus)\s+(.*?)(\s*\(.*\))?$` `$1` $t) " \t\n\r" }}
+    {{ $rb := trim (replaceRE `(?i)^(.*?)\s+(?:vs\.?|versus)\s+(.*?)(\s*\(.*\))?$` `$2` $t) " \t\n\r" }}
+    {{ if and (ne $ra $t) (ne $rb $t) }}
+      {{ if eq $a "" }}{{ $a = $ra }}{{ end }}
+      {{ if eq $b "" }}{{ $b = $rb }}{{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ if or (eq $a "") (eq $b "") }}
+    {{/* Chinese "与" */}}
+    {{ $ra := trim (replaceRE `(?i)^(.*?)\s*与\s*(.*?)(\s*\(.*\))?$` `$1` $t) " \t\n\r" }}
+    {{ $rb := trim (replaceRE `(?i)^(.*?)\s*与\s*(.*?)(\s*\(.*\))?$` `$2` $t) " \t\n\r" }}
+    {{ if and (ne $ra $t) (ne $rb $t) }}
+      {{ if eq $a "" }}{{ $a = $ra }}{{ end }}
+      {{ if eq $b "" }}{{ $b = $rb }}{{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* ---- Parse from filename: "a-vs-b" or "a-vs-b-2026" ---- */}}
+  {{ if or (eq $a "") (eq $b "") }}
+    {{ $base := "" }}
+    {{ with $p.File }}{{ $base = .BaseFileName }}{{ end }}
+    {{ if $base }}
+      {{ $parts := split $base "-vs-" }}
+      {{ if eq (len $parts) 2 }}
+        {{ $pa := index $parts 0 }}
+        {{ $pb := index $parts 1 }}
+        {{/* strip trailing year like -2026 */}}
+        {{ $pb = replaceRE `-\d{4}$` `` $pb }}
+        {{ if eq $a "" }}{{ $a = humanize $pa }}{{ end }}
+        {{ if eq $b "" }}{{ $b = humanize $pb }}{{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ $items = $items | append (dict
+    "page" $p
+    "a" $a
+    "b" $b
+    "akey" (urlize $a)
+    "bkey" (urlize $b)
+  ) }}
+{{ end }}
+
+{{/* 3) Build provider options (unique) */}}
+{{ $providers := slice }}
+{{ $seen := dict }}
+{{ range $items }}
+  {{ if and .a (ne .akey "") (not (index $seen .akey)) }}
+    {{ $providers = $providers | append (dict "key" .akey "name" .a) }}
+    {{ $seen = merge $seen (dict .akey true) }}
+  {{ end }}
+  {{ if and .b (ne .bkey "") (not (index $seen .bkey)) }}
+    {{ $providers = $providers | append (dict "key" .bkey "name" .b) }}
+    {{ $seen = merge $seen (dict .bkey true) }}
+  {{ end }}
+{{ end }}
+{{ $providers = sort $providers "name" "asc" }}
+
+{{/* 4) Build provider -> comparisons groups for SEO */}}
+{{ $groups := dict }}
+{{ range $items }}
+  {{ $it := . }}
+  {{ $ak := $it.akey }}
+  {{ $bk := $it.bkey }}
+
+  {{ if ne $ak "" }}
+    {{ $list := (index $groups $ak) | default (slice) }}
+    {{ $list = $list | append $it }}
+    {{ $groups = merge $groups (dict $ak $list) }}
+  {{ end }}
+
+  {{ if and (ne $bk "") (ne $bk $ak) }}
+    {{ $list := (index $groups $bk) | default (slice) }}
+    {{ $list = $list | append $it }}
+    {{ $groups = merge $groups (dict $bk $list) }}
+  {{ end }}
+{{ end }}
+
+<section class="hero hero--compact">
+  <div class="container">
+    <h1>{{ .Title | default "Comparisons" }}</h1>
+    {{ with .Params.description }}
+      <p class="muted">{{ . }}</p>
+    {{ else }}
+      <p class="muted">Decision-first “A vs B” comparisons. Filter by provider. Sorted by last update.</p>
+    {{ end }}
+
+    <div class="hero-cta">
+      <a class="btn-primary" href="{{ .RelPermalink }}">Browse comparisons →</a>
+      <a class="btn-secondary btn-provider" href="/provider/">Browse providers →</a>
+      <a class="btn-secondary btn-dc" href="/datacenter/">Browse data centers →</a>
+    </div>
+
+    <div class="filterbar" id="vsFilterBar">
+      <div class="filter-item">
+        <label for="vsProvider" class="filter-label">Provider</label>
+        <select id="vsProvider" class="filter-select">
+          <option value="">All</option>
+          {{ range $providers }}
+            <option value="{{ .key }}">{{ .name }}</option>
+          {{ end }}
+        </select>
+      </div>
+
+      <div class="filter-item filter-item--search">
+        <label for="vsSearch" class="filter-label">Search</label>
+        <input id="vsSearch" class="filter-input" type="search" placeholder="vultr / digitalocean / pricing…" autocomplete="off">
+      </div>
+
+      <div class="filter-item filter-item--meta">
+        <div class="filter-count"><span id="vsCount">{{ len $items }}</span> results</div>
+        <button class="btn-secondary btn-secondary--sm" id="vsReset" type="button">Reset</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="container">
+    <div class="recommend-grid" id="vsGrid">
+
+      {{ range $items }}
+        {{ $p := .page }}
+        {{ $a := .a }}{{ $b := .b }}
+        {{ $akey := .akey }}{{ $bkey := .bkey }}
+        {{ $date := $p.Lastmod | default $p.Date }}
+
+        <article class="card vs-card"
+          data-a="{{ $akey }}"
+          data-b="{{ $bkey }}"
+          data-aname="{{ $a | plainify | lower }}"
+          data-bname="{{ $b | plainify | lower }}"
+          data-title="{{ $p.Title | plainify | lower }}"
+          data-summary="{{ $p.Params.summary | default "" | plainify | lower }}"
+        >
+          <h3><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
+
+          <div class="meta-row">
+            {{ if $a }}<span class="chip">{{ $a }}</span>{{ end }}
+            {{ if $b }}<span class="chip">{{ $b }}</span>{{ end }}
+            {{ with $date }}<span class="chip chip--muted">{{ .Format "2006-01-02" }}</span>{{ end }}
+          </div>
+
+          <p>
+            {{ with $p.Params.summary }}{{ . }}{{ else }}Decision-grade comparison of pricing, regions, and best-fit scenarios.{{ end }}
+          </p>
+
+          <a class="btn-primary" href="{{ $p.RelPermalink }}">Open →</a>
+        </article>
+      {{ end }}
+
+    </div>
+  </div>
+</section>
+
+{{/* =========================
+   SEO: Static provider aggregation
+========================= */}}
+<section>
+  <div class="container">
+    <h2>Compare by Provider</h2>
+    <p class="muted">Jump to a provider and see all related comparisons (static links for SEO).</p>
+
+    <div class="meta-row" style="margin-top:10px;">
+      {{ range $providers }}
+        <a class="chip" href="#p-{{ .key }}">{{ .name }}</a>
+      {{ end }}
+    </div>
+
+    {{ range $providers }}
+      {{ $k := .key }}
+      {{ $name := .name }}
+      {{ $list := (index $groups $k) | default (slice) }}
+      {{ if gt (len $list) 0 }}
+        <div style="margin-top:28px;" id="p-{{ $k }}">
+          <h3>{{ $name }} ({{ len $list }})</h3>
+          <ul class="mini-list">
+            {{ range $list }}
+              {{ $p := .page }}
+              {{ $other := "" }}
+              {{ if eq .akey $k }}
+                {{ $other = .b }}
+              {{ else }}
+                {{ $other = .a }}
+              {{ end }}
+              <li>
+                <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+                {{ if $other }}<span class="muted"> — vs {{ $other }}</span>{{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+    {{ end }}
+
+  </div>
+</section>
+
+<script>
+(function(){
+  const byId = (id)=>document.getElementById(id);
+
+  const selProvider = byId('vsProvider');
+  const inpSearch   = byId('vsSearch');
+  const btnReset    = byId('vsReset');
+  const countEl     = byId('vsCount');
+
+  const grid = byId('vsGrid');
+  if(!grid) return;
+
+  const cards = Array.from(grid.querySelectorAll('.vs-card'));
+  const norm = (s)=> (s||'').toLowerCase().trim();
+
+  function apply(){
+    const p = selProvider ? norm(selProvider.value) : '';
+    const q = inpSearch ? norm(inpSearch.value) : '';
+
+    // support multi-keyword search: "vultr pricing asia"
+    const tokens = q ? q.split(/\s+/).filter(Boolean) : [];
+
+    let shown = 0;
+
+    cards.forEach(card=>{
+      const a = norm(card.getAttribute('data-a'));
+      const b = norm(card.getAttribute('data-b'));
+      const an = norm(card.getAttribute('data-aname'));
+      const bn = norm(card.getAttribute('data-bname'));
+
+      const hay = [
+        card.getAttribute('data-title') || '',
+        card.getAttribute('data-summary') || '',
+        a, b, an, bn
+      ].join(' ');
+
+      const okProvider = !p || a === p || b === p;
+      const okSearch   = !tokens.length || tokens.every(t => hay.indexOf(t) !== -1);
+
+      const ok = okProvider && okSearch;
+      card.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+
+    if(countEl) countEl.textContent = String(shown);
+  }
+
+  function reset(){
+    if(selProvider) selProvider.value = '';
+    if(inpSearch) inpSearch.value = '';
+    apply();
+  }
+
+  if(selProvider) selProvider.addEventListener('change', apply);
+  if(inpSearch) inpSearch.addEventListener('input', apply);
+  if(btnReset) btnReset.addEventListener('click', reset);
+
+  apply();
+})();
+</script>
+
+{{ end }}

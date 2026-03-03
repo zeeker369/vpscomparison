@@ -1,0 +1,253 @@
+{{ define "main" }}
+
+{{/* =========================
+   Region key / name (nil-safe)
+========================= */}}
+{{ $regionName := .Title | default "" }}
+{{ $regionNameKey := ($regionName | urlize | lower) }}
+
+{{ $fileBase := "" }}
+{{ with .File }}{{ $fileBase = .BaseFileName }}{{ end }}
+
+{{ $regionKey := ((.Params.region_key | default $fileBase | default $regionName) | urlize | lower) }}
+
+{{/* =========================
+   Collect datacenters in this region
+   Match by:
+   - region_key == regionKey
+   - OR region/region_name == regionKey
+   - OR region/region_name == regionNameKey
+========================= */}}
+{{ $allDCs := where .Site.RegularPages "Params.page_type" "datacenter" }}
+{{ $allDCs = where $allDCs "Section" "in" (slice "datacenter" "Datacenter") }}
+
+{{ $dcs := slice }}
+{{ range $allDCs }}
+  {{ $rk := ((.Params.region_key | default "") | urlize | lower) }}
+  {{ $r  := ((.Params.region | default "") | urlize | lower) }}
+  {{ $rn := ((.Params.region_name | default "") | urlize | lower) }}
+
+  {{ if or
+      (and $rk (eq $rk $regionKey))
+      (and $r  (or (eq $r $regionKey) (eq $r $regionNameKey)))
+      (and $rn (or (eq $rn $regionKey) (eq $rn $regionNameKey)))
+  }}
+    {{ $dcs = $dcs | append . }}
+  {{ end }}
+{{ end }}
+
+{{/* =========================
+   Sort datacenters safely
+   - score can be string/float/etc.
+========================= */}}
+{{ $dcRank := slice }}
+{{ range $dcs }}
+  {{ $raw := printf "%v" (.Params.intent_score | default 0) }}
+  {{ $raw = replaceRE "[^0-9\\.]" "" $raw }}
+
+  {{ $score := 0 }}
+  {{ if $raw }}
+    {{ $score = int (float $raw) }}
+  {{ end }}
+
+  {{ $dcRank = $dcRank | append (dict
+    "p" .
+    "title" (.Title | default "")
+    "score" $score
+  ) }}
+{{ end }}
+{{ $dcRank = sort $dcRank "title" "asc" }}
+{{ $dcRank = sort $dcRank "score" "desc" }}
+
+{{/* China picks (full list, no folding) */}}
+{{ $chinaRank := slice }}
+{{ range $dcRank }}
+  {{ if .p.Params.china_pick }}
+    {{ $chinaRank = $chinaRank | append . }}
+  {{ end }}
+{{ end }}
+
+{{/* =========================
+   Unique providers from datacenters (full)
+========================= */}}
+{{ $providers := slice }}
+{{ $seenP := dict }}
+{{ range $dcRank }}
+  {{ $dc := .p }}
+  {{ $pk := (( $dc.Params.provider_key | default $dc.Params.provider_name | default "" ) | urlize | lower) }}
+  {{ $pn := ($dc.Params.provider_name | default (title $pk)) }}
+  {{ if and $pk (not (index $seenP $pk)) }}
+    {{ $providers = $providers | append (dict "key" $pk "name" $pn) }}
+    {{ $seenP = merge $seenP (dict $pk true) }}
+  {{ end }}
+{{ end }}
+
+{{/* =========================
+   Provider review pages (optional) + safe sort
+========================= */}}
+{{ $providerKeySet := dict }}
+{{ range $providers }}
+  {{ $providerKeySet = merge $providerKeySet (dict .key true) }}
+{{ end }}
+
+{{ $providerReviews := where .Site.RegularPages "Params.page_type" "provider_review" }}
+{{ $providerReviews = where $providerReviews "Section" "in" (slice "provider" "Provider") }}
+
+{{ $prRank := slice }}
+{{ range $providerReviews }}
+  {{ $pk := ((.Params.provider_key | default .Params.provider_name | default .Title) | urlize | lower) }}
+  {{ if index $providerKeySet $pk }}
+
+    {{ $raw := printf "%v" (.Params.intent_score | default 0) }}
+    {{ $raw = replaceRE "[^0-9\\.]" "" $raw }}
+
+    {{ $score := 0 }}
+    {{ if $raw }}
+      {{ $score = int (float $raw) }}
+    {{ end }}
+
+    {{ $prRank = $prRank | append (dict
+      "p" .
+      "title" (.Title | default "")
+      "score" $score
+    ) }}
+  {{ end }}
+{{ end }}
+{{ $prRank = sort $prRank "title" "asc" }}
+{{ $prRank = sort $prRank "score" "desc" }}
+
+{{/* Global list entry points (no query params here) */}}
+{{ $dcUrl := "/datacenter/" | relURL }}
+{{ $providerUrl := "/provider/" | relURL }}
+
+<section class="hero hero--compact">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}<p class="muted">{{ . }}</p>{{ end }}
+
+    {{/* 只保留 3 个按钮，避免“多出来一个白框” */}}
+    <div class="hero-cta">
+      <a class="btn-primary" href="#all-dcs">所有数据中心 →</a>
+      <a class="btn-secondary btn-dc" href="#china-picks">中国精选 →</a>
+      <a class="btn-secondary btn-provider" href="#top-providers">顶级供应商 →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="container">
+    <div class="home-top-grid">
+
+      <div class="card">
+        <h2>区域快照</h2>
+        <p class="muted">{{ $regionName }} 的覆盖范围和快速入口。</p>
+
+        <div class="meta-row">
+          <span class="chip">数据中心 {{ len $dcRank }}</span>
+          <span class="chip chip--china">中国选出 {{ len $chinaRank }}</span>
+          <span class="chip">供应商 {{ len $providers }}</span>
+        </div>
+
+        <div class="hero-cta" style="margin-top:10px">
+          <a class="btn-primary btn-primary--sm" href="#all-dcs">查看全部（{{ len $dcRank }}）→</a>
+          <a class="btn-secondary btn-secondary--sm btn-dc" href="#china-picks">中国精选（{{ len $chinaRank }}）→</a>
+        </div>
+
+        <div style="margin-top:10px" class="muted">
+          需要全站目录页？
+          <a href="{{ $dcUrl }}">数据中心</a> · <a href="{{ $providerUrl }}">提供商</a>
+        </div>
+      </div>
+
+      <div class="card" id="china-picks">
+        <h2>{{ $regionName }} 的中国精选</h2>
+        <p class="muted">高意图、对中国/亚洲链路敏感的部署候选。</p>
+
+        {{ if gt (len $chinaRank) 0 }}
+          <ul class="mini-list">
+            {{ range $chinaRank }}
+              <li><a href="{{ .p.RelPermalink }}">{{ .p.Title }}</a></li>
+            {{ end }}
+          </ul>
+        {{ else }}
+          <p class="muted">该地区暂未标记中国精选。</p>
+        {{ end }}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cards" id="all-dcs">
+  <div class="container">
+    <div class="section-head">
+      <h2>{{ $regionName }} 所有数据中心</h2>
+      <div class="muted">不折叠。先按 <code>intent_score</code> 降序，再按标题排序。</div>
+    </div>
+
+    {{ if gt (len $dcRank) 0 }}
+      <div class="recommend-grid">
+        {{ range $dcRank }}
+          {{ $dc := .p }}
+          <div class="card">
+            <h3><a href="{{ $dc.RelPermalink }}">{{ $dc.Title }}</a></h3>
+            <div class="meta-row">
+              {{ with $dc.Params.provider_name }}<span class="chip">{{ . }}</span>{{ end }}
+              {{ with $dc.Params.city }}<span class="chip chip--muted">{{ . }}</span>{{ end }}
+              {{ if $dc.Params.china_pick }}<span class="chip chip--china">中国精选</span>{{ end }}
+              <span class="chip chip--score">意图 {{ $dc.Params.intent_score | default 0 }}</span>
+            </div>
+            <p>{{ $dc.Params.summary | default "路由/延迟要点、适用场景与部署清单。" }}</p>
+            <a class="btn-primary" href="{{ $dc.RelPermalink }}">打开 →</a>
+          </div>
+        {{ end }}
+      </div>
+    {{ else }}
+      <div class="card" style="padding:18px;">
+        <p class="muted" style="margin:0;">没有匹配到该地区的数据中心文章，请检查 <code>region_key/region/region_name</code> 字段。</p>
+      </div>
+    {{ end }}
+
+  </div>
+</section>
+
+<section class="cards" id="top-providers">
+  <div class="container">
+    <div class="section-head">
+      <h2>{{ $regionName }} 顶级供应商</h2>
+      <div class="muted">在该地区有数据中心覆盖的供应商。</div>
+    </div>
+
+    {{ if gt (len $prRank) 0 }}
+      <div class="recommend-grid">
+        {{ range $prRank }}
+          {{ $pr := .p }}
+          <div class="card">
+            <h3><a href="{{ $pr.RelPermalink }}">{{ $pr.Title }}</a></h3>
+            <p>{{ $pr.Params.summary | default "供应商评测与地区适配建议。" }}</p>
+            <div class="meta-row">
+              <span class="chip">{{ $pr.Params.start_price | default "—" }}</span>
+              <span class="chip chip--muted">{{ $pr.Params.best_for | default "通用 VPS" }}</span>
+            </div>
+            <a class="btn-primary" href="{{ $pr.RelPermalink }}">查看评测 →</a>
+          </div>
+        {{ end }}
+      </div>
+    {{ else }}
+      <div class="card">
+        <p class="muted" style="margin:0 0 10px">
+          该地区暂未检测到供应商评测页。已从数据中心文章中识别的供应商：
+        </p>
+        <div class="meta-row">
+          {{ range $providers }}
+            <span class="chip">{{ .name }}</span>
+          {{ end }}
+        </div>
+        <a class="btn-primary" href="{{ $providerUrl }}">浏览提供商 →</a>
+      </div>
+    {{ end }}
+
+  </div>
+</section>
+
+{{ end }}

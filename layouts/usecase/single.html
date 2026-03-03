@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="hero compact">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+    <div class="hero-brands muted">
+      {{ with .Params.provider_name }}<span class="chip">{{ . }}</span>{{ end }}
+      {{ with .Params.city }}<span class="chip">{{ . }}</span>{{ end }}
+      {{ with .Params.region }}<span class="chip">{{ . }}</span>{{ end }}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container prose">
+    {{ .Content }}
+  </div>
+</section>
+{{ end }}

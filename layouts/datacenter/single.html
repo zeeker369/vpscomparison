@@ -1,0 +1,47 @@
+{{ define "main" }}
+
+{{/* Smart single template for datacenter section:
+   - hub pages (city_hub) render auto list
+   - normal datacenter pages render content like _default/single.html
+*/}}
+
+{{ $pt := (lower (.Params.page_type | default "")) }}
+
+{{/* Hub detection */}}
+{{ $isCityHub := or (eq $pt "city_hub") (eq $pt "city-hub") (eq $pt "cityhub") }}
+
+{{ if $isCityHub }}
+
+  {{/* City name: prefer Params.city, fallback to slug/file name (humanized) */}}
+  {{ $city := (.Params.city | default "") }}
+  {{ if not $city }}
+    {{ $slug := (.Params.slug | default .File.TranslationBaseName) | default "" }}
+    {{ $city = title (replace $slug "-" " ") }}
+  {{ end }}
+
+  {{ $dcs := partial "datacenter/dc_collect.html" (dict "city" (lower $city)) }}
+  {{ partial "datacenter/dc_list_ui.html" (dict "page" . "dcs" $dcs) }}
+
+{{ else }}
+
+  <section class="hero compact">
+    <div class="container">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+      <div class="hero-brands muted">
+        {{ with .Params.provider_name }}<span class="chip">{{ . }}</span>{{ end }}
+        {{ with .Params.city }}<span class="chip">{{ . }}</span>{{ end }}
+        {{ with .Params.region }}<span class="chip">{{ . }}</span>{{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container prose">
+      {{ .Content }}
+    </div>
+  </section>
+
+{{ end }}
+
+{{ end }}

@@ -1,0 +1,26 @@
+baseURL = "https://vpscomparison.com/"
+languageCode = "en-us"
+title = "VPS Comparison"
+
+# Production: do not publish drafts
+buildDrafts = false
+
+[permalinks]
+  datacenter = "/datacenter/:slug/"
+  provider   = "/provider/:slug/"
+  region     = "/region/:slug/"
+  vs         = "/vs/:slug/"
+  usecase    = "/usecase/:slug/"
+
+[params]
+  site_tagline = "Latency-first VPS region picks for China, Asia & global traffic."
+  # Vultr affiliate link
+  vultr_ref = "https://www.vultr.com/?ref=9875406"
+
+# ---------- Markdown rendering (IMPORTANT for tables / inline HTML) ----------
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      table = true

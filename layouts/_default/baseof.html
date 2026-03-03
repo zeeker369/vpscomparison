@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ if .Title }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ with .Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+    <nav class="nav">
+      <a href="{{ "/provider/" | relURL }}">Providers</a>
+      <a href="{{ "/datacenter/" | relURL }}">Data Centers</a>
+      <a href="{{ "/vs/" | relURL }}">Comparisons</a>
+      <a href="{{ "/usecase/" | relURL }}">Use Cases</a>
+    </nav>
+  </div>
+</header>
+
+<main class="main">
+  {{ block "main" . }}{{ end }}
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="muted">© {{ now.Format "2006" }} · {{ .Site.Title }} · Built with Hugo</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+{{/* Smart list template for datacenter section and its subsections (provider hubs / region hubs) */}}
+
+{{/* smart filters from current list page (optional) */}}
+{{ $providerKey := (.Params.provider_key | default (urlize (.Params.provider_name | default ""))) | default "" }}
+{{ $regionKey   := (.Params.region_key   | default (urlize (.Params.region | default "")))        | default "" }}
+{{ $city        := (.Params.city | default "") }}
+{{ $chinaOnly   := (.Params.china_only | default false) }}
+
+{{ $dcs := partial "datacenter/dc_collect.html" (dict
+  "provider_key" (lower $providerKey)
+  "region_key"   (lower $regionKey)
+  "city"         (lower $city)
+  "china_only"   $chinaOnly
+) }}
+
+{{ partial "datacenter/dc_list_ui.html" (dict "page" . "dcs" $dcs) }}
+
+{{ end }}

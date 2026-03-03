@@ -1,0 +1,246 @@
+{{ define "main" }}
+
+{{/* =========================================================
+   1) Collect ALL Datacenters (single pass base set)
+   - requires: Params.page_type = "datacenter"
+   - section: "datacenter" (case-insensitive)
+========================================================= */}}
+{{ $allDCs := where .Site.RegularPages "Params.page_type" "datacenter" }}
+{{ $allDCs = where $allDCs "Section" "in" (slice "datacenter" "Datacenter") }}
+
+{{/* =========================================================
+   2) Collect Region Pages under current list page
+   - support both regular pages + section pages
+   - if your regions are content/regions/asia.md (page) OR
+     content/regions/asia/index.md (page) OR
+     content/regions/asia/_index.md (section), all ok.
+========================================================= */}}
+{{ $regionPages := where .Pages "Kind" "in" (slice "page" "section") }}
+
+{{/* =========================================================
+   3) Build regionIndex from Region Pages first
+   - regionIndex[rk] = { rk, name, page, summary }
+========================================================= */}}
+{{ $regionIndex := dict }}
+
+{{ range $regionPages }}
+  {{/* region key (preferred) */}}
+  {{ $rk := (.Params.region_key | default "") | lower }}
+
+  {{/* fallback key from region_name/region/title/file */}}
+  {{ $rawName := (.Params.region_name | default .Params.region | default .Title | default "") }}
+  {{ if not $rk }}
+    {{ $rk = ($rawName | default .File.BaseFileName | default .Title | urlize | lower) }}
+  {{ end }}
+
+  {{ if $rk }}
+    {{ $name := (.Params.region_name | default .Title | default (title $rk)) }}
+    {{ $summary := (.Params.summary | default .Params.description | default "") }}
+
+    {{ $regionIndex = merge $regionIndex (dict $rk (dict
+      "rk" $rk
+      "name" $name
+      "page" .
+      "summary" $summary
+    )) }}
+  {{ end }}
+{{ end }}
+
+{{/* =========================================================
+   4) Build dcByRegion + backfill regionIndex from DCs
+   - dcByRegion[rk] = slice of dc pages
+   - if a region is present in DCs but no region page exists,
+     we still create a regionIndex entry => auto new region.
+========================================================= */}}
+{{ $dcByRegion := dict }}
+
+{{ range $allDCs }}
+
+  {{ $rk := (.Params.region_key | default "") | lower }}
+  {{ $rn := (.Params.region_name | default .Params.region | default "") }}
+
+  {{/* fallback region_key from region_name/region */}}
+  {{ if and (not $rk) $rn }}
+    {{ $rk = ($rn | urlize | lower) }}
+  {{ end }}
+
+  {{ if $rk }}
+
+    {{/* append DC into bucket */}}
+    {{ $bucket := index $dcByRegion $rk | default (slice) }}
+    {{ $dcByRegion = merge $dcByRegion (dict $rk ($bucket | append .)) }}
+
+    {{/* ensure regionIndex has an entry for this rk */}}
+    {{ if not (isset $regionIndex $rk) }}
+      {{ $regionIndex = merge $regionIndex (dict $rk (dict
+        "rk" $rk
+        "name" (cond (ne $rn "") $rn (title $rk))
+        "page" nil
+        "summary" ""
+      )) }}
+    {{ end }}
+
+  {{ end }}
+{{ end }}
+
+{{/* =========================================================
+   5) Build items slice with computed stats, top cities, top DCs
+   Sorting rule: dc_count desc, china_count desc, name asc
+========================================================= */}}
+{{ $items := slice }}
+
+{{ range $rk, $info := $regionIndex }}
+
+  {{ $dcs := index $dcByRegion $rk | default (slice) }}
+  {{ $china := where $dcs "Params.china_pick" true }}
+
+  {{/* sort DCs: intent_score desc then Title asc */}}
+  {{ $dcsSorted := sort (sort $dcs "Title" "asc") "Params.intent_score" "desc" }}
+
+  {{/* city frequency map => top 3 cities */}}
+  {{ $cityMap := dict }}
+  {{ range $dcs }}
+    {{ $c := (.Params.city | default "") | lower }}
+    {{ if $c }}
+      {{ $prev := (index $cityMap $c) | default 0 }}
+      {{ $cityMap = merge $cityMap (dict $c (add $prev 1)) }}
+    {{ end }}
+  {{ end }}
+
+  {{ $cityList := slice }}
+  {{ range $k, $v := $cityMap }}
+    {{ $cityList = $cityList | append (dict "city" $k "count" $v) }}
+  {{ end }}
+  {{ $cityList = sort (sort $cityList "city" "asc") "count" "desc" }}
+
+  {{/* link: region page permalink if exists, otherwise fallback to /datacenter/?region=xx */}}
+  {{ $link := "" }}
+  {{ if $info.page }}
+    {{ $link = $info.page.RelPermalink }}
+  {{ else }}
+    {{ $link = printf "%s?region=%s" ("/datacenter/" | relURL) $rk }}
+  {{ end }}
+
+  {{ $name := ($info.name | default (title $rk)) }}
+  {{ $summary := ($info.summary | default "") }}
+
+  {{ $items = $items | append (dict
+    "rk" $rk
+    "name" $name
+    "summary" $summary
+    "page" $info.page
+    "link" $link
+    "dc_count" (len $dcs)
+    "china_count" (len $china)
+    "dcs" $dcsSorted
+    "cityList" $cityList
+  ) }}
+
+{{ end }}
+
+{{/* multi-key sort: name asc (secondary) -> china desc -> dc desc (primary) */}}
+{{ $items = sort $items "name" "asc" }}
+{{ $items = sort $items "china_count" "desc" }}
+{{ $items = sort $items "dc_count" "desc" }}
+
+{{/* =========================================================
+   6) Render
+========================================================= */}}
+
+<section class="hero hero--compact">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    <p class="muted">
+      {{ .Params.description | default "Browse regions and drill down to data centers, providers, and high-intent picks." }}
+    </p>
+
+    <div class="hero-cta">
+      <a class="btn-primary" href="{{ "/datacenter/" | relURL }}">Browse data centers →</a>
+      <a class="btn-secondary btn-provider" href="{{ "/provider/" | relURL }}">Browse providers →</a>
+      <a class="btn-secondary btn-dc" href="{{ "/best-vps-for-china-traffic-2026/" | relURL }}">China traffic guide →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="container">
+
+    <div class="section-head">
+      <h2>Regions</h2>
+      <div class="muted">Auto-merged from region pages + datacenters. Sorted by coverage.</div>
+    </div>
+
+    {{ if eq (len $items) 0 }}
+      <div class="card" style="padding:18px;">
+        <div class="muted">No regions found. Add region pages, or add datacenters with region_key / region_name / region.</div>
+      </div>
+    {{ else }}
+      <div class="region-grid">
+        {{ range $items }}
+
+          <article class="card region-card">
+
+            <div class="region-head">
+              <h3 class="region-title">
+                <a href="{{ .link }}">{{ .name }}</a>
+              </h3>
+
+              <div class="meta-row">
+                <span class="chip">Data centers {{ .dc_count }}</span>
+
+                {{ if gt .china_count 0 }}
+                  <span class="chip chip--china">China picks {{ .china_count }}</span>
+                {{ else }}
+                  <span class="chip chip--muted">China picks 0</span>
+                {{ end }}
+
+                {{ if not .page }}
+                  <span class="chip chip--muted">No region page</span>
+                {{ end }}
+              </div>
+
+              <div class="region-cities muted">
+                Top cities:
+                {{ if gt (len .cityList) 0 }}
+                  {{ range first 3 .cityList }}
+                    <span class="city-pill">{{ title .city }}</span>
+                  {{ end }}
+                {{ else }}
+                  —
+                {{ end }}
+              </div>
+            </div>
+
+            <p class="region-summary">
+              {{ if .summary }}
+                {{ .summary }}
+              {{ else }}
+                Regional hub: top data centers and decision-ready checklists.
+              {{ end }}
+            </p>
+
+            {{ if gt .dc_count 0 }}
+              <div class="region-mini">
+                <div class="muted mini-title">Top data centers (by intent_score)</div>
+                <ul class="mini-list">
+                  {{ range first 6 .dcs }}
+                    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                  {{ end }}
+                </ul>
+              </div>
+            {{ end }}
+
+            <div class="region-foot">
+              <a class="btn-primary btn-primary--sm" href="{{ .link }}">Open →</a>
+            </div>
+
+          </article>
+
+        {{ end }}
+      </div>
+    {{ end }}
+
+  </div>
+</section>
+
+{{ end }}

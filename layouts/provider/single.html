@@ -1,0 +1,291 @@
+{{ define "main" }}
+{{ $p := . }}
+
+{{/* ========= Year Logic ========= */}}
+{{ $year := $p.Params.review_year | default (now.Format "2006") }}
+
+{{/* ========= Affiliate ========= */}}
+{{ $affURL := $p.Params.affiliate_url | default "" }}
+{{ $affText := $p.Params.affiliate_cta_text | default "Claim New User Benefits →" }}
+{{ $affPrimary := $p.Params.affiliate_primary_cta | default "Claim Benefits →" }}
+
+<section class="hero hero--compact">
+  <div class="container">
+
+    {{/* Auto Title: Provider + Year */}}
+    <h1>
+      {{ with $p.Params.provider_name }}
+        {{ . }} Review ({{ $year }})
+      {{ else }}
+        {{ .Title }}
+      {{ end }}
+    </h1>
+
+    {{ with .Params.summary }}
+      <p>{{ . }}</p>
+    {{ end }}
+
+    <div class="hero-brands muted">
+      {{ with .Params.provider_name }}<span class="chip">{{ . }}</span>{{ end }}
+      {{ with .Params.city }}<span class="chip">{{ . }}</span>{{ end }}
+      {{ with .Params.region }}<span class="chip">{{ . }}</span>{{ end }}
+      <span class="chip">Updated {{ $year }}</span>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container prose">
+
+    <div class="pricing-stack">
+
+      {{/* ============ Row 1: Affiliate Bar ============ */}}
+      {{ if $affURL }}
+        <div class="aff-bar pricing-row">
+          <div class="aff-bar__text">
+            <strong>Disclosure:</strong>
+            This page contains affiliate links. If you sign up through these links,
+            I may earn a commission at no additional cost to you.
+            <a class="aff-bar__link"
+               href="{{ $affURL }}"
+               target="_blank"
+               rel="nofollow sponsored">
+               {{ $affText }}
+            </a>
+          </div>
+          <a class="btn-primary btn-primary--sm"
+             href="{{ $affURL }}"
+             target="_blank"
+             rel="nofollow sponsored">
+            {{ $affPrimary }}
+          </a>
+        </div>
+      {{ end }}
+
+      {{/* ============ Row 2: Starter Picks ============ */}}
+      {{ with $p.Params.starter_picks }}
+        {{ $items := .items | default (slice) }}
+        {{ if gt (len $items) 0 }}
+          <div class="sp-card pricing-row">
+
+            <div class="sp-card__title">
+              {{ .title | default (printf "Starter Picks (%s)" $year) }}
+              {{ with .updated }}<span class="muted">({{ . }})</span>{{ end }}
+            </div>
+
+            {{ with .note }}
+              <div class="sp-card__note muted">{{ . }}</div>
+            {{ end }}
+
+            <div class="sp-grid sp-grid--3">
+              {{ range $items }}
+                <div class="sp-item">
+                  <div class="sp-item__top">
+                    <div class="sp-item__name">{{ .name | default "Plan" }}</div>
+                    <div class="sp-item__price">{{ .price_from | default "-" }}</div>
+                  </div>
+
+                  <div class="sp-meta">
+                    {{ with .vcpu }}<span class="sp-chip">{{ . }}</span>{{ end }}
+                    {{ with .ram }}<span class="sp-chip">{{ . }}</span>{{ end }}
+                    {{ with .disk }}<span class="sp-chip">{{ . }}</span>{{ end }}
+                    {{ with .bandwidth }}<span class="sp-chip">{{ . }}</span>{{ end }}
+                  </div>
+
+                  {{ with .best_for }}
+                    <div class="sp-item__bestfor muted">{{ . }}</div>
+                  {{ end }}
+
+                  {{ if $affURL }}
+                    <div class="sp-item__cta">
+                      <a class="btn-secondary btn-secondary--sm"
+                         href="{{ $affURL }}"
+                         target="_blank"
+                         rel="nofollow sponsored">
+                        {{ .cta_text | default $affPrimary }}
+                      </a>
+                    </div>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+
+          </div>
+        {{ end }}
+      {{ end }}
+
+      {{/* ============ Row 3: Pricing Table ============ */}}
+      {{ with $p.Params.pricing_table }}
+        {{ $rows := .rows | default (slice) }}
+        {{ if gt (len $rows) 0 }}
+
+          <div class="pricing-box pricing-row">
+
+            <div class="pricing-head">
+              <div class="pricing-title">
+                <h3>{{ .title | default (printf "Pay-as-you-go Pricing (%s)" $year) }}</h3>
+                {{ with .note }}<p class="muted">{{ . }}</p>{{ end }}
+              </div>
+
+              {{ if $affURL }}
+                <a class="btn-primary btn-primary--sm"
+                   href="{{ $affURL }}"
+                   target="_blank"
+                   rel="nofollow sponsored">
+                  {{ $affPrimary }}
+                </a>
+              {{ end }}
+            </div>
+
+            <div class="table-wrap table-wrap--pricing">
+              <table class="pricing-table">
+                <thead>
+                  <tr>
+                    <th>vCPU</th>
+                    <th>Memory</th>
+                    <th>Bandwidth</th>
+                    <th>Storage</th>
+                    <th class="th-price">Hourly price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{ range $rows }}
+                    <tr>
+                      <td><strong>{{ .cpu }}</strong></td>
+                      <td>{{ .ram }}</td>
+                      <td>{{ .bandwidth }}</td>
+                      <td>{{ .storage }}</td>
+                      <td class="td-price">
+                        <span class="price">{{ .price }}</span>
+                        <span class="unit">/hr</span>
+                      </td>
+                    </tr>
+                  {{ end }}
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+        {{ end }}
+      {{ end }}
+
+    </div>
+
+    {{/* =========================
+       Main content
+    ========================= */}}
+    {{ .Content }}
+
+    {{/* =========================
+       Related Comparisons (VS) — Auto
+       - matches current provider review to vs pages
+       - supports provider_a/provider_b + left_provider/right_provider
+       - can match acronym in parentheses: "Amazon Web Services (AWS)" => "AWS"
+    ========================= */}}
+
+    {{ $pn := .Params.provider_name | default .Title }}
+    {{ $pnNoParen := trim (replaceRE `\s*\(.*?\)` `` $pn) " \t\n\r" }}
+
+    {{ $acro := replaceRE `^.*\(([^)]+)\).*$` `$1` $pn }}
+    {{ if eq $acro $pn }}{{ $acro = "" }}{{ end }}
+
+    {{ $keys := slice (urlize $pn) (urlize $pnNoParen) }}
+    {{ if $acro }}{{ $keys = $keys | append (urlize $acro) }}{{ end }}
+
+    {{ with .Params.provider_key }}
+      {{ $keys = $keys | append (urlize (printf "%v" .)) }}
+    {{ end }}
+
+    {{ with .Params.provider_aliases }}
+      {{ range . }}
+        {{ $keys = $keys | append (urlize (printf "%v" .)) }}
+      {{ end }}
+    {{ end }}
+
+    {{ $keys = uniq $keys }}
+
+    {{ $vsPages := where .Site.RegularPages "Section" "in" (slice "vs" "Vs") }}
+    {{ $vsPages = union $vsPages (where .Site.RegularPages "Type" "in" (slice "vs" "Vs")) }}
+    {{ $vsPages = $vsPages | uniq }}
+
+    {{ $related := slice }}
+
+    {{ range $vsPages }}
+      {{ $vp := . }}
+
+      {{ $a := "" }}{{ $b := "" }}
+      {{ with $vp.Params.provider_a }}{{ $a = trim (printf "%v" .) " \t\n\r" }}{{ end }}
+      {{ with $vp.Params.provider_b }}{{ $b = trim (printf "%v" .) " \t\n\r" }}{{ end }}
+      {{ if eq $a "" }}{{ with $vp.Params.left_provider }}{{ $a = trim (printf "%v" .) " \t\n\r" }}{{ end }}{{ end }}
+      {{ if eq $b "" }}{{ with $vp.Params.right_provider }}{{ $b = trim (printf "%v" .) " \t\n\r" }}{{ end }}{{ end }}
+
+      {{ if or (eq $a "") (eq $b "") }}
+        {{ $t := $vp.Title | default "" }}
+
+        {{ $ra := trim (replaceRE `(?i)^(.*?)\s+(?:vs\.?|versus)\s+(.*?)(\s*\(.*\))?$` `$1` $t) " \t\n\r" }}
+        {{ $rb := trim (replaceRE `(?i)^(.*?)\s+(?:vs\.?|versus)\s+(.*?)(\s*\(.*\))?$` `$2` $t) " \t\n\r" }}
+        {{ if and (ne $ra $t) (ne $rb $t) }}
+          {{ if eq $a "" }}{{ $a = $ra }}{{ end }}
+          {{ if eq $b "" }}{{ $b = $rb }}{{ end }}
+        {{ end }}
+
+        {{ if or (eq $a "") (eq $b "") }}
+          {{ $ra2 := trim (replaceRE `(?i)^(.*?)\s*与\s*(.*?)(\s*\(.*\))?$` `$1` $t) " \t\n\r" }}
+          {{ $rb2 := trim (replaceRE `(?i)^(.*?)\s*与\s*(.*?)(\s*\(.*\))?$` `$2` $t) " \t\n\r" }}
+          {{ if and (ne $ra2 $t) (ne $rb2 $t) }}
+            {{ if eq $a "" }}{{ $a = $ra2 }}{{ end }}
+            {{ if eq $b "" }}{{ $b = $rb2 }}{{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      {{ $aNoParen := trim (replaceRE `\s*\(.*?\)` `` $a) " \t\n\r" }}
+      {{ $bNoParen := trim (replaceRE `\s*\(.*?\)` `` $b) " \t\n\r" }}
+
+      {{ $aAcro := replaceRE `^.*\(([^)]+)\).*$` `$1` $a }}
+      {{ if eq $aAcro $a }}{{ $aAcro = "" }}{{ end }}
+      {{ $bAcro := replaceRE `^.*\(([^)]+)\).*$` `$1` $b }}
+      {{ if eq $bAcro $b }}{{ $bAcro = "" }}{{ end }}
+
+      {{ $aKeys := slice (urlize $a) (urlize $aNoParen) }}
+      {{ if $aAcro }}{{ $aKeys = $aKeys | append (urlize $aAcro) }}{{ end }}
+      {{ $aKeys = uniq $aKeys }}
+
+      {{ $bKeys := slice (urlize $b) (urlize $bNoParen) }}
+      {{ if $bAcro }}{{ $bKeys = $bKeys | append (urlize $bAcro) }}{{ end }}
+      {{ $bKeys = uniq $bKeys }}
+
+      {{ $hitA := gt (len (intersect $keys $aKeys)) 0 }}
+      {{ $hitB := gt (len (intersect $keys $bKeys)) 0 }}
+
+      {{ if or $hitA $hitB }}
+        {{ $related = $related | append $vp }}
+      {{ end }}
+    {{ end }}
+
+    {{ $related = sort $related "Lastmod" "desc" }}
+    {{ $related = sort $related "Title" "asc" }}
+
+    {{ if gt (len $related) 0 }}
+      <hr style="margin:34px 0 24px;">
+
+      <h2>Related comparisons</h2>
+      <p class="muted">More comparisons that involve this provider (pricing, regions, performance, best-fit scenarios).</p>
+
+      <ul class="mini-list">
+        {{ range $related }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+
+      <div class="section-foot">
+        <a href="/vs/">Browse all comparisons →</a>
+      </div>
+    {{ end }}
+
+  </div>
+</section>
+
+{{ end }}

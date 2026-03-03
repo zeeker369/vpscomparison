@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="hero compact">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="recommend-grid">
+      {{ range .Pages }}
+        <div class="card">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 140 }}{{ end }}</p>
+          <a class="btn-primary" href="{{ .RelPermalink }}">Open →</a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

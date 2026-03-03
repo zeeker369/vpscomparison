@@ -1,0 +1,5 @@
+{{- $label := .Get "label" | default "Deploy on Vultr" -}}
+{{- $url := .Site.Params.vultr_ref | default "https://www.vultr.com/?ref=YOURID" -}}
+<div class="cta">
+  <a class="btn-primary" href="{{ $url }}" target="_blank" rel="nofollow noopener">{{ $label }} →</a>
+</div>

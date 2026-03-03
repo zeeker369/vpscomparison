@@ -1,0 +1,55 @@
+{{- $providersCSV := (.Get "providers") | default "" -}}
+{{- $providers := split $providersCSV "," -}}
+{{- $rowsCSV := (.Get "rows") | default "" -}}
+{{- $rowKeys := split $rowsCSV "," -}}
+{{- $all := where site.RegularPages "Params.page_type" "provider_review" -}}
+
+<div class="pc">
+  {{ with (.Get "title") }}<div class="pc-title">{{ . }}</div>{{ end }}
+  {{ with (.Get "note") }}<div class="pc-note muted">{{ . }}</div>{{ end }}
+
+  <div class="pc-grid">
+    {{ range $providers }}
+      {{- $key := lower (strings.TrimSpace .) -}}
+      {{- $page := index (where $all "Params.provider_key" $key) 0 -}}
+
+      {{ if $page }}
+        <div class="pcard">
+          <div class="pcard-top">
+            <div class="pcard-name">{{ $page.Params.provider_name | default $page.Title }}</div>
+            <a class="pcard-link" href="{{ $page.RelPermalink }}">Review →</a>
+          </div>
+
+          {{ $pt := $page.Params.pricing_table }}
+          {{ if $pt }}
+            {{ range $rowKeys }}
+              {{- $rk := lower (strings.TrimSpace .) -}}
+              {{- $label := $rk -}}
+              {{- $price := "—" -}}
+
+              {{ range $pt.rows }}
+                {{- $k := lower (.key | default "") -}}
+                {{- if eq $k $rk -}}
+                  {{- $label = .label | default $label -}}
+                  {{- $price = .price | default "—" -}}
+                {{- end -}}
+              {{ end }}
+
+              <div class="pline">
+                <div class="pline-k">{{ $label }}</div>
+                <div class="pline-v">{{ $price }}</div>
+              </div>
+            {{ end }}
+          {{ else }}
+            <div class="muted">No pricing_table data.</div>
+          {{ end }}
+        </div>
+      {{ else }}
+        <div class="pcard">
+          <div class="pcard-name">{{ $key }}</div>
+          <div class="muted">provider_review not found (provider_key mismatch).</div>
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</div>

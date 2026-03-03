@@ -1,0 +1,329 @@
+{{ define "main" }}
+
+{{ $providerReviews := where .Site.RegularPages "Params.page_type" "provider_review" }}
+{{ $datacenters := where .Site.RegularPages "Params.page_type" "datacenter" }}
+{{ $chinaPicks := where $datacenters "Params.china_pick" true }}
+
+{{ $providerReviewsSorted := sort $providerReviews "Params.intent_score" "desc" }}
+{{ $chinaPicksSorted := sort $chinaPicks "Params.intent_score" "desc" }}
+{{ $datacentersSorted := sort $datacenters "Params.intent_score" "desc" }}
+
+{{/* ✅ NEW: Guides pages */}}
+{{ $guides := where .Site.RegularPages "Section" "in" (slice "guides" "Guides") }}
+{{ $guidesSorted := sort $guides "Params.intent_score" "desc" }}
+
+{{/* De-dupe provider reviews by provider_name (avoid repeated rows/cards if content grows). */}}
+{{ $providersUnique := slice }}
+{{ $seenProviders := dict }}
+{{ range $providerReviewsSorted }}
+  {{ $k := (.Params.provider_name | default .Title) | lower }}
+  {{ if not (index $seenProviders $k) }}
+    {{ $providersUnique = $providersUnique | append . }}
+    {{ $seenProviders = merge $seenProviders (dict $k true) }}
+  {{ end }}
+{{ end }}
+
+{{ $usecases := where .Site.RegularPages "Section" "in" (slice "usecase" "Usecase") }}
+{{ $usecasesSorted := sort $usecases "Params.intent_score" "desc" }}
+
+{{ $vsPages := where .Site.RegularPages "Section" "in" (slice "vs" "Vs") }}
+{{ $vsPagesSorted := sort $vsPages "Date" "desc" }}
+
+<section class="hero">
+  <div class="container">
+    <h1>Best Cloud Server Regions for China &amp; Global Traffic (2026)</h1>
+    <p class="hero-desc">
+      Compare the best VPS regions for China traffic, low-latency Asia routing, and global deployment.
+    </p>
+
+    <ul class="hero-bullets">
+      <li>China-first latency picks</li>
+      <li>Asia & global deployment guidance</li>
+      <li>Provider-level routing notes</li>
+    </ul>
+
+    <!-- ================= Provider Hub Strip ================= -->
+
+    <div class="provider-hub" aria-label="Popular cloud providers">
+
+      <div class="provider-hub-title">
+        Popular Cloud Providers
+      </div>
+
+      <div class="provider-pills">
+        <a href="/provider/vultr-review/">Vultr VPS</a>
+        <a href="/provider/digitalocean-review/">DigitalOcean Droplets</a>
+        <a href="/provider/linode-review/">Linode Servers</a>
+        <a href="/provider/aws-review/">AWS EC2</a>
+        <a href="/provider/google-cloud-review/">Google Cloud Compute</a>
+        <a href="/provider/alibaba-cloud-review/">Alibaba Cloud ECS</a>
+        <a class="pill-all" href="/provider/">All Providers →</a>
+      </div>
+
+      <div class="provider-sub-links">
+        <a href="/best-vps-for-china/" class="china-entry">
+          🔥Best VPS for China Traffic (2026 Guide)
+        </a>
+
+        <a href="/vs/vultr-vs-digitalocean/">
+          Vultr vs DigitalOcean Comparison
+        </a>
+
+        <a href="/datacenter/">
+          All Global Data Centers
+        </a>
+
+        {{/* ✅ NEW: Guides entry */}}
+        <a href="/guides/">
+          Guides Hub
+        </a>
+      </div>
+
+    </div>
+
+    <div class="hero-steps">
+      <div class="step">
+        <div class="step-k">1</div>
+        <div class="step-t">
+          <strong>Pick a traffic goal</strong>
+          <div class="muted">China-first, Asia, or global</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-k">2</div>
+        <div class="step-t">
+          <strong>Choose a region</strong>
+          <div class="muted">Based on RTT + routing stability</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-k">3</div>
+        <div class="step-t">
+          <strong>Deploy &amp; verify</strong>
+          <div class="muted">Checklist + real-world cases</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn-primary" href="/best-vps-for-china-traffic-2026/">China Traffic Guide →</a>
+      <a class="btn-secondary btn-provider" href="/provider/">Browse Providers →</a>
+      <a class="btn-secondary btn-dc" href="/datacenter/">Browse Data Centers →</a>
+      {{/* ✅ NEW */}}
+
+    </div>
+  </div>
+</section>
+
+<section class="recommended">
+  <div class="container">
+    <div class="section-head">
+      <h2>🔥 Recommended Cloud Providers</h2>
+      <div class="muted">High-signal reviews with routing notes, pricing pointers, and best-fit workloads.</div>
+    </div>
+
+    <div class="recommend-grid">
+      {{ range first 3 $providersUnique }}
+        <div class="card">
+          <h3>{{ .Title }}</h3>
+          <p>{{ with .Params.summary }}{{ . }}{{ else }}High-level review and best-fit scenarios.{{ end }}</p>
+          <div class="meta-row">
+            <span class="chip">{{ .Params.start_price | default "—" }}</span>
+            <span class="chip">{{ .Params.best_for | default "General VPS" }}</span>
+          </div>
+          <a class="btn-primary" href="{{ .RelPermalink }}">Read Review →</a>
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="section-foot">
+      <a href="/provider/">See all provider reviews →</a>
+    </div>
+  </div>
+</section>
+
+{{/* ✅ MOVED UP: Quick Comparison (Pricing) now directly under Recommended Providers */}}
+<section class="comparison">
+  <div class="container">
+    <div class="section-head">
+      <h2>📊 Cloud Server Quick Comparison</h2>
+      <div class="muted">Quick price + fit matrix. Open a review for routing constraints and trade-offs.</div>
+    </div>
+
+    <table class="compare-table">
+      <tr>
+        <th>Provider</th>
+        <th>Starting Price</th>
+        <th>Best For</th>
+        <th>Review</th>
+      </tr>
+
+      {{ range first 6 $providersUnique }}
+      <tr>
+        <td>{{ .Params.provider_name | default .Title }}</td>
+        <td>{{ .Params.start_price | default "—" }}</td>
+        <td>{{ .Params.best_for | default "General VPS" }}</td>
+        <td><a href="{{ .RelPermalink }}">View →</a></td>
+      </tr>
+      {{ end }}
+    </table>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="container">
+
+    {{/* ✅ ADDED: section title + description (nothing else changed) */}}
+    <div class="section-head">
+      <h2>🌏 Regions &amp; Routing</h2>
+      <div class="muted">Compare China-friendly metros and explore global region hubs by geography.</div>
+    </div>
+
+    <div class="home-top-grid">
+
+      <div class="card">
+        <h2>🌏 Best Region for China Traffic</h2>
+        <p>Shortlist of CN/Asia-friendly metros. Validate routing before you commit yearly.</p>
+
+        <ul class="mini-list">
+          {{ range first 6 $chinaPicksSorted }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ul>
+
+        <a class="btn-primary" href="/best-vps-for-china/">View Guide →</a>
+      </div>
+
+      <div class="card">
+        <h2>🌍 Browse by Region</h2>
+        <p>Start from a region hub, then drill down to metros and providers.</p>
+        <ul class="mini-list">
+          <li><a href="/region/north-america/">North America</a></li>
+          <li><a href="/region/south-america/">South America</a></li>
+          <li><a href="/region/europe/">Europe</a></li>
+          <li><a href="/region/asia/">Asia</a></li>
+          <li><a href="/region/oceania/">Oceania (Australia)</a></li>
+          <li><a href="/region/africa/">Africa</a></li>
+        </ul>
+        <a class="btn-primary" href="/region/">View All →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{/* ✅ NEW: Guides section */}}
+<section class="cards">
+  <div class="container">
+    <div class="section-head">
+      <h2>📚 Guides</h2>
+      <div class="muted">Step-by-step playbooks for routing tests, CDN setup, and CN/Asia deployments.</div>
+    </div>
+
+    <div class="recommend-grid">
+      {{ range first 6 $guidesSorted }}
+        <div class="card">
+          <h3>{{ .Title }}</h3>
+          <p>{{ with .Params.summary }}{{ . }}{{ else }}Practical guide + checklist.{{ end }}</p>
+          <div class="meta-row">
+            {{ with .Params.topic }}<span class="chip">{{ . }}</span>{{ end }}
+            <span class="chip">Intent {{ .Params.intent_score | default 0 }}</span>
+          </div>
+          <a class="btn-primary" href="{{ .RelPermalink }}">Open →</a>
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="section-foot">
+      <a href="/guides/">See all guides →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="container">
+    <div class="section-head">
+      <h2>⚡ Best Data Centers</h2>
+      <div class="muted">Top metros ranked by real-world decision intent (routing + best-fit scenarios).</div>
+    </div>
+
+    <div class="recommend-grid">
+      {{ range first 6 $datacentersSorted }}
+        <div class="card">
+          <h3>{{ .Title }}</h3>
+          <p>{{ with .Params.summary }}{{ . }}{{ else }}Latency notes, best-fit scenarios and a quick checklist.{{ end }}</p>
+          <div class="meta-row">
+            <span class="chip">{{ .Params.provider_name | default "Provider" }}</span>
+            <span class="chip">{{ .Params.city | default "City" }}</span>
+            <span class="chip">Intent {{ .Params.intent_score | default 0 }}</span>
+          </div>
+          <a class="btn-primary" href="{{ .RelPermalink }}">Open →</a>
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="section-foot">
+      <a href="/datacenter/">See all data centers →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="container">
+    <div class="section-head">
+      <h2>⚔ Latest VS Comparisons</h2>
+      <div class="muted">High-intent pages for “which should I pick?” decisions.</div>
+    </div>
+
+    <div class="recommend-grid">
+      {{ range first 6 $vsPagesSorted }}
+        <div class="card">
+          <h3>{{ .Title }}</h3>
+          <p>{{ with .Params.summary }}{{ . }}{{ else }}Compare pricing, regions, and best-fit scenarios.{{ end }}</p>
+          <a class="btn-primary" href="{{ .RelPermalink }}">Compare →</a>
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="section-foot">
+      <a href="/vs/">See all comparisons →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="container">
+    <div class="section-head">
+      <h2>🚀 Use Case Guides</h2>
+      <div class="muted">Use-case pages that map “traffic intent” to region + deployment steps.</div>
+    </div>
+
+    <div class="recommend-grid">
+      {{ range first 6 $usecasesSorted }}
+        <div class="card">
+          <h3>{{ .Title }}</h3>
+          <p>{{ with .Params.summary }}{{ . }}{{ else }}Decision framework and deployment checklist.{{ end }}</p>
+          <a class="btn-primary" href="{{ .RelPermalink }}">View Guide →</a>
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="section-foot">
+      <a href="/usecase/">See all guides →</a>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="container">
+    <h2>Why Trust This Comparison?</h2>
+    <ul>
+      <li>✔ Per-page routing notes (keep them current)</li>
+      <li>✔ Practical deployment checklists and failure modes</li>
+      <li>✔ China/Asia traffic considerations (ISP variability, CDN, TLS handshakes)</li>
+      <li>✔ No sponsored ranking — decisions are explained</li>
+    </ul>
+  </div>
+</section>
+
+{{ end }}

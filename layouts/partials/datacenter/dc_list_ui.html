@@ -1,0 +1,256 @@
+{{- /* layouts/partials/datacenter/dc_list_ui.html */ -}}
+
+{{/* Safe bool coercion for china_only */}}
+{{ $chinaOnly := false }}
+{{ with $chinaOnly }}
+  {{ if or (eq . true) (eq (lower (printf "%v" .)) "true") }}
+    {{ $chinaOnly = true }}
+  {{ end }}
+{{ end }}
+{{- $page := .page -}}
+{{- $dcs  := .dcs | default (slice) -}}
+
+{{/* build unique provider options */}}
+{{ $providers := slice }}
+{{ $seenP := dict }}
+{{ range $dcs }}
+  {{ $pname := (.Params.provider_name | default "") }}
+  {{ $pkey := lower ((.Params.provider_key | default (urlize $pname)) | default "") }}
+  {{ if and $pname (not (index $seenP $pkey)) }}
+    {{ $providers = $providers | append (dict "key" $pkey "name" $pname) }}
+    {{ $seenP = merge $seenP (dict $pkey true) }}
+  {{ end }}
+{{ end }}
+{{ $providers = sort $providers "name" "asc" }}
+
+{{/* build unique region options */}}
+{{ $regions := slice }}
+{{ $seenR := dict }}
+{{ range $dcs }}
+  {{ $rname := (.Params.region | default "") }}
+  {{ $rkey := lower ((.Params.region_key | default (urlize $rname)) | default "") }}
+  {{ if and $rname (not (index $seenR $rkey)) }}
+    {{ $regions = $regions | append (dict "key" $rkey "name" $rname) }}
+    {{ $seenR = merge $seenR (dict $rkey true) }}
+  {{ end }}
+{{ end }}
+{{ $regions = sort $regions "name" "asc" }}
+
+{{/* defaults from current hub page */}}
+{{ $defP := lower (( $page.Params.provider_key | default (urlize ($page.Params.provider_name | default "")) ) | default "") }}
+{{ $defR := lower (( $page.Params.region_key   | default (urlize ($page.Params.region | default "")) ) | default "") }}
+{{ $defChina := cond ($chinaOnly) "1" "0" }}
+
+<section class="hero hero--compact">
+  <div class="container">
+    <h1>{{ $page.Title | default "Data Centers" }}</h1>
+    {{ with $page.Params.description }}
+      <p class="muted">{{ . }}</p>
+    {{ else }}
+      <p class="muted">Filter by provider / region / China picks. Sorted by <code>intent_score</code>.</p>
+    {{ end }}
+
+    <div class="filterbar" id="dcFilterBar"
+      data-default-provider="{{ $defP }}"
+      data-default-region="{{ $defR }}"
+      data-default-china="{{ $defChina }}"
+    >
+      <div class="filter-item">
+        <label for="dcProvider" class="filter-label">Provider</label>
+        <select id="dcProvider" class="filter-select">
+          <option value="">All</option>
+          {{ range $providers }}
+            <option value="{{ .key }}">{{ .name }}</option>
+          {{ end }}
+        </select>
+      </div>
+
+      <div class="filter-item">
+        <label for="dcRegion" class="filter-label">Region</label>
+        <select id="dcRegion" class="filter-select">
+          <option value="">All</option>
+          {{ range $regions }}
+            <option value="{{ .key }}">{{ .name }}</option>
+          {{ end }}
+        </select>
+      </div>
+
+      <div class="filter-item filter-item--check">
+        <label class="check">
+          <input type="checkbox" id="dcChinaPick">
+          <span>China picks only</span>
+        </label>
+      </div>
+
+      <div class="filter-item filter-item--search">
+        <label for="dcSearch" class="filter-label">Search</label>
+        <input id="dcSearch" class="filter-input" type="search" placeholder="Tokyo / Singapore / vultr…" autocomplete="off">
+      </div>
+
+      <div class="filter-item filter-item--meta">
+        <div class="filter-count"><span id="dcCount">0</span> results</div>
+        <button class="btn-secondary btn-secondary--sm" id="dcReset" type="button">Reset</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* Hub page body (optional): show Content for city/provider/region hub pages */}}
+{{ $pt := lower ($page.Params.page_type | default "") }}
+{{ $isHub := or (eq $pt "city_hub") (eq $pt "city-hub") (eq $pt "provider-hub") (eq $pt "provider_hub") (eq $pt "region-hub") (eq $pt "region_hub") }}
+{{ if and $isHub (ne (trim $page.Content "\n\t ") "") }}
+<section class="cards">
+  <div class="container prose">
+    {{ $page.Content }}
+  </div>
+</section>
+{{ end }}
+
+<section class="cards">
+  <div class="container">
+    <div class="dc-grid" id="dcGrid">
+
+      {{ range $dcs }}
+        {{ $pname := (.Params.provider_name | default "") }}
+        {{ $pkey := lower ((.Params.provider_key | default (urlize $pname)) | default "") }}
+
+        {{ $rname := (.Params.region | default "") }}
+        {{ $rkey := lower ((.Params.region_key | default (urlize $rname)) | default "") }}
+
+        {{ $china := cond (.Params.china_pick) "1" "0" }}
+        {{ $score := (.Params.intent_score | default 0) }}
+        {{ $city := (.Params.city | default "") }}
+        {{ $country := (.Params.country | default "") }}
+
+        {{/* display title: remove trailing (2026)/(2027)... only visually */}}
+        {{ $title := replaceRE `\s*\((19|20)\d{2}\)\s*$` "" .Title }}
+
+        <article
+          class="card dc-card"
+          data-provider="{{ $pkey }}"
+          data-region="{{ $rkey }}"
+          data-china="{{ $china }}"
+          data-score="{{ $score }}"
+          data-title="{{ $title | plainify | lower }}"
+          data-city="{{ $city | lower }}"
+          data-country="{{ $country | lower }}"
+        >
+          <div class="dc-head">
+            <h3 class="dc-title"><a href="{{ .RelPermalink }}">{{ $title }}</a></h3>
+            <div class="dc-chips">
+              {{ if $pname }}<span class="chip">{{ $pname }}</span>{{ end }}
+              {{ if $rname }}<span class="chip chip--muted">{{ $rname }}</span>{{ end }}
+              {{ if $city }}<span class="chip chip--muted">{{ $city }}</span>{{ end }}
+              {{ if .Params.china_pick }}<span class="chip chip--china">China pick</span>{{ end }}
+              <span class="chip chip--score">Intent {{ $score }}</span>
+            </div>
+          </div>
+
+          <p class="dc-summary">
+            {{ with .Params.summary }}{{ . }}{{ else }}Latency notes, best-fit scenarios and a repeatable checklist.{{ end }}
+          </p>
+
+          <div class="dc-foot">
+            <a class="btn-primary btn-primary--sm" href="{{ .RelPermalink }}">Open →</a>
+          </div>
+        </article>
+      {{ end }}
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const byId = (id)=>document.getElementById(id);
+
+  const bar = byId('dcFilterBar');
+  const selProvider = byId('dcProvider');
+  const selRegion   = byId('dcRegion');
+  const chkChina    = byId('dcChinaPick');
+  const inpSearch   = byId('dcSearch');
+  const btnReset    = byId('dcReset');
+  const countEl     = byId('dcCount');
+
+  const grid = byId('dcGrid');
+  if(!grid) return;
+
+  const cards = Array.from(grid.querySelectorAll('.dc-card'));
+  const norm = (s)=> (s||'').toLowerCase().trim();
+
+  function readQueryInit(){
+    const qs = new URLSearchParams(window.location.search);
+    const p = norm(qs.get('provider'));
+    const r = norm(qs.get('region'));
+    const q = (qs.get('q') || qs.get('search') || '').trim();
+    const china = (qs.get('china') || qs.get('china_pick') || '');
+
+    // 1) URL query wins
+    if(p) selProvider.value = p;
+    if(r) selRegion.value = r;
+    if(q) inpSearch.value = q;
+    if(china === '1' || china === 'true') chkChina.checked = true;
+
+    // 2) Hub defaults if query missing
+    if(bar){
+      const dp = norm(bar.dataset.defaultProvider);
+      const dr = norm(bar.dataset.defaultRegion);
+      const dc = (bar.dataset.defaultChina || '0');
+
+      if(!p && dp) selProvider.value = dp;
+      if(!r && dr) selRegion.value = dr;
+      if(!(china === '1' || china === 'true') && (dc === '1')) chkChina.checked = true;
+    }
+  }
+
+  function apply(){
+    const p = norm(selProvider.value);
+    const r = norm(selRegion.value);
+    const c = chkChina.checked ? '1' : '';
+    const q = norm(inpSearch.value);
+
+    let shown = 0;
+
+    cards.forEach(card=>{
+      const cp = norm(card.getAttribute('data-provider'));
+      const cr = norm(card.getAttribute('data-region'));
+      const cc = card.getAttribute('data-china') || '0';
+
+      const hay = [
+        card.getAttribute('data-title'),
+        card.getAttribute('data-city'),
+        card.getAttribute('data-country'),
+        cp, cr
+      ].join(' ');
+
+      const ok =
+        (!p || cp === p) &&
+        (!r || cr === r) &&
+        (!c || cc === '1') &&
+        (!q || hay.indexOf(q) !== -1);
+
+      card.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+
+    countEl.textContent = String(shown);
+  }
+
+  function reset(){
+    selProvider.value = '';
+    selRegion.value = '';
+    chkChina.checked = false;
+    inpSearch.value = '';
+    apply();
+  }
+
+  selProvider.addEventListener('change', apply);
+  selRegion.addEventListener('change', apply);
+  chkChina.addEventListener('change', apply);
+  inpSearch.addEventListener('input', apply);
+  btnReset.addEventListener('click', reset);
+
+  readQueryInit();
+  apply();
+})();
+</script>

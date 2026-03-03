@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="hero hero--compact">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="recommend-grid">
+      {{ range .Pages.ByDate.Reverse }}
+        <div class="card">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ .Params.summary | default "Step-by-step guide." }}</p>
+          <div class="meta-row">
+            {{ with .Params.provider_refs }}<span class="chip">{{ index . 0 }}</span>{{ end }}
+            {{ with .Params.intent_score }}<span class="chip chip--score">Intent {{ . }}</span>{{ end }}
+          </div>
+          <a class="btn-primary" href="{{ .RelPermalink }}">Open →</a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
