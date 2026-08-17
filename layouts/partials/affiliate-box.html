@@ -1,0 +1,34 @@
+{{ if and .Params.show_affiliate_box .Params.affiliate_url }}
+<div class="affiliate-box affiliate-box--test">
+  <div class="affiliate-box__badge">官方入口</div>
+
+  <div class="affiliate-box__main">
+    <div class="affiliate-box__copy">
+      <h3>{{ .Params.provider_name }} 官方方案入口</h3>
+
+      {{ with .Params.affiliate_note }}
+        <p>{{ . }}</p>
+      {{ else }}
+        <p>如果你想继续核对套餐、机房覆盖或控制台细节，可以先去官方页面看一眼。</p>
+      {{ end }}
+    </div>
+
+    <div class="affiliate-box__actions">
+      <a class="btn btn-primary"
+         href="{{ .Params.affiliate_url }}"
+         target="_blank"
+         rel="nofollow sponsored noopener">
+        {{ .Params.affiliate_cta_text | default "查看官网" }}
+      </a>
+
+      {{ with .Params.affiliate_secondary_url }}
+      <a class="btn btn-secondary"
+         href="{{ . }}"
+         {{ if hasPrefix . "/" }}{{ else }}target="_blank" rel="nofollow sponsored noopener"{{ end }}>
+        {{ $.Params.affiliate_secondary_text | default "继续阅读" }}
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,14 @@
+{{ $items := .Params.sidebar_recommendations }}
+{{ if $items }}
+<section class="decision-card decision-card--sidebar sidebar-recommend-wrap">
+  <h3>相关推荐云服务器</h3>
+  <div class="sidebar-recommend-list">
+    {{ range $items }}
+    <a class="sidebar-recommend-item" href="{{ .url | relURL }}">
+      <strong>{{ .title }}</strong>
+      {{ with .desc }}<span>{{ . }}</span>{{ end }}
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

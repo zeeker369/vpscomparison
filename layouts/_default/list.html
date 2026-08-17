@@ -1,0 +1,29 @@
+{{ define "main" }}
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a href="{{ "/" | relURL }}">首页</a> <span>/</span> <span>{{ .Title }}</span></nav>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.description }}<p class="lead">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="container list-layout">
+  <div class="cards-grid cards-grid--list">
+    {{ $pages := .RegularPages.ByDate.Reverse }}
+    {{ if eq .Section "reviews" }}{{ $pages = sort .RegularPages "Params.intent_score" "desc" }}{{ end }}
+    {{ if eq .Section "vs" }}{{ $pages = sort .RegularPages "Params.intent_score" "desc" }}{{ end }}
+    {{ range $pages }}
+      <article class="card card--article">
+        <div class="eyebrow">{{ with .Params.page_type }}{{ . }}{{ else }}文章{{ end }}</div>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 120 }}{{ end }}</p>
+        <div class="meta-row">
+          {{ with .Params.provider_name }}<span>{{ . }}</span>{{ end }}
+          {{ with .Params.city }}<span>{{ . }}</span>{{ end }}
+          {{ with .Params.intent_score }}<span>意图值 {{ . }}</span>{{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

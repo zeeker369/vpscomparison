@@ -1,0 +1,77 @@
+{{ define "main" }}
+<section class="page-hero page-hero--article">
+  <div class="container article-hero-copy">
+    <nav class="breadcrumb"><a href="{{ "/" | relURL }}">首页</a> <span>/</span> <a href="{{ (printf "/%s/" .Section) | relURL }}">{{ with .CurrentSection }}{{ .Title }}{{ else }}{{ .Section }}{{ end }}</a> <span>/</span> <span>{{ .Title }}</span></nav>
+    <div class="article-head-single">
+      <div class="eyebrow">{{ with .Params.page_type }}{{ . }}{{ else }}文章{{ end }}</div>
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.summary }}<p class="lead">{{ . }}</p>{{ end }}
+      <div class="meta-row meta-row--hero">
+        {{ with .Params.provider_name }}<span>服务商：{{ . }}</span>{{ end }}
+        {{ with .Params.city }}<span>节点：{{ . }}</span>{{ end }}
+        {{ with .Params.review_year }}<span>年份：{{ . }}</span>{{ end }}
+        {{ with .Params.intent_score }}<span>意图值：{{ . }}</span>{{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container article-layout article-layout--refined">
+  <article class="article-card">
+    <div class="article-body prose">
+      {{ partial "affiliate-disclosure.html" . }}
+      {{ partial "affiliate-box.html" . }}
+      {{ .Content }}
+    </div>
+  </article>
+
+  <aside class="article-sidebar">
+    <div class="sticky-stack">
+      <section class="decision-card decision-card--sidebar">
+        <h3>快速决策</h3>
+        <ul>
+          {{ with .Params.best_for }}<li><strong>适合：</strong>{{ delimit . "、" }}</li>{{ end }}
+          {{ with .Params.not_for }}<li><strong>不适合：</strong>{{ delimit . "、" }}</li>{{ end }}
+          <li><strong>建议阅读顺序：</strong>先看结论，再看表格，最后看场景建议。</li>
+          {{ with .Params.cta_label }}<li><a class="btn btn-primary" href="{{ $.Params.cta_url | default "#" }}">{{ . }}</a></li>{{ end }}
+        </ul>
+      </section>
+
+      {{ partial "sidebar-recommendations.html" . }}
+
+      <section class="toc-card">
+        <div class="sticky-box sticky-box--plain">
+          <h3>目录</h3>
+          {{ if .TableOfContents }}
+            <div class="toc">{{ .TableOfContents }}</div>
+          {{ else }}
+            <p class="muted">这篇文章暂时没有目录。</p>
+          {{ end }}
+          <div class="side-links">
+            <a class="btn btn-primary btn-block" href="{{ .Params.cta_url | default .Site.Params.featuredCTA }}">{{ .Params.cta_label | default "继续阅读" }}</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </aside>
+</section>
+
+{{ $related := where .Site.RegularPages "Section" .Section }}
+{{ $related = where $related "RelPermalink" "!=" .RelPermalink }}
+{{ if gt (len $related) 0 }}
+<section class="container related-section">
+  <div class="section-head">
+    <h2>相关文章</h2>
+    <a href="{{ (printf "/%s/" .Section) | relURL }}">返回栏目</a>
+  </div>
+  <div class="cards-grid">
+    {{ range first 3 $related }}
+      <article class="card card--article">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 100 }}{{ end }}</p>
+      </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

@@ -1,0 +1,34 @@
+baseURL = "https://www.vpscomparison.com/"
+languageCode = "zh-CN"
+title = "VPS Comparison"
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+summaryLength = 160
+paginate = 12
+
+[permalinks]
+  reviews = "/reviews/:slugorfilename/"
+  datacenters = "/datacenters/:slugorfilename/"
+  vs = "/vs/:slugorfilename/"
+  guides = "/guides/:slugorfilename/"
+  "china-traffic" = "/china-traffic/:slugorfilename/"
+  "use-cases" = "/use-cases/:slugorfilename/"
+  blog = "/blog/:slugorfilename/"
+
+[params]
+  siteTagline = "面向内地访问与亚太业务的云服务器评测、对比与节点选购指南"
+  siteDescription = "围绕云厂商评测、机房节点、对比测评、建站部署与内地访问场景，帮助你更快做出云服务器选型决策。"
+  brand = "VPS Comparison"
+  icpNotice = "本站为评测与导购站点，部分外链可能为联盟链接。"
+  featuredCTA = "/guides/best-vps-for-china-traffic/"
+  featuredGuide = "/guides/best-cloud-server-for-website/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false

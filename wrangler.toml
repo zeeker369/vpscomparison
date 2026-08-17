@@ -1,0 +1,6 @@
+name = "vpscomparison"
+pages_build_output_dir = "public"
+compatibility_date = "2026-08-01"
+
+[vars]
+HUGO_VERSION = "0.125.4"

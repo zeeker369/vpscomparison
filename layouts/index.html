@@ -1,0 +1,129 @@
+{{ define "main" }}
+<section class="hero hero--launch">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">云服务器选型指南</div>
+<h1>帮你更快选到适合业务的云服务器</h1>
+<p class="lead">围绕内地访问、建站场景、香港 / 日本 / 新加坡节点和主流云厂商，先给结论，再看表格，再展开分析。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ "/guides/best-vps-for-china-traffic/" | relURL }}">先看内地流量推荐</a>
+        <a class="btn btn-secondary" href="{{ "/vs/" | relURL }}">先看热门对比表</a>
+      </div>
+      <ul class="hero-points">
+  <li>优先解决内地访问与节点选择问题</li>
+  <li>评测、对比、地区、场景四条线一起做</li>
+  <li>每篇文章都优先放结论和表格</li>
+</ul>
+    </div>
+    <aside class="hero-panel">
+      <h2>你可以从这里开始</h2>
+      <div class="quick-links">
+        <a href="{{ "/guides/best-hong-kong-vps/" | relURL }}">香港 VPS 推荐</a>
+        <a href="{{ "/guides/best-japan-vps/" | relURL }}">日本 VPS 推荐</a>
+        <a href="{{ "/guides/best-singapore-vps/" | relURL }}">新加坡 VPS 推荐</a>
+        <a href="{{ "/vs/alibaba-cloud-vs-tencent-cloud/" | relURL }}">阿里云 vs 腾讯云</a>
+        <a href="{{ "/vs/vultr-vs-digitalocean/" | relURL }}">Vultr vs DigitalOcean</a>
+        <a href="{{ "/guides/cloud-server-for-foreign-trade-website/" | relURL }}">外贸网站用什么云服务器</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container section-block">
+  <div class="section-head">
+    <h2>按需求找方案</h2>
+    <p>用场景思维筛选，不被品牌名气带偏。</p>
+  </div>
+  <div class="cards-grid cards-grid--4">
+    <a class="card card--link" href="{{ "/china-traffic/" | relURL }}"><h3>适合内地流量</h3><p>优先看香港、日本、新加坡地区和访问路径。</p></a>
+   <a class="card card--link" href="{{ "/use-cases/" | relURL }}"><h3>建站推荐</h3><p>WordPress、Hugo、外贸官网、品牌站都从这里进。</p></a> <a class="card card--link" href="{{ "/reviews/" | relURL }}"><h3>云厂商评测</h3><p>先看服务商定位，再决定要不要点进官网。</p></a>
+    <a class="card card--link" href="{{ "/vs/" | relURL }}"><h3>热门对比</h3><p>表格先看完，再读结论和适用场景。</p></a>
+  </div>
+</section>
+
+{{ $reviews := first 9 (sort (where .Site.RegularPages "Section" "reviews") "Params.intent_score" "desc") }}
+{{ $vs := first 6 (sort (where .Site.RegularPages "Section" "vs") "Params.intent_score" "desc") }}
+{{ $guides := first 6 (sort (where .Site.RegularPages "Section" "guides") "Params.intent_score" "desc") }}
+
+<section class="container section-block">
+  <div class="section-head">
+    <h2>热门云厂商评测</h2>
+    <a href="{{ "/reviews/" | relURL }}">查看全部</a>
+  </div>
+  <div class="cards-grid">
+    {{ range $reviews }}
+    <article class="card card--article">
+      <div class="eyebrow">评测</div>
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <p>{{ .Params.summary }}</p>
+      <div class="meta-row"><span>{{ .Params.provider_name }}</span><span>意图值 {{ .Params.intent_score }}</span></div>
+    </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="container section-block">
+  <div class="section-head">
+    <h2>热门对比表</h2>
+    <a href="{{ "/vs/" | relURL }}">查看全部</a>
+  </div>
+  <div class="cards-grid cards-grid--2">
+    {{ range $vs }}
+    <article class="card card--article">
+      <div class="eyebrow">对比</div>
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <p>{{ .Params.summary }}</p>
+    </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="container section-block">
+  <div class="section-head">
+    <h2>首批选购指南</h2>
+    <a href="{{ "/guides/" | relURL }}">查看全部</a>
+  </div>
+  <div class="cards-grid">
+    {{ range $guides }}
+    <article class="card card--article">
+      <div class="eyebrow">指南</div>
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <p>{{ .Params.summary }}</p>
+    </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="container section-block">
+  <div class="section-head">
+    <h2>不知道怎么选？按场景进入</h2>
+    <p>不同网站类型，对节点、预算、控制台和部署方式的要求并不一样。</p>
+  </div>
+
+  <div class="cards-grid cards-grid--4">
+    <a class="card card--link" href="{{ "/use-cases/wordpress-hosting/" | relURL }}">
+      <div class="eyebrow">建站场景</div>
+      <h3>WordPress 建站</h3>
+      <p>适合内容站、企业站、博客站。优先看控制台易用性、备份能力、数据库和成本控制。</p>
+    </a>
+
+    <a class="card card--link" href="{{ "/use-cases/hugo-static-site-hosting/" | relURL }}">
+      <div class="eyebrow">建站场景</div>
+      <h3>Hugo 静态站</h3>
+      <p>适合评测站、专题站和内容矩阵。重点看部署简单、对象存储、CDN 和轻量成本。</p>
+    </a>
+
+    <a class="card card--link" href="{{ "/guides/cloud-server-for-foreign-trade-website/" | relURL }}">
+      <div class="eyebrow">业务场景</div>
+      <h3>外贸官网</h3>
+      <p>适合工厂站、B2B 官网、多语言官网。重点看香港/日本节点、稳定性、表单和邮件链路。</p>
+    </a>
+
+    <a class="card card--link" href="{{ "/guides/best-vps-for-china-traffic/" | relURL }}">
+      <div class="eyebrow">流量场景</div>
+      <h3>中国流量站</h3>
+      <p>适合中文内容站、亚太业务站和面向中国用户的网站。优先判断香港、东京还是新加坡。</p>
+    </a>
+  </div>
+</section>
+{{ end }}
