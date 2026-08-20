@@ -1,3 +1,29 @@
 https://vpscomparison.com/* https://www.vpscomparison.com/:splat 301
+
 /use-cases/hugo-static-site-hosting /use-cases/hugo-static-site-hosting-options/ 301
 /use-cases/hugo-static-site-hosting/ /use-cases/hugo-static-site-hosting-options/ 301
+
+/guides/best-hong-kong-vps /guides/best-hong-kong-vps-2026/ 301
+/guides/best-hong-kong-vps/ /guides/best-hong-kong-vps-2026/ 301
+/guides/best-japan-vps /guides/best-japan-vps-2026/ 301
+/guides/best-japan-vps/ /guides/best-japan-vps-2026/ 301
+/guides/best-singapore-vps /guides/best-singapore-vps-2026/ 301
+/guides/best-singapore-vps/ /guides/best-singapore-vps-2026/ 301
+
+/reviews/alibaba-cloud /reviews/alibaba-cloud-review-2026/ 301
+/reviews/alibaba-cloud/ /reviews/alibaba-cloud-review-2026/ 301
+
+/guides/cn2-gia-vs-global-bgp /vs/cn2-gia-vs-global-bgp/ 301
+/guides/cn2-gia-vs-global-bgp/ /vs/cn2-gia-vs-global-bgp/ 301
+/china-traffic/cn2-gia-vs-global-bgp-china-speed /vs/cn2-gia-vs-global-bgp/ 301
+/china-traffic/cn2-gia-vs-global-bgp-china-speed/ /vs/cn2-gia-vs-global-bgp/ 301
+
+/guides/foreign-trade-website-cloud-server /guides/cloud-server-for-foreign-trade-website/ 301
+/guides/foreign-trade-website-cloud-server/ /guides/cloud-server-for-foreign-trade-website/ 301
+/use-cases/cloud-server-selection-for-foreign-trade-websites /guides/cloud-server-for-foreign-trade-website/ 301
+/use-cases/cloud-server-selection-for-foreign-trade-websites/ /guides/cloud-server-for-foreign-trade-website/ 301
+
+/vs/alibaba-cloud-vs-aws-for-smes /vs/alibaba-cloud-vs-tencent-cloud/ 301
+/vs/alibaba-cloud-vs-aws-for-smes/ /vs/alibaba-cloud-vs-tencent-cloud/ 301
+/vs/baidu-cloud-vs-tencent-cloud /vs/volcengine-vs-tencent-cloud/ 301
+/vs/baidu-cloud-vs-tencent-cloud/ /vs/volcengine-vs-tencent-cloud/ 301

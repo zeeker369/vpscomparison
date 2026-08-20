@@ -1,29 +1,26 @@
 # VPS Comparison
-> The definitive conclusion-first guide for Asia-Pacific VPS selection and cloud deployment, specifically optimized for Chinese-speaking developers and APAC-bound traffic.
+> Region-first VPS and cloud hosting guides for China-facing, APAC, and cross-border websites.
 
-## Core Comparison Resources
-- [Alibaba Cloud vs. Tencent Cloud](/comparisons/alibaba-vs-tencent) - Head-to-head comparison of China's leading cloud giants.
-- [Vultr vs. DigitalOcean](/comparisons/vultr-vs-digitalocean) - Benchmarking popular global VPS providers for individual developers.
-- [Best Hong Kong VPS Guide](/guides/best-hong-kong-vps) - Specialized analysis of Hong Kong nodes for China-facing workloads.
-- [Japan & Singapore Node Comparison](/guides/japan-singapore-vps) - Performance and routing analysis for secondary APAC nodes.
+## Start here
+- [Best VPS for China-bound traffic](https://www.vpscomparison.com/guides/best-vps-for-china-traffic/)
+- [Best Hong Kong VPS 2026](https://www.vpscomparison.com/guides/best-hong-kong-vps-2026/)
+- [Best Japan VPS 2026](https://www.vpscomparison.com/guides/best-japan-vps-2026/)
+- [Best Singapore VPS 2026](https://www.vpscomparison.com/guides/best-singapore-vps-2026/)
+- [Alibaba Cloud Review 2026](https://www.vpscomparison.com/reviews/alibaba-cloud-review-2026/)
 
-## Technical Guides & Deployment
-- [OpenClaw Deployment Guide](/tutorials/openclaw-setup) - Step-by-step instructions for deploying and managing services via OpenClaw.
-- [Mainland China Traffic Optimization](/guides/china-traffic-optimization) - Strategies for reducing latency and improving access from mainland China.
-- [WordPress Hosting Setup](/tutorials/wordpress-on-vps) - Optimized server configurations for high-performance WordPress sites in Asia.
+## Comparisons
+- [Alibaba Cloud vs Tencent Cloud](https://www.vpscomparison.com/vs/alibaba-cloud-vs-tencent-cloud/)
+- [Vultr vs DigitalOcean](https://www.vpscomparison.com/vs/vultr-vs-digitalocean/)
+- [CN2 GIA vs Global BGP](https://www.vpscomparison.com/vs/cn2-gia-vs-global-bgp/)
+- [CN2 GIA vs AS9929 vs AS4837](https://www.vpscomparison.com/guides/cn2-gia-vs-as9929-vs-as4837/)
+- [Hong Kong VPS vs Tokyo VPS](https://www.vpscomparison.com/vs/hong-kong-vs-tokyo-vps/)
 
-## Regional Specializations
-- **Hong Kong (HKG):** Best for low-latency mainland China access without ICP filing.
-- **Japan (TYO/NRT):** Balanced performance for East Asia and North America routing.
-- **Singapore (SIN):** Hub for Southeast Asia and global connectivity.
-- **US West Coast:** Cost-effective alternatives for global traffic with CN2 GIA options.
+## OpenClaw
+- [Best infrastructure for OpenClaw 2026](https://www.vpscomparison.com/openclaw/best-infrastructure-for-openclaw-2026/)
+- [Deploy OpenClaw on Alibaba Cloud](https://www.vpscomparison.com/openclaw/deploy-openclaw-on-alibaba-cloud/)
+- [Deploy OpenClaw on Vultr](https://www.vpscomparison.com/openclaw/vultr-openclaw-2026-deployment-guide/)
 
-## Methodology & Neutrality
-- **Conclusion-First:** Every guide starts with a direct recommendation to save time.
-- **Region-First:** We prioritize data center location and routing over raw brand specs.
-- **Scenario-Based:** Recommendations are categorized by use cases (e.g., Foreign Trade, SaaS, Personal Dev).
-- **Transparency:** We disclose affiliate links while maintaining strict technical neutrality.
-
-## Contact & Community
-- [About Us](/about) - Our mission to simplify cloud decisions for the APAC developer community.
-- [Contact Support](/contact) - Inquiry for specific architectural advice or node recommendations.
+## Methodology
+- Region first, then provider, then plan.
+- Conclusion first, then trade-offs.
+- Some outbound links may be affiliate links.
