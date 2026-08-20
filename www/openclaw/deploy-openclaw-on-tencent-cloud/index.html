@@ -164,20 +164,36 @@ Use Certbot with Let&rsquo;s Encrypt for a free TLS certificate. The voice AI fe
 </ul>
 <hr>
 <h2 id="faqs">FAQs</h2>
-<p><strong>Q: Is the Tencent Cloud Lighthouse free trial actually free, or are there hidden charges?</strong><br>
-The trial is free for the included plan configuration. Tencent Cloud requires a credit card for verification but won&rsquo;t charge it during the trial period. Charges only begin if you upgrade your plan, add additional services, or exceed the included bandwidth quota.</p>
-<p><strong>Q: Can OpenClaw 2026.4.26 run on 1 GB RAM?</strong><br>
-The 2026.4.26 release reduced the minimum RAM requirement to 1 GB, but that applies to basic API routing only. The voice AI pipeline with real-time WebSocket support needs at least 2 GB in practice. The 1 GB minimum is for headless, non-voice deployments.</p>
-<p><strong>Q: Which Tencent Cloud region is best for APAC voice AI latency?</strong><br>
-Hong Kong is the best default if you&rsquo;re targeting mainland China and Southeast Asia simultaneously. Singapore is the better choice if your primary audience is Southeast Asia without a China focus. Both regions are covered by the Lighthouse free trial.</p>
-<p><strong>Q: How many referrals do I realistically need to sustain the server for free?</strong><br>
-At roughly $6/month for the base Lighthouse plan and approximately $10 per qualifying referral credit, you need one successful referral every six weeks or so. Credit amounts vary by promotion cycle, so check the current Invite &amp; Earn terms in your Tencent Cloud console.</p>
-<p><strong>Q: Can I migrate from Lighthouse to a full CVM instance later without reinstalling OpenClaw?</strong><br>
-You can snapshot your Lighthouse instance and use that image as a base for a CVM deployment, but the process isn&rsquo;t fully automated. Budget roughly an hour for the migration. OpenClaw&rsquo;s config files are portable, so the configuration itself transfers cleanly.</p>
-<p><strong>Q: Is OpenClaw suitable for production voice AI workloads, or just development?</strong><br>
-OpenClaw 2026.4.26 is production-capable for low-to-medium concurrency. For high-concurrency deployments — 20+ simultaneous voice sessions — you&rsquo;ll need a larger instance and likely a load-balanced multi-node setup.</p>
-<p><strong>Q: Where can I compare Tencent Cloud Lighthouse against other APAC VPS options?</strong><br>
-<a href="https://vpscomparison.com">vpscomparison.com</a> covers Tencent Cloud, Alibaba Cloud, Vultr, DigitalOcean, and Hetzner with APAC-specific performance data and pricing comparisons.</p>
+<div class="faq-list">
+<div class="faq-item">
+<h3 class="faq-q">Is the Tencent Cloud Lighthouse free trial actually free, or are there hidden charges?</h3>
+<p class="faq-a">The trial is free for the included plan configuration. Tencent Cloud requires a credit card for verification but won&rsquo;t charge it during the trial period. Charges only begin if you upgrade your plan, add additional services, or exceed the included bandwidth quota.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-q">Can OpenClaw 2026.4.26 run on 1 GB RAM?</h3>
+<p class="faq-a">The 2026.4.26 release reduced the minimum RAM requirement to 1 GB, but that applies to basic API routing only. The voice AI pipeline with real-time WebSocket support needs at least 2 GB in practice. The 1 GB minimum is for headless, non-voice deployments.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-q">Which Tencent Cloud region is best for APAC voice AI latency?</h3>
+<p class="faq-a">Hong Kong is the best default if you&rsquo;re targeting mainland China and Southeast Asia simultaneously. Singapore is the better choice if your primary audience is Southeast Asia without a China focus. Both regions are covered by the Lighthouse free trial.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-q">How many referrals do I realistically need to sustain the server for free?</h3>
+<p class="faq-a">At roughly $6/month for the base Lighthouse plan and approximately $10 per qualifying referral credit, you need one successful referral every six weeks or so. Credit amounts vary by promotion cycle, so check the current Invite &amp; Earn terms in your Tencent Cloud console.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-q">Can I migrate from Lighthouse to a full CVM instance later without reinstalling OpenClaw?</h3>
+<p class="faq-a">You can snapshot your Lighthouse instance and use that image as a base for a CVM deployment, but the process isn&rsquo;t fully automated. Budget roughly an hour for the migration. OpenClaw&rsquo;s config files are portable, so the configuration itself transfers cleanly.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-q">Is OpenClaw suitable for production voice AI workloads, or just development?</h3>
+<p class="faq-a">OpenClaw 2026.4.26 is production-capable for low-to-medium concurrency. For high-concurrency deployments — 20+ simultaneous voice sessions — you&rsquo;ll need a larger instance and likely a load-balanced multi-node setup.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-q">Where can I compare Tencent Cloud Lighthouse against other APAC VPS options?</h3>
+<p class="faq-a"><a href="https://vpscomparison.com">vpscomparison.com</a> covers Tencent Cloud, Alibaba Cloud, Vultr, DigitalOcean, and Hetzner with APAC-specific performance data and pricing comparisons.</p>
+</div>
+</div>
 <hr>
 <h2 id="conclusion">Conclusion</h2>
 <p>Tencent Cloud&rsquo;s 3-month Lighthouse trial combined with the available campaign flow creates a genuine low-cost path to running OpenClaw 2026.4.26 — not a stripped-down demo, but a real instance with enough resources to run the voice AI pipeline and test it with actual users.</p>
