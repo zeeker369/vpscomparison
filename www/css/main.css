@@ -887,3 +887,92 @@ h1,h2,h3,p,li,a,span,strong,small{
     max-width:none;
   }
 }
+
+/* ===== Homepage signup picks ===== */
+.home-picks{
+  display:grid;
+  gap:12px;
+}
+.home-pick{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  box-shadow:var(--shadow-sm);
+}
+.home-pick h3{
+  margin:0 0 4px;
+  font-size:16px;
+}
+.home-pick p{
+  margin:0 0 10px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.4;
+}
+.home-pick .btn{
+  width:100%;
+  padding:10px 14px;
+  font-size:14px;
+}
+.home-pick a.btn-primary,
+.home-pick a.btn-primary:hover,
+.home-pick a.btn-primary:visited,
+.home-table a.btn-primary,
+.home-table a.btn-primary:hover,
+.home-table a.btn-primary:visited,
+.hero-actions a.btn-primary,
+.hero-actions a.btn-primary:hover,
+.hero-actions a.btn-primary:visited{
+  color:#fff;
+}
+.home-affiliate-note{
+  margin:12px 0 0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.45;
+}
+.home-table-wrap{
+  overflow:auto;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;
+  box-shadow:var(--shadow-sm);
+}
+.home-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:15px;
+}
+.home-table th,
+.home-table td{
+  padding:14px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  vertical-align:top;
+  min-width:140px;
+}
+.home-table th:first-child,
+.home-table td:first-child{
+  min-width:120px;
+  color:#0f172a;
+  font-weight:650;
+}
+.home-table thead th{
+  background:#f8fbff;
+  font-size:14px;
+}
+.home-table tbody tr:last-child td{
+  border-bottom:0;
+  vertical-align:middle;
+}
+.home-table .btn{
+  white-space:nowrap;
+  padding:10px 14px;
+  font-size:14px;
+}
+@media (max-width: 720px){
+  .home-table .btn{
+    width:100%;
+  }
+}
