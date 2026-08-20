@@ -1,17 +1,24 @@
 # VPS Comparison
-> English VPS reviews and buying guides. Start with a plan you can open, then filter by region.
+> VPS comparison for Hostinger, Vultr, and DigitalOcean. Cheap 4 GB RAM on Hostinger intro pricing. Hourly billing on Vultr and DigitalOcean. Pick a region after you sign up.
 
-## Sign up first
+## Start here
+- [VPS Comparison 2026: Hostinger vs Vultr vs DigitalOcean](https://www.vpscomparison.com/): Homepage. Sign up for Hostinger, Vultr, or DigitalOcean first.
 - [Best cheap VPS 2026](https://www.vpscomparison.com/guides/best-cheap-vps-2026/)
+- [How to read VPS pricing](https://www.vpscomparison.com/blog/how-to-read-vps-pricing/): Intro rates vs hourly billing. 1 GB at $6 is not cheaper than 4 GB at $4.99.
+
+## Reviews and comparisons
 - [Hostinger VPS review](https://www.vpscomparison.com/reviews/hostinger/)
-- [Vultr vs DigitalOcean](https://www.vpscomparison.com/vs/vultr-vs-digitalocean/)
 - [Vultr review](https://www.vpscomparison.com/reviews/vultr/)
 - [DigitalOcean review](https://www.vpscomparison.com/reviews/digitalocean/)
+- [Vultr vs DigitalOcean](https://www.vpscomparison.com/vs/vultr-vs-digitalocean/)
+- [Best VPS for WordPress 2026](https://www.vpscomparison.com/use-cases/wordpress-hosting/)
+- [WordPress hosting comparison 2026](https://www.vpscomparison.com/use-cases/top-wordpress-hosting-providers-2026/)
 
-## Region as a filter
+## Region after checkout
 - [Best Singapore VPS 2026](https://www.vpscomparison.com/guides/best-singapore-vps-2026/)
 - [Best Japan VPS 2026](https://www.vpscomparison.com/guides/best-japan-vps-2026/)
 - [DigitalOcean Singapore](https://www.vpscomparison.com/reviews/digitalocean-singapore/)
+- [Deploy OpenClaw on Hetzner](https://www.vpscomparison.com/openclaw/deploying-openclaw-on-hetzner-cloud/): Europe filter.
 
 ## OpenClaw
 - [Best infrastructure for OpenClaw 2026](https://www.vpscomparison.com/openclaw/best-infrastructure-for-openclaw-2026/)
@@ -20,6 +27,6 @@
 - [Deploy OpenClaw on DigitalOcean](https://www.vpscomparison.com/openclaw/deploy-openclaw-on-digitalocean-performance-guide/)
 
 ## Methodology
-- Checkout path first: Hostinger, Vultr, DigitalOcean, Hetzner.
+- Checkout first: Hostinger, Vultr, DigitalOcean. Hetzner for Europe.
 - Region second: Singapore, Tokyo, US, or Europe.
 - Some outbound links are affiliate links.
