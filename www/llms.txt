@@ -1,5 +1,5 @@
 # VPS Comparison
-> Pick a VPS you can open today. Filter by Singapore, Hong Kong, or China-bound traffic after the shortlist.
+> English VPS reviews and buying guides. Start with a plan you can open, then filter by region.
 
 ## Sign up first
 - [Best cheap VPS 2026](https://www.vpscomparison.com/guides/best-cheap-vps-2026/)
@@ -10,17 +10,16 @@
 
 ## Region as a filter
 - [Best Singapore VPS 2026](https://www.vpscomparison.com/guides/best-singapore-vps-2026/)
-- [Best Hong Kong VPS 2026](https://www.vpscomparison.com/guides/best-hong-kong-vps-2026/)
 - [Best Japan VPS 2026](https://www.vpscomparison.com/guides/best-japan-vps-2026/)
-- [Best VPS for China-bound traffic](https://www.vpscomparison.com/guides/best-vps-for-china-traffic/)
-- [CN2 GIA vs Global BGP](https://www.vpscomparison.com/vs/cn2-gia-vs-global-bgp/)
+- [DigitalOcean Singapore](https://www.vpscomparison.com/reviews/digitalocean-singapore/)
 
 ## OpenClaw
 - [Best infrastructure for OpenClaw 2026](https://www.vpscomparison.com/openclaw/best-infrastructure-for-openclaw-2026/)
 - [Hostinger VPS for OpenClaw](https://www.vpscomparison.com/openclaw/hostinger-vps-for-openclaw-deployment/)
 - [Deploy OpenClaw on Vultr](https://www.vpscomparison.com/openclaw/vultr-openclaw-2026-deployment-guide/)
+- [Deploy OpenClaw on DigitalOcean](https://www.vpscomparison.com/openclaw/deploy-openclaw-on-digitalocean-performance-guide/)
 
 ## Methodology
 - Checkout path first: Hostinger, Vultr, DigitalOcean, Hetzner.
-- Region second: Singapore, Hong Kong, Tokyo, China-bound routing.
+- Region second: Singapore, Tokyo, US, or Europe.
 - Some outbound links are affiliate links.
