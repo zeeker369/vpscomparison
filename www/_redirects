@@ -27,3 +27,112 @@ https://vpscomparison.com/* https://www.vpscomparison.com/:splat 301
 /vs/alibaba-cloud-vs-aws-for-smes/ /vs/alibaba-cloud-vs-tencent-cloud/ 301
 /vs/baidu-cloud-vs-tencent-cloud /vs/volcengine-vs-tencent-cloud/ 301
 /vs/baidu-cloud-vs-tencent-cloud/ /vs/volcengine-vs-tencent-cloud/ 301
+
+# Old vs slugs still in Search Console
+/vs/vultr-vs-digitalocean_-best-for-apac-developers-in-2026 /vs/vultr-vs-digitalocean/ 301
+/vs/vultr-vs-digitalocean_-best-for-apac-developers-in-2026/ /vs/vultr-vs-digitalocean/ 301
+/vs/google-cloud-vs-linode /vs/aws-vs-google-cloud/ 301
+/vs/google-cloud-vs-linode/ /vs/aws-vs-google-cloud/ 301
+/vs/digitalocean-vs-linode /vs/vultr-vs-digitalocean/ 301
+/vs/digitalocean-vs-linode/ /vs/vultr-vs-digitalocean/ 301
+/vs/aws-vs-vultr /reviews/vultr/ 301
+/vs/aws-vs-vultr/ /reviews/vultr/ 301
+
+# Retired guides
+/guides/wordpress-for-china-2026 /use-cases/wordpress-hosting/ 301
+/guides/wordpress-for-china-2026/ /use-cases/wordpress-hosting/ 301
+/guides/cloudflare-cdn-dns-guide /guides/cloudflare-pages-free-plan/ 301
+/guides/cloudflare-cdn-dns-guide/ /guides/cloudflare-pages-free-plan/ 301
+
+# Old provider directory
+/provider /reviews/ 301
+/provider/ /reviews/ 301
+/provider/linode-review /reviews/ 301
+/provider/linode-review/ /reviews/ 301
+/provider/* /reviews/ 301
+
+# Tags Google still crawls
+/tags/cdn /guides/cloudflare-pages-free-plan/ 301
+/tags/cdn/ /guides/cloudflare-pages-free-plan/ 301
+/tags/aws /reviews/aws/ 301
+/tags/aws/ /reviews/aws/ 301
+/tags/外贸网站 /guides/cloud-server-for-foreign-trade-website/ 301
+/tags/外贸网站/ /guides/cloud-server-for-foreign-trade-website/ 301
+/tags/%E5%A4%96%E8%B4%B8%E7%BD%91%E7%AB%99 /guides/cloud-server-for-foreign-trade-website/ 301
+/tags/%E5%A4%96%E8%B4%B8%E7%BD%91%E7%AB%99/ /guides/cloud-server-for-foreign-trade-website/ 301
+/tags/* /tags/ 301
+
+# Hugo used /datacenter (singular). Live hub is /datacenters/
+/region /datacenters/ 301
+/region/ /datacenters/ 301
+/datacenter /datacenters/ 301
+/datacenter/ /datacenters/ 301
+
+# Cities we still cover
+/datacenter/hetzner-singapore-sin-data-center /datacenters/singapore/ 301
+/datacenter/hetzner-singapore-sin-data-center/ /datacenters/singapore/ 301
+/datacenter/linode-singapore /datacenters/singapore/ 301
+/datacenter/linode-singapore/ /datacenters/singapore/ 301
+/datacenter/alibaba-cloud-singapore-data-center /datacenters/singapore/ 301
+/datacenter/alibaba-cloud-singapore-data-center/ /datacenters/singapore/ 301
+/datacenter/google-cloud-tokyo-datacenter /datacenters/tokyo/ 301
+/datacenter/google-cloud-tokyo-datacenter/ /datacenters/tokyo/ 301
+
+# Provider city pages → current review, then splat the rest
+/datacenter/vultr-stockholm /reviews/vultr/ 301
+/datacenter/vultr-stockholm/ /reviews/vultr/ 301
+/datacenter/vultr-miami /reviews/vultr/ 301
+/datacenter/vultr-miami/ /reviews/vultr/ 301
+/datacenter/vultr-dubai /reviews/vultr/ 301
+/datacenter/vultr-dubai/ /reviews/vultr/ 301
+/datacenter/vultr-warsaw /reviews/vultr/ 301
+/datacenter/vultr-warsaw/ /reviews/vultr/ 301
+/datacenter/vultr-london /reviews/vultr/ 301
+/datacenter/vultr-london/ /reviews/vultr/ 301
+/datacenter/vultr-new-york /reviews/vultr/ 301
+/datacenter/vultr-new-york/ /reviews/vultr/ 301
+/datacenter/digitalocean-london /reviews/digitalocean/ 301
+/datacenter/digitalocean-london/ /reviews/digitalocean/ 301
+/datacenter/digitalocean-amsterdam /reviews/digitalocean/ 301
+/datacenter/digitalocean-amsterdam/ /reviews/digitalocean/ 301
+/datacenter/google-cloud-montreal-datacenter /reviews/google-cloud/ 301
+/datacenter/google-cloud-montreal-datacenter/ /reviews/google-cloud/ 301
+/datacenter/google-cloud-seoul-asia-northeast3-data-center /reviews/google-cloud/ 301
+/datacenter/google-cloud-seoul-asia-northeast3-data-center/ /reviews/google-cloud/ 301
+/datacenter/google-cloud-mumbai-datacenter /reviews/google-cloud/ 301
+/datacenter/google-cloud-mumbai-datacenter/ /reviews/google-cloud/ 301
+/datacenter/google-cloud-johannesburg-datacenter /reviews/google-cloud/ 301
+/datacenter/google-cloud-johannesburg-datacenter/ /reviews/google-cloud/ 301
+/datacenter/google-cloud-n-virginia-us-east4-data-center /reviews/google-cloud/ 301
+/datacenter/google-cloud-n-virginia-us-east4-data-center/ /reviews/google-cloud/ 301
+/datacenter/google-cloud-los-angeles-datacenter /reviews/google-cloud/ 301
+/datacenter/google-cloud-los-angeles-datacenter/ /reviews/google-cloud/ 301
+/datacenter/google-cloud-sydney-australia-southeast1-data-center /reviews/google-cloud/ 301
+/datacenter/google-cloud-sydney-australia-southeast1-data-center/ /reviews/google-cloud/ 301
+/datacenter/aws-cape-town-af-south-1-data-center /reviews/aws/ 301
+/datacenter/aws-cape-town-af-south-1-data-center/ /reviews/aws/ 301
+/datacenter/aws-stockholm-eu-north-1-data-center /reviews/aws/ 301
+/datacenter/aws-stockholm-eu-north-1-data-center/ /reviews/aws/ 301
+/datacenter/aws-seoul-ap-northeast-2-data-center /reviews/aws/ 301
+/datacenter/aws-seoul-ap-northeast-2-data-center/ /reviews/aws/ 301
+/datacenter/aws-oregon-us-west-2-data-center /reviews/aws/ 301
+/datacenter/aws-oregon-us-west-2-data-center/ /reviews/aws/ 301
+/datacenter/aws-n-virginia-us-east-1-data-center /reviews/aws/ 301
+/datacenter/aws-n-virginia-us-east-1-data-center/ /reviews/aws/ 301
+/datacenter/alibaba-cloud-us-silicon-valley-data-center /reviews/alibaba-cloud-review-2026/ 301
+/datacenter/alibaba-cloud-us-silicon-valley-data-center/ /reviews/alibaba-cloud-review-2026/ 301
+/datacenter/alibaba-cloud-manila-data-center /reviews/alibaba-cloud-review-2026/ 301
+/datacenter/alibaba-cloud-manila-data-center/ /reviews/alibaba-cloud-review-2026/ 301
+/datacenter/alibaba-cloud-us-virginia-data-center /reviews/alibaba-cloud-review-2026/ 301
+/datacenter/alibaba-cloud-us-virginia-data-center/ /reviews/alibaba-cloud-review-2026/ 301
+/datacenter/alibaba-cloud-mexico-data-center /reviews/alibaba-cloud-review-2026/ 301
+/datacenter/alibaba-cloud-mexico-data-center/ /reviews/alibaba-cloud-review-2026/ 301
+/datacenter/alibaba-cloud-germany-frankfurt-data-center /reviews/alibaba-cloud-review-2026/ 301
+/datacenter/alibaba-cloud-germany-frankfurt-data-center/ /reviews/alibaba-cloud-review-2026/ 301
+/datacenter/linode-bangkok /reviews/ 301
+/datacenter/linode-bangkok/ /reviews/ 301
+/datacenter/linode-vancouver /reviews/ 301
+/datacenter/linode-vancouver/ /reviews/ 301
+/datacenter/linode-s-o-paulo /reviews/ 301
+/datacenter/linode-s-o-paulo/ /reviews/ 301
+/datacenter/* /datacenters/ 301
