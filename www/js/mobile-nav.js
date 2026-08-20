@@ -25,10 +25,10 @@
   });
 
   window.addEventListener('resize', function(){
-    if (window.innerWidth > 860) closeMenu();
+    if (window.innerWidth > 1120) closeMenu();
   });
 
   document.addEventListener('click', function(e){
-    if (!header.contains(e.target) && window.innerWidth <= 860) closeMenu();
+    if (!header.contains(e.target) && window.innerWidth <= 1120) closeMenu();
   });
 })();
