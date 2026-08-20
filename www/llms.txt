@@ -1,26 +1,26 @@
 # VPS Comparison
-> Region-first VPS and cloud hosting guides for China-facing, APAC, and cross-border websites.
+> Pick a VPS you can open today. Filter by Singapore, Hong Kong, or China-bound traffic after the shortlist.
 
-## Start here
-- [Best VPS for China-bound traffic](https://www.vpscomparison.com/guides/best-vps-for-china-traffic/)
+## Sign up first
+- [Best cheap VPS 2026](https://www.vpscomparison.com/guides/best-cheap-vps-2026/)
+- [Hostinger VPS review](https://www.vpscomparison.com/reviews/hostinger/)
+- [Vultr vs DigitalOcean](https://www.vpscomparison.com/vs/vultr-vs-digitalocean/)
+- [Vultr review](https://www.vpscomparison.com/reviews/vultr/)
+- [DigitalOcean review](https://www.vpscomparison.com/reviews/digitalocean/)
+
+## Region as a filter
+- [Best Singapore VPS 2026](https://www.vpscomparison.com/guides/best-singapore-vps-2026/)
 - [Best Hong Kong VPS 2026](https://www.vpscomparison.com/guides/best-hong-kong-vps-2026/)
 - [Best Japan VPS 2026](https://www.vpscomparison.com/guides/best-japan-vps-2026/)
-- [Best Singapore VPS 2026](https://www.vpscomparison.com/guides/best-singapore-vps-2026/)
-- [Alibaba Cloud Review 2026](https://www.vpscomparison.com/reviews/alibaba-cloud-review-2026/)
-
-## Comparisons
-- [Alibaba Cloud vs Tencent Cloud](https://www.vpscomparison.com/vs/alibaba-cloud-vs-tencent-cloud/)
-- [Vultr vs DigitalOcean](https://www.vpscomparison.com/vs/vultr-vs-digitalocean/)
+- [Best VPS for China-bound traffic](https://www.vpscomparison.com/guides/best-vps-for-china-traffic/)
 - [CN2 GIA vs Global BGP](https://www.vpscomparison.com/vs/cn2-gia-vs-global-bgp/)
-- [CN2 GIA vs AS9929 vs AS4837](https://www.vpscomparison.com/guides/cn2-gia-vs-as9929-vs-as4837/)
-- [Hong Kong VPS vs Tokyo VPS](https://www.vpscomparison.com/vs/hong-kong-vs-tokyo-vps/)
 
 ## OpenClaw
 - [Best infrastructure for OpenClaw 2026](https://www.vpscomparison.com/openclaw/best-infrastructure-for-openclaw-2026/)
-- [Deploy OpenClaw on Alibaba Cloud](https://www.vpscomparison.com/openclaw/deploy-openclaw-on-alibaba-cloud/)
+- [Hostinger VPS for OpenClaw](https://www.vpscomparison.com/openclaw/hostinger-vps-for-openclaw-deployment/)
 - [Deploy OpenClaw on Vultr](https://www.vpscomparison.com/openclaw/vultr-openclaw-2026-deployment-guide/)
 
 ## Methodology
-- Region first, then provider, then plan.
-- Conclusion first, then trade-offs.
-- Some outbound links may be affiliate links.
+- Checkout path first: Hostinger, Vultr, DigitalOcean, Hetzner.
+- Region second: Singapore, Hong Kong, Tokyo, China-bound routing.
+- Some outbound links are affiliate links.
