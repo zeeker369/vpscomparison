@@ -1,0 +1,23 @@
+Cloudflare Pages 部署设置（vpscomparison.com）
+
+线上站是英文静态页，仓库里的 Hugo 源码仍是中文。Pages 必须发布 www/，不要用 Hugo 预设。
+
+1. Cloudflare Dashboard → Workers & Pages → Create → Pages → Connect to Git
+2. 仓库：zeeker369/vpscomparison
+3. 设置：
+   - Framework preset: None
+   - Build command: 留空
+   - Build output directory: www
+   - Production branch: main
+4. Save and Deploy，打开 *.pages.dev 确认是英文首页
+5. Custom domains 添加：
+   - www.vpscomparison.com
+   - vpscomparison.com
+6. DNS 仍在 GoDaddy 时，只改记录：
+   - www CNAME → Cloudflare 显示的 *.pages.dev
+   - 根域名继续转发到 www，或按 Cloudflare 给出的 A/AAAA 填写
+7. 先不要关阿里云 OSS。www 打开正常几天后，再解绑 OSS 自定义域名，最后再删 Bucket
+
+注意：
+- 不要提交 public/
+- 不要把 Framework 选成 Hugo

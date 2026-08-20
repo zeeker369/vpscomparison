@@ -1,13 +1,14 @@
 # vpscomparison
 
-中文 Hugo 站，对应 https://www.vpscomparison.com/
+Production site for https://www.vpscomparison.com/
 
-Cloudflare Pages 构建：
+The live English pages (Aliyun OSS snapshot, May 2026) are in `www/`. Cloudflare Pages should deploy that folder as-is. Do not use the Hugo preset, or the Chinese source in `content/` will replace the English site.
 
-- Framework preset: Hugo
-- Build command: `hugo --minify --cleanDestinationDir`
-- Build output directory: `public`
+## Cloudflare Pages
+
+- Framework preset: None
+- Build command: leave empty
+- Build output directory: `www`
 - Production branch: `main`
-- Environment variable: `HUGO_VERSION=0.125.4`
 
-绑定域名：`vpscomparison.com` 和 `www.vpscomparison.com`。
+Bind `www.vpscomparison.com` and `vpscomparison.com` after the first green deploy. Keep the Aliyun OSS bucket until DNS has been on Cloudflare for a few days.

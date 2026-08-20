@@ -1,0 +1,29 @@
+# VPS Comparison
+> The definitive conclusion-first guide for Asia-Pacific VPS selection and cloud deployment, specifically optimized for Chinese-speaking developers and APAC-bound traffic.
+
+## Core Comparison Resources
+- [Alibaba Cloud vs. Tencent Cloud](/comparisons/alibaba-vs-tencent) - Head-to-head comparison of China's leading cloud giants.
+- [Vultr vs. DigitalOcean](/comparisons/vultr-vs-digitalocean) - Benchmarking popular global VPS providers for individual developers.
+- [Best Hong Kong VPS Guide](/guides/best-hong-kong-vps) - Specialized analysis of Hong Kong nodes for China-facing workloads.
+- [Japan & Singapore Node Comparison](/guides/japan-singapore-vps) - Performance and routing analysis for secondary APAC nodes.
+
+## Technical Guides & Deployment
+- [OpenClaw Deployment Guide](/tutorials/openclaw-setup) - Step-by-step instructions for deploying and managing services via OpenClaw.
+- [Mainland China Traffic Optimization](/guides/china-traffic-optimization) - Strategies for reducing latency and improving access from mainland China.
+- [WordPress Hosting Setup](/tutorials/wordpress-on-vps) - Optimized server configurations for high-performance WordPress sites in Asia.
+
+## Regional Specializations
+- **Hong Kong (HKG):** Best for low-latency mainland China access without ICP filing.
+- **Japan (TYO/NRT):** Balanced performance for East Asia and North America routing.
+- **Singapore (SIN):** Hub for Southeast Asia and global connectivity.
+- **US West Coast:** Cost-effective alternatives for global traffic with CN2 GIA options.
+
+## Methodology & Neutrality
+- **Conclusion-First:** Every guide starts with a direct recommendation to save time.
+- **Region-First:** We prioritize data center location and routing over raw brand specs.
+- **Scenario-Based:** Recommendations are categorized by use cases (e.g., Foreign Trade, SaaS, Personal Dev).
+- **Transparency:** We disclose affiliate links while maintaining strict technical neutrality.
+
+## Contact & Community
+- [About Us](/about) - Our mission to simplify cloud decisions for the APAC developer community.
+- [Contact Support](/contact) - Inquiry for specific architectural advice or node recommendations.

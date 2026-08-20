@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deploy OpenClaw on Tencent Cloud: The Zero-Cost AI Infrastructure Guide (2026 Edition) | VPS Comparison</title>
+<meta name="description" content="Deploy OpenClaw on Tencent Cloud Lighthouse with Hong Kong or Singapore nodes, 3-month free trial strategy, referral-credit model, OpenClaw 2026.4.26 setup steps, and APAC voice AI guidance.">
+<link rel="canonical" href="http://localhost:1313/openclaw/deploy-openclaw-on-tencent-cloud/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deploy OpenClaw on Tencent Cloud: The Zero-Cost AI Infrastructure Guide (2026 Edition) | VPS Comparison">
+<meta property="og:description" content="Deploy OpenClaw on Tencent Cloud Lighthouse with Hong Kong or Singapore nodes, 3-month free trial strategy, referral-credit model, OpenClaw 2026.4.26 setup steps, and APAC voice AI guidance.">
+<meta property="og:url" content="http://localhost:1313/openclaw/deploy-openclaw-on-tencent-cloud/">
+<meta property="og:site_name" content="VPS Comparison">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+  <div class="container header-row">
+    <a class="brand" href="/">
+      <span class="brand-mark">V</span>
+      <span>
+        <strong>VPS Comparison</strong>
+        <small>Cloud hosting reviews, comparisons, and region-first buying guides for China-facing and APAC website projects</small>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <div class="nav-shell">
+      <nav class="nav" id="siteNav" aria-label="Primary navigation">
+        <a href="/reviews/">Provider Reviews</a>
+        <a href="/datacenters/">Data Centers</a>
+        <a href="/vs/">Comparisons</a>
+        <a href="/guides/">Buying Guides</a>
+        <a href="/openclaw/">OpenClaw</a>
+        <a href="/china-traffic/">China Traffic</a>
+        <a href="/use-cases/">Use Cases</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </div>
+</header>
+  <main>
+    
+<section class="page-hero page-hero--article">
+  <div class="container article-hero-copy">
+    <nav class="breadcrumb"><a href="/">Home</a> <span>/</span> <a href="/openclaw/">OpenClaw Deployment Guides</a> <span>/</span> <span>Deploy OpenClaw on Tencent Cloud: The Zero-Cost AI Infrastructure Guide (2026 Edition)</span></nav>
+    <div class="article-head-single">
+      <div class="eyebrow">guide</div>
+      <h1>Deploy OpenClaw on Tencent Cloud: The Zero-Cost AI Infrastructure Guide (2026 Edition)</h1>
+      <p class="lead">Tencent Cloud Lighthouse creates a genuine zero-cost entry path for OpenClaw in 2026 by combining a 3-month free trial with referral credits for follow-on usage.</p>
+      <div class="meta-row meta-row--hero">
+        <span>Provider: Tencent Cloud</span>
+        
+        
+        <span>Intent score: 98</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container article-layout article-layout--refined">
+  <article class="article-card">
+    <div class="article-body prose">
+      
+      
+
+      <h1 id="deploy-openclaw-on-tencent-cloud-the-zero-cost-ai-infrastructure-guide-2026-edition">Deploy OpenClaw on Tencent Cloud: The Zero-Cost AI Infrastructure Guide (2026 Edition)</h1>
+<hr>
+<h2 id="what-this-guide-covers">What This Guide Covers</h2>
+<p>This is Part 6 of the VPS Comparison OpenClaw multi-cloud deployment series. Previous parts covered AWS, Vultr, DigitalOcean, Hetzner, and Alibaba Cloud. This one focuses on Tencent Cloud — specifically the Lighthouse (Lightweight Application Server) product — and how to run OpenClaw for a genuine $0 by combining the 3-month free trial with the platform&rsquo;s referral credit program.</p>
+<p>If you&rsquo;re an APAC developer who wants to experiment with OpenClaw&rsquo;s voice AI features without spending anything upfront, this guide is for you.</p>
+<hr>
+<h2 id="what-is-openclaw-and-whats-new-in-2026426">What Is OpenClaw and What&rsquo;s New in 2026.4.26</h2>
+<p>OpenClaw is an open-source AI infrastructure framework for developers who want to self-host LLM pipelines, voice agents, and API-accessible AI endpoints on standard cloud VPS instances. It&rsquo;s cloud-agnostic, light on idle resources, and configured through a single YAML file.</p>
+<p>The <strong>2026.4.26 release</strong> is the most significant update the project has shipped. The headline additions:</p>
+<ul>
+<li><strong>Real-time voice AI endpoints</strong> — OpenClaw now includes a built-in WebSocket voice server that handles speech-to-text, LLM inference routing, and text-to-speech in one pipeline. Round-trip latency from APAC matters here, which is part of why Tencent Cloud&rsquo;s Hong Kong and Singapore nodes are worth a look.</li>
+<li><strong>Multi-model routing</strong> — Route requests across different model providers — local or API-based — based on cost, latency, or task type.</li>
+<li><strong>Persistent session memory</strong> — Voice sessions retain context across turns without needing an external vector database for short-to-medium sessions.</li>
+<li><strong>Reduced base RAM requirement</strong> — Minimum RAM dropped from 2 GB to 1 GB, which directly changes which Lighthouse plan you need.</li>
+</ul>
+<p>That last point matters more than it might seem. It means the entry-level Lighthouse plan is now a legitimate option for solo developers testing the voice AI features — not just a compromise.</p>
+<hr>
+<h2 id="why-tencent-cloud-lighthouse-for-openclaw">Why Tencent Cloud Lighthouse for OpenClaw</h2>
+<p>Tencent Cloud Lighthouse is a simplified VPS product aimed at developers and small teams. It sits below the full CVM tier in configuration flexibility, but it&rsquo;s considerably easier to set up, comes with a built-in firewall UI, and uses a fixed monthly traffic quota instead of per-GB billing that can surprise you at the end of the month.</p>
+<p>For OpenClaw specifically, Lighthouse makes sense for three reasons:</p>
+<ol>
+<li><strong>APAC routing quality</strong> — Tencent&rsquo;s Hong Kong and Singapore nodes have well-documented low latency to mainland China and Southeast Asia. For voice AI, where round-trip latency directly affects perceived quality, that&rsquo;s not a minor detail.</li>
+<li><strong>Predictable pricing</strong> — Lighthouse bundles compute, bandwidth, and storage into a flat monthly fee. You know the cost ceiling before you start.</li>
+<li><strong>The free entry point</strong> — Tencent Cloud offers a 3-month free trial for new accounts on Lighthouse — the longest free trial of any major APAC cloud provider for a general-purpose VPS product in 2026.</li>
+</ol>
+<h3 id="the-3-month-free-trial-explained">The 3-Month Free Trial Explained</h3>
+<p>New Tencent Cloud accounts qualify for a 3-month free trial on select Lighthouse configurations. As of April 2026, the trial covers the 2-core / 2 GB RAM / 60 GB SSD plan across several regions, including Hong Kong, Singapore, and Silicon Valley.</p>
+<p>That plan is enough to run OpenClaw 2026.4.26 with voice AI enabled and handle a small number of concurrent sessions. This isn&rsquo;t a degraded sandbox — it&rsquo;s a real, production-grade instance at $0 for three months.</p>
+<p>A valid credit card is required for verification, but Tencent Cloud won&rsquo;t charge it during the trial unless you manually upgrade or exceed the included quotas.</p>
+<h3 id="the-invite--earn-credit-system">The Invite &amp; Earn Credit System</h3>
+<p>After the trial, the 2-core / 2 GB Lighthouse plan runs roughly $5–$8 per month depending on region and active promotions. That&rsquo;s a real cost if the project isn&rsquo;t generating revenue yet.</p>
+<p>Tencent Cloud&rsquo;s <strong>Invite &amp; Earn</strong> program lets you offset it. When someone signs up using your referral link and makes a qualifying purchase, you receive account credits. The amounts vary by promotion cycle, but in practice a small number of successful referrals can cover several months of Lighthouse costs.</p>
+<p>This isn&rsquo;t theoretical. Developers in the APAC open-source community have documented sustaining small VPS instances entirely through referral credits by sharing setup guides that include their referral link. If you&rsquo;re writing about your OpenClaw deployment anyway — which you probably are if you&rsquo;re reading this — attaching your referral link is a natural fit.</p>
+<hr>
+<h2 id="choosing-the-right-lighthouse-plan">Choosing the Right Lighthouse Plan</h2>
+<p>Based on OpenClaw 2026.4.26&rsquo;s requirements:</p>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Recommended Plan</th>
+<th>Monthly Cost (approx.)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solo dev, testing voice AI</td>
+<td>2-core / 2 GB / 60 GB SSD</td>
+<td>$0 (trial) then ~$6</td>
+</tr>
+<tr>
+<td>Small team, 3–5 concurrent users</td>
+<td>2-core / 4 GB / 80 GB SSD</td>
+<td>~$12</td>
+</tr>
+<tr>
+<td>Production voice agent, higher load</td>
+<td>4-core / 8 GB / 100 GB SSD</td>
+<td>~$24</td>
+</tr>
+</tbody>
+</table>
+<p>Start with the 2 GB plan during the trial. If you hit memory pressure running the voice pipeline alongside the LLM routing layer, upgrade before the trial ends — you&rsquo;ll have three months of real usage data to make that call confidently.</p>
+<hr>
+<h2 id="step-by-step-deploying-openclaw-on-lighthouse">Step-by-Step: Deploying OpenClaw on Lighthouse</h2>
+<p><strong>1. Create your Tencent Cloud account</strong><br>
+Sign up at cloud.tencent.com. If you are following Tencent Cloud&rsquo;s OpenClaw campaign flow, start here: <a href="https://www.tencentcloud.com/act/pro/intl-openclaw">Tencent Cloud OpenClaw Campaign</a>.</p>
+<p><strong>2. Activate the Lighthouse free trial</strong><br>
+Go to Lighthouse in the console. Select the 2-core / 2 GB plan, choose your region (Hong Kong is the best default for APAC latency), and activate the trial. No charge until it ends.</p>
+<p><strong>3. Select your OS image</strong><br>
+Choose Ubuntu 22.04 LTS. OpenClaw&rsquo;s install script is tested against Ubuntu 22.04 and Debian 11, and Ubuntu 22.04 has better community support for the voice AI dependencies.</p>
+<p><strong>4. Configure the firewall</strong><br>
+In the Lighthouse console, open ports 22 (SSH), 80, 443, and 8765 (OpenClaw&rsquo;s default WebSocket voice port). The Lighthouse firewall UI is straightforward — no CLI needed at this stage.</p>
+<p><strong>5. SSH in and install OpenClaw</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh ubuntu@YOUR_INSTANCE_IP
+</span></span><span style="display:flex;"><span>curl -fsSL https://install.openclaw.dev | bash
+</span></span></code></pre></div><p>The installer detects your available RAM and configures the voice AI pipeline accordingly. On a 2 GB instance, it sets conservative concurrency limits automatically.</p>
+<p><strong>6. Configure your YAML</strong><br>
+Edit <code>/etc/openclaw/config.yaml</code> to set your model routing preferences, voice pipeline settings, and any API keys for external model providers. The 2026.4.26 docs cover this in detail at the OpenClaw project repository.</p>
+<p><strong>7. Start the service</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable openclaw
+</span></span><span style="display:flex;"><span>sudo systemctl start openclaw
+</span></span></code></pre></div><p>Check status with <code>sudo systemctl status openclaw</code>. Once running, the voice WebSocket endpoint will be available at <code>ws://YOUR_IP:8765</code>.</p>
+<p><strong>8. Point a domain and enable HTTPS</strong><br>
+Use Certbot with Let&rsquo;s Encrypt for a free TLS certificate. The voice AI features require WSS (secure WebSocket) for browser-based clients.</p>
+<hr>
+<h2 id="keeping-it-free-the-referral-strategy">Keeping It Free: The Referral Strategy</h2>
+<p>The math is straightforward. If the Lighthouse plan costs $6/month after the trial and each successful referral earns $10 in credits, you need roughly one referral every six weeks to keep the server running at no cost.</p>
+<p>Share your OpenClaw deployment writeup — even a short one — with your Tencent Cloud campaign link (<a href="https://www.tencentcloud.com/act/pro/intl-openclaw">Tencent Cloud OpenClaw Campaign</a>) in developer communities, GitHub discussions, or your own blog. Developers looking to replicate your setup are already motivated to sign up. You&rsquo;re not cold-selling anything; you&rsquo;re sharing something you built.</p>
+<p>The approach works best when the content is specific. A generic &ldquo;here&rsquo;s how to get a free VPS&rdquo; post gets ignored. A detailed breakdown of your OpenClaw voice AI latency results from a Hong Kong Lighthouse node gets bookmarked.</p>
+<p>For context on how Tencent Cloud stacks up against other APAC providers for this kind of workload, see the provider comparisons at <a href="https://vpscomparison.com">vpscomparison.com</a>.</p>
+<hr>
+<h2 id="limitations-to-know-before-you-start">Limitations to Know Before You Start</h2>
+<ul>
+<li><strong>Trial is for new accounts only.</strong> Existing Tencent Cloud accounts don&rsquo;t qualify.</li>
+<li><strong>The 2 GB plan has real concurrency limits.</strong> OpenClaw&rsquo;s voice pipeline is memory-intensive under load. Expect to handle 2–3 concurrent voice sessions comfortably, not 20.</li>
+<li><strong>Referral credits expire.</strong> Check the terms on each credit batch — they typically expire within 6 months of issuance.</li>
+<li><strong>Hong Kong nodes and ICP compliance.</strong> If you&rsquo;re serving mainland China users directly, review ICP licensing requirements. For most developers running personal or team-internal tools, this won&rsquo;t be an issue.</li>
+<li><strong>Lighthouse has fewer configuration options than CVM.</strong> If you need custom kernel parameters, specific network configurations, or GPU instances, you&rsquo;ll eventually need to migrate to CVM.</li>
+</ul>
+<hr>
+<h2 id="faqs">FAQs</h2>
+<p><strong>Q: Is the Tencent Cloud Lighthouse free trial actually free, or are there hidden charges?</strong><br>
+The trial is free for the included plan configuration. Tencent Cloud requires a credit card for verification but won&rsquo;t charge it during the trial period. Charges only begin if you upgrade your plan, add additional services, or exceed the included bandwidth quota.</p>
+<p><strong>Q: Can OpenClaw 2026.4.26 run on 1 GB RAM?</strong><br>
+The 2026.4.26 release reduced the minimum RAM requirement to 1 GB, but that applies to basic API routing only. The voice AI pipeline with real-time WebSocket support needs at least 2 GB in practice. The 1 GB minimum is for headless, non-voice deployments.</p>
+<p><strong>Q: Which Tencent Cloud region is best for APAC voice AI latency?</strong><br>
+Hong Kong is the best default if you&rsquo;re targeting mainland China and Southeast Asia simultaneously. Singapore is the better choice if your primary audience is Southeast Asia without a China focus. Both regions are covered by the Lighthouse free trial.</p>
+<p><strong>Q: How many referrals do I realistically need to sustain the server for free?</strong><br>
+At roughly $6/month for the base Lighthouse plan and approximately $10 per qualifying referral credit, you need one successful referral every six weeks or so. Credit amounts vary by promotion cycle, so check the current Invite &amp; Earn terms in your Tencent Cloud console.</p>
+<p><strong>Q: Can I migrate from Lighthouse to a full CVM instance later without reinstalling OpenClaw?</strong><br>
+You can snapshot your Lighthouse instance and use that image as a base for a CVM deployment, but the process isn&rsquo;t fully automated. Budget roughly an hour for the migration. OpenClaw&rsquo;s config files are portable, so the configuration itself transfers cleanly.</p>
+<p><strong>Q: Is OpenClaw suitable for production voice AI workloads, or just development?</strong><br>
+OpenClaw 2026.4.26 is production-capable for low-to-medium concurrency. For high-concurrency deployments — 20+ simultaneous voice sessions — you&rsquo;ll need a larger instance and likely a load-balanced multi-node setup.</p>
+<p><strong>Q: Where can I compare Tencent Cloud Lighthouse against other APAC VPS options?</strong><br>
+<a href="https://vpscomparison.com">vpscomparison.com</a> covers Tencent Cloud, Alibaba Cloud, Vultr, DigitalOcean, and Hetzner with APAC-specific performance data and pricing comparisons.</p>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>Tencent Cloud&rsquo;s 3-month Lighthouse trial combined with the available campaign flow creates a genuine low-cost path to running OpenClaw 2026.4.26 — not a stripped-down demo, but a real instance with enough resources to run the voice AI pipeline and test it with actual users.</p>
+<p>Start with the Hong Kong region, use the 2 GB plan, and document your setup as you go. That documentation can later become the content that drives future credits or conversions once Tencent opens a broader affiliate path.</p>
+<p>If you want to start from Tencent&rsquo;s current OpenClaw campaign page, use this link: <a href="https://www.tencentcloud.com/act/pro/intl-openclaw">https://www.tencentcloud.com/act/pro/intl-openclaw</a></p>
+<p>For provider comparisons and APAC performance benchmarks, visit <a href="https://vpscomparison.com">vpscomparison.com</a> before committing to a long-term plan.</p>
+
+    </div>
+  </article>
+
+  <aside class="article-sidebar">
+    <div class="sticky-stack">
+      <section class="decision-card decision-card--sidebar">
+        <h3>Quick decision</h3>
+        <ul>
+          
+          
+          <li><strong>Recommended reading order:</strong> conclusion first, then trade-offs, then practical fit.</li>
+          
+        </ul>
+      </section>
+
+      
+
+
+
+      <section class="toc-card">
+        <div class="sticky-box sticky-box--plain">
+          <h3>Contents</h3>
+          
+            <div class="toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-this-guide-covers">What This Guide Covers</a></li>
+    <li><a href="#what-is-openclaw-and-whats-new-in-2026426">What Is OpenClaw and What&rsquo;s New in 2026.4.26</a></li>
+    <li><a href="#why-tencent-cloud-lighthouse-for-openclaw">Why Tencent Cloud Lighthouse for OpenClaw</a>
+      <ul>
+        <li><a href="#the-3-month-free-trial-explained">The 3-Month Free Trial Explained</a></li>
+        <li><a href="#the-invite--earn-credit-system">The Invite &amp; Earn Credit System</a></li>
+      </ul>
+    </li>
+    <li><a href="#choosing-the-right-lighthouse-plan">Choosing the Right Lighthouse Plan</a></li>
+    <li><a href="#step-by-step-deploying-openclaw-on-lighthouse">Step-by-Step: Deploying OpenClaw on Lighthouse</a></li>
+    <li><a href="#keeping-it-free-the-referral-strategy">Keeping It Free: The Referral Strategy</a></li>
+    <li><a href="#limitations-to-know-before-you-start">Limitations to Know Before You Start</a></li>
+    <li><a href="#faqs">FAQs</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+          
+          <div class="side-links">
+            <a class="btn btn-primary btn-block" href="/guides/best-vps-for-china-traffic/">Continue reading</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </aside>
+</section>
+
+
+
+
+<section class="container related-section">
+  <div class="section-head">
+    <h2>Related articles</h2>
+    <a href="/openclaw/">Back to section</a>
+  </div>
+  <div class="cards-grid">
+    
+      <article class="card card--article">
+        <h3><a href="/openclaw/best-infrastructure-for-openclaw-2026/">Best Infrastructure for OpenClaw 2026: Vultr vs. Hetzner vs. Hostinger Engineering Comparison</a></h3>
+        <p>Deploying OpenClaw in 2026 and need a fast answer: Hetzner for European compute-per-dollar, Vultr KUL for Southeast Asia and Malaysia latency, and Hostinger KVM for beginners or budget-constrained teams.</p>
+      </article>
+    
+      <article class="card card--article">
+        <h3><a href="/openclaw/hostinger-vps-for-openclaw-deployment/">Building Your First AI Agent: A Cost-Effective Guide to OpenClaw on Hostinger KVM</a></h3>
+        <p>Hostinger is the strongest entry-level option for OpenClaw beginners — but if you need mature API access or precise US/EU regional coverage, DigitalOcean and Vultr are harder to argue against.</p>
+      </article>
+    
+      <article class="card card--article">
+        <h3><a href="/openclaw/deploy-openclaw-on-alibaba-cloud/">Deploy OpenClaw on Alibaba Cloud: APAC Engineering Guide (2026 Edition)</a></h3>
+        <p>Alibaba Cloud is the strongest choice for APAC OpenClaw deployments in 2026, with Singapore and Kuala Lumpur nodes, 200Mbps bandwidth on qualifying instances, and bundled AI token allowances for Qwen-based inference.</p>
+      </article>
+    
+  </div>
+</section>
+
+
+  </main>
+  <footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>VPS Comparison</h3>
+      <p>Provider reviews, data center guides, comparisons, and deployment advice for websites that care about China access, APAC traffic, and practical long-term hosting decisions.</p>
+    </div>
+    <div>
+      <h3>Sections</h3>
+      <ul>
+        <li><a href="/reviews/">Provider Reviews</a></li>
+        <li><a href="/datacenters/">Data Centers</a></li>
+        <li><a href="/vs/">Comparisons</a></li>
+        <li><a href="/guides/">Buying Guides</a></li>
+        <li><a href="/china-traffic/">China Traffic</a></li>
+        <li><a href="/use-cases/">Use Cases</a></li>
+        <li><a href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Notice</h3>
+      <p>This site publishes reviews and buying guides. Some outbound links may be affiliate links.</p>
+    </div>
+  </div>
+</footer>
+
+  <script src="/js/mobile-nav.js"></script>
+</body>
+</html>

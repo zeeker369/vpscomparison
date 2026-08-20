@@ -5,16 +5,18 @@ defaultContentLanguage = "zh"
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
 summaryLength = 160
-paginate = 12
+
+[pagination]
+  pagerSize = 12
 
 [permalinks]
-  reviews = "/reviews/:slugorfilename/"
-  datacenters = "/datacenters/:slugorfilename/"
-  vs = "/vs/:slugorfilename/"
-  guides = "/guides/:slugorfilename/"
-  "china-traffic" = "/china-traffic/:slugorfilename/"
-  "use-cases" = "/use-cases/:slugorfilename/"
-  blog = "/blog/:slugorfilename/"
+  reviews = "/reviews/:slugorcontentbasename/"
+  datacenters = "/datacenters/:slugorcontentbasename/"
+  vs = "/vs/:slugorcontentbasename/"
+  guides = "/guides/:slugorcontentbasename/"
+  "china-traffic" = "/china-traffic/:slugorcontentbasename/"
+  "use-cases" = "/use-cases/:slugorcontentbasename/"
+  blog = "/blog/:slugorcontentbasename/"
 
 [params]
   siteTagline = "面向内地访问与亚太业务的云服务器评测、对比与节点选购指南"
