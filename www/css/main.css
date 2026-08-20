@@ -498,6 +498,22 @@ img{max-width:100%;height:auto}
   color: var(--brand-2);
 }
 
+.prose a.btn{
+  text-decoration:none;
+}
+
+.prose a.btn-primary,
+.prose a.btn-primary:hover,
+.prose a.btn-primary:visited{
+  color:#fff;
+}
+
+.prose a.btn-secondary,
+.prose a.btn-secondary:hover,
+.prose a.btn-secondary:visited{
+  color:#0f172a;
+}
+
 /* ===== Mobile-first refinements ===== */
 body{
   overflow-x:hidden;
