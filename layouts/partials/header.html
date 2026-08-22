@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="site-header" id="siteHeader">
   <div class="container header-row">
     <a class="brand" href="{{ "/" | relURL }}">
       <span class="brand-mark">V</span>
@@ -7,14 +7,15 @@
         <small>{{ .Site.Params.siteTagline }}</small>
       </span>
     </a>
-    <nav class="nav" aria-label="主导航">
-      <a href="{{ "/reviews/" | relURL }}">云厂商评测</a>
-      <a href="{{ "/datacenters/" | relURL }}">节点机房</a>
-      <a href="{{ "/vs/" | relURL }}">对比测评</a>
-      <a href="{{ "/guides/" | relURL }}">选购指南</a>
-      <a href="{{ "/china-traffic/" | relURL }}">流量专题</a>
-      <a href="{{ "/use-cases/" | relURL }}">建站场景</a>
-      <a href="{{ "/blog/" | relURL }}">最新文章</a>
-    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <div class="nav-shell">
+      <nav class="nav" id="siteNav" aria-label="Primary navigation">
+        <a href="{{ "/guides/best-cheap-vps-2026/" | relURL }}">Cheap VPS</a>
+        <a href="{{ "/reviews/hostinger/" | relURL }}">Hostinger</a>
+        <a href="{{ "/reviews/vultr/" | relURL }}">Vultr</a>
+        <a href="{{ "/reviews/digitalocean/" | relURL }}">DigitalOcean</a>
+        <a href="{{ "/use-cases/wordpress-hosting/" | relURL }}">WordPress</a>
+      </nav>
+    </div>
   </div>
 </header>
