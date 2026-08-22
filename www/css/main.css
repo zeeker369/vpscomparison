@@ -949,6 +949,14 @@ h1,h2,h3,p,li,a,span,strong,small{
 .home-hero .lead{
   margin-bottom:0;
 }
+.home-picks-kicker{
+  margin:0 0 12px;
+  color:#334155;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+}
 .home-picks,
 .home-picks--row{
   display:grid;
@@ -979,19 +987,19 @@ h1,h2,h3,p,li,a,span,strong,small{
   line-height:1.2;
 }
 .home-pick-price{
-  margin:0 0 14px;
+  margin:0;
   color:#0f172a;
-  font-size:28px;
+  font-size:32px;
   font-weight:700;
-  letter-spacing:-0.03em;
-  line-height:1.1;
+  letter-spacing:-0.04em;
+  line-height:1;
 }
-.home-pick-price span{
-  margin-left:6px;
+.home-pick-unit{
+  margin:8px 0 14px;
   color:#64748b;
   font-size:13px;
   font-weight:600;
-  letter-spacing:0;
+  line-height:1.3;
 }
 .home-pick-specs{
   display:grid;
