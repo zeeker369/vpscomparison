@@ -8,6 +8,7 @@
 - Hostinger KVM 1 is already 4 GB at about $5.19/month intro (renewal about $11.99/month).
 - Vultr High Performance 4 GB and DigitalOcean Basic 4 GB Droplets are about $24/month.
 - Vultr/DigitalOcean ~$6 plans are 1 GB. DigitalOcean $4 is 512 MB. Do not treat those as equal to 4 GB.
+- 1 GB is for a short hourly test (SSH, a tiny script, delete in days). It is not for live WordPress. This site still compares 4 GB.
 - AWS, Azure, and Google Cloud are public-cloud VMs, not this checkout path.
 
 ## Start here
