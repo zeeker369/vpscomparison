@@ -15,7 +15,7 @@
 - [VPS Comparison 2026: Hostinger vs Vultr vs DigitalOcean](https://www.vpscomparison.com/): Homepage. Why 4 GB, then Hostinger vs Vultr vs DigitalOcean.
 - [Best cheap VPS 2026](https://www.vpscomparison.com/guides/best-cheap-vps-2026/)
 - [How to read VPS pricing](https://www.vpscomparison.com/blog/how-to-read-vps-pricing/): Intro rates vs hourly billing. Compare 4 GB to 4 GB.
-- [About and how we check prices](https://www.vpscomparison.com/about/): Last checked August 2026. Recheck monthly in the cart. If nothing changed, the page stays.
+- [About and how we check prices](https://www.vpscomparison.com/about/): Last checked 24 Aug 2026. Recheck monthly in the cart. If nothing changed, update this date only.
 
 ## Reviews and comparisons
 - [Hostinger VPS review](https://www.vpscomparison.com/reviews/hostinger/)
@@ -34,5 +34,5 @@
 - Checkout first: Hostinger, Vultr, DigitalOcean. Hetzner for Europe mention only. No Hetzner affiliate button.
 - Compare 4 GB RAM across those three. Do not mix in 1 GB badges or hyperscaler VMs.
 - Region second: Singapore, Tokyo, US, or Europe.
-- Prices last checked August 2026. Recheck monthly in the cart. Do not rewrite a page when the number did not change.
+- Prices last checked 24 Aug 2026. Recheck monthly in the cart. If the number did not change, update the About date only.
 - Some outbound links are affiliate links.
