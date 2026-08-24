@@ -2,4 +2,11 @@
 title: 内地流量专题
 description: 围绕中国大陆访问体验做节点和部署建议。
 summary: 围绕中国大陆访问体验做节点和部署建议。
+cascade:
+  _build:
+    render: never
+    list: never
+_build:
+  render: never
+  list: never
 ---

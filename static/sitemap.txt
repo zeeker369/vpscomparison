@@ -5,6 +5,7 @@ https://www.vpscomparison.com/reviews/vultr/
 https://www.vpscomparison.com/reviews/digitalocean/
 https://www.vpscomparison.com/use-cases/wordpress-hosting/
 https://www.vpscomparison.com/vs/vultr-vs-digitalocean/
+https://www.vpscomparison.com/about/
 https://www.vpscomparison.com/guides/
 https://www.vpscomparison.com/reviews/
 https://www.vpscomparison.com/guides/best-singapore-vps-2026/
@@ -14,9 +15,3 @@ https://www.vpscomparison.com/use-cases/top-wordpress-hosting-providers-2026/
 https://www.vpscomparison.com/blog/how-to-read-vps-pricing/
 https://www.vpscomparison.com/vs/
 https://www.vpscomparison.com/use-cases/
-https://www.vpscomparison.com/openclaw/
-https://www.vpscomparison.com/openclaw/hostinger-vps-for-openclaw-deployment/
-https://www.vpscomparison.com/openclaw/vultr-openclaw-2026-deployment-guide/
-https://www.vpscomparison.com/openclaw/deploy-openclaw-on-digitalocean-performance-guide/
-https://www.vpscomparison.com/openclaw/best-infrastructure-for-openclaw-2026/
-https://www.vpscomparison.com/openclaw/deploying-openclaw-on-hetzner-cloud/

@@ -15,6 +15,7 @@
 - [VPS Comparison 2026: Hostinger vs Vultr vs DigitalOcean](https://www.vpscomparison.com/): Homepage. Why 4 GB, then Hostinger vs Vultr vs DigitalOcean.
 - [Best cheap VPS 2026](https://www.vpscomparison.com/guides/best-cheap-vps-2026/)
 - [How to read VPS pricing](https://www.vpscomparison.com/blog/how-to-read-vps-pricing/): Intro rates vs hourly billing. Compare 4 GB to 4 GB.
+- [About and how we check prices](https://www.vpscomparison.com/about/): Last checked August 2026. Recheck monthly in the cart. If nothing changed, the page stays.
 
 ## Reviews and comparisons
 - [Hostinger VPS review](https://www.vpscomparison.com/reviews/hostinger/)
@@ -28,16 +29,10 @@
 - [Best Singapore VPS 2026](https://www.vpscomparison.com/guides/best-singapore-vps-2026/)
 - [Best Japan VPS 2026](https://www.vpscomparison.com/guides/best-japan-vps-2026/)
 - [DigitalOcean Singapore](https://www.vpscomparison.com/reviews/digitalocean-singapore/)
-- [Deploy OpenClaw on Hetzner](https://www.vpscomparison.com/openclaw/deploying-openclaw-on-hetzner-cloud/): Europe filter.
-
-## OpenClaw
-- [Best infrastructure for OpenClaw 2026](https://www.vpscomparison.com/openclaw/best-infrastructure-for-openclaw-2026/)
-- [Hostinger VPS for OpenClaw](https://www.vpscomparison.com/openclaw/hostinger-vps-for-openclaw-deployment/)
-- [Deploy OpenClaw on Vultr](https://www.vpscomparison.com/openclaw/vultr-openclaw-2026-deployment-guide/)
-- [Deploy OpenClaw on DigitalOcean](https://www.vpscomparison.com/openclaw/deploy-openclaw-on-digitalocean-performance-guide/)
 
 ## Methodology
-- Checkout first: Hostinger, Vultr, DigitalOcean. Hetzner for Europe mention only.
+- Checkout first: Hostinger, Vultr, DigitalOcean. Hetzner for Europe mention only. No Hetzner affiliate button.
 - Compare 4 GB RAM across those three. Do not mix in 1 GB badges or hyperscaler VMs.
 - Region second: Singapore, Tokyo, US, or Europe.
+- Prices last checked August 2026. Recheck monthly in the cart. Do not rewrite a page when the number did not change.
 - Some outbound links are affiliate links.

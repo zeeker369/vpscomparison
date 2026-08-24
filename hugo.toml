@@ -23,8 +23,8 @@ summaryLength = 160
   siteDescription = "围绕云厂商评测、机房节点、对比测评、建站部署与内地访问场景，帮助你更快做出云服务器选型决策。"
   brand = "VPS Comparison"
   icpNotice = "本站为评测与导购站点，部分外链可能为联盟链接。"
-  featuredCTA = "/guides/best-vps-for-china-traffic/"
-  featuredGuide = "/guides/best-cloud-server-for-website/"
+  featuredCTA = "/guides/best-cheap-vps-2026/"
+  featuredGuide = "/guides/best-cheap-vps-2026/"
 
 [markup]
   [markup.goldmark]
