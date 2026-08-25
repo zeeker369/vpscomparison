@@ -59,5 +59,18 @@
     "active": true,
     "commission_type": null,
     "updated_at": "2026-08-25"
+  },
+  {
+    "id": "siteground-wordpress-default",
+    "provider_id": "siteground",
+    "destination": "SiteGround homepage / WordPress hosting",
+    "affiliate_url": "https://www.siteground.com/?referrer_id=9396931",
+    "geo": "global",
+    "campaign": "default",
+    "active": true,
+    "commission_type": null,
+    "updated_at": "2026-08-25",
+    "family_id": null,
+    "product_id": null
   }
 ]
