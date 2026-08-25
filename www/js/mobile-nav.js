@@ -1,14 +1,16 @@
 (function(){
-  var themeHref='/css/aero-chrome.css?v=20260825a';
+  var themeHref='/css/noir-brass.css?v=20260825a';
   var oldDark=document.querySelector('link[data-vps-dark-tech]');
   var oldObsidian=document.querySelector('link[data-vps-obsidian-signal]');
+  var oldAero=document.querySelector('link[data-vps-aero-chrome]');
   if(oldDark) oldDark.remove();
   if(oldObsidian) oldObsidian.remove();
-  if(!document.querySelector('link[data-vps-aero-chrome]')){
+  if(oldAero) oldAero.remove();
+  if(!document.querySelector('link[data-vps-noir-brass]')){
     var theme=document.createElement('link');
     theme.rel='stylesheet';
     theme.href=themeHref;
-    theme.setAttribute('data-vps-aero-chrome','');
+    theme.setAttribute('data-vps-noir-brass','');
     document.head.appendChild(theme);
   }
 
