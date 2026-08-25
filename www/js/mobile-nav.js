@@ -1,10 +1,12 @@
 (function(){
-  var themeHref='/css/dark-tech.css?v=20260825a';
-  if(!document.querySelector('link[data-vps-dark-tech]')){
+  var themeHref='/css/obsidian-signal.css?v=20260825a';
+  var oldTheme=document.querySelector('link[data-vps-dark-tech]');
+  if(oldTheme) oldTheme.remove();
+  if(!document.querySelector('link[data-vps-obsidian-signal]')){
     var theme=document.createElement('link');
     theme.rel='stylesheet';
     theme.href=themeHref;
-    theme.setAttribute('data-vps-dark-tech','');
+    theme.setAttribute('data-vps-obsidian-signal','');
     document.head.appendChild(theme);
   }
 
