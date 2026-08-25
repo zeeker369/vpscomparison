@@ -13,6 +13,8 @@
 ## Start here
 - [VPS Comparison + VPS Finder](https://www.vpscomparison.com/): Rules-based buying tool for workload, management, billing, capacity, and budget.
 - [Best cheap VPS 2026](https://www.vpscomparison.com/guides/best-cheap-vps-2026/)
+- [Best US VPS 2026](https://www.vpscomparison.com/guides/best-us-vps-2026/)
+- [Best Europe VPS 2026](https://www.vpscomparison.com/guides/best-europe-vps-2026/)
 - [How to read VPS pricing](https://www.vpscomparison.com/blog/how-to-read-vps-pricing/): Intro rates vs hourly billing.
 - [About and how we check prices](https://www.vpscomparison.com/about/): Product prices carry source, status, and date. “Verified today” is shown only for products actually checked that day; partial/stale data remains labeled.
 
@@ -28,6 +30,11 @@
 - [WordPress hosting comparison 2026](https://www.vpscomparison.com/use-cases/top-wordpress-hosting-providers-2026/)
 
 ## Region guides
+Primary English-market routes:
+- [Best US VPS 2026](https://www.vpscomparison.com/guides/best-us-vps-2026/)
+- [Best Europe VPS 2026](https://www.vpscomparison.com/guides/best-europe-vps-2026/)
+
+Secondary Asia routes:
 - [Best Singapore VPS 2026](https://www.vpscomparison.com/guides/best-singapore-vps-2026/)
 - [Best Japan VPS 2026](https://www.vpscomparison.com/guides/best-japan-vps-2026/)
 - [DigitalOcean Singapore](https://www.vpscomparison.com/reviews/digitalocean-singapore/)
