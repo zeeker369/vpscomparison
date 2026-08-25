@@ -1,0 +1,10 @@
+{
+  "id": "hostinger-managed-wordpress",
+  "provider_id": "hostinger",
+  "name": "Managed WordPress",
+  "category": "managed_wordpress",
+  "cpu_class": "managed",
+  "storage_class": "ssd-nvme",
+  "status": "active",
+  "notes": "Hostinger managed WordPress plans; server-level resources are abstracted from the buyer."
+}

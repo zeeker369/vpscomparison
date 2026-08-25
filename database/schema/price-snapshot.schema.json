@@ -1,0 +1,14 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"price-snapshot.schema.json",
+  "title":"PriceSnapshot",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["id","product_id","currency","price_type","price","billing_period","observed_at","source_id","verification_status"],
+  "properties":{
+    "id":{"type":"string"},"product_id":{"type":"string"},"region_id":{"type":["string","null"]},"currency":{"type":"string"},
+    "price_type":{"enum":["intro","renewal","list","hourly","monthly-cap","promo"]},"price":{"type":"number"},
+    "billing_period":{"enum":["hour","month","term-month-equivalent"]},"term_months":{"type":["integer","null"]},
+    "observed_at":{"type":"string"},"source_id":{"type":"string"},"verification_status":{"enum":["verified","partial","needs_review"]},"notes":{"type":"string"}
+  }
+}

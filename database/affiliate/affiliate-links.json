@@ -1,0 +1,63 @@
+[
+  {
+    "id": "hostinger-vps-default",
+    "provider_id": "hostinger",
+    "destination": "VPS product page",
+    "affiliate_url": "https://www.hostinger.com/vps?REFERRALCODE=QIBZHEZHEZFK",
+    "geo": "global",
+    "campaign": "default",
+    "active": true,
+    "commission_type": null,
+    "updated_at": "2026-08-24",
+    "family_id": "hostinger-kvm"
+  },
+  {
+    "id": "vultr-cloud-compute-default",
+    "provider_id": "vultr",
+    "destination": "Cloud Compute",
+    "affiliate_url": "https://www.vultr.com/products/cloud-compute/?ref=9896575",
+    "geo": "global",
+    "campaign": "default",
+    "active": true,
+    "commission_type": null,
+    "updated_at": "2026-08-24",
+    "family_id": "vultr-high-performance"
+  },
+  {
+    "id": "digitalocean-vps-default",
+    "provider_id": "digitalocean",
+    "destination": "VPS hosting",
+    "affiliate_url": "https://www.digitalocean.com/solutions/vps-hosting?refcode=9704fecd14d5",
+    "geo": "global",
+    "campaign": "default",
+    "active": true,
+    "commission_type": null,
+    "updated_at": "2026-08-24",
+    "family_id": "digitalocean-basic-regular"
+  },
+  {
+    "id": "kinsta-wordpress-default",
+    "provider_id": "kinsta",
+    "destination": "Managed WordPress pricing",
+    "affiliate_url": "https://kinsta.com/?kaid=VQZPUWNOMPJG",
+    "geo": "global",
+    "campaign": "default",
+    "active": true,
+    "commission_type": null,
+    "updated_at": "2026-08-25",
+    "family_id": "kinsta-single-site"
+  },
+  {
+    "id": "hostinger-wp-premium-default",
+    "provider_id": "hostinger",
+    "product_id": "hostinger-wp-premium",
+    "family_id": "hostinger-managed-wordpress",
+    "destination": "Managed WordPress Premium cart",
+    "affiliate_url": "https://www.hostinger.com/hk/cart?product=hosting%3Ahostinger_premium&period=12&referral_type=cart_link&REFERRALCODE=QIBZHEZHEZFK&referral_id=019dd8b0-bcd4-7326-a379-855969bbc687",
+    "geo": "global",
+    "campaign": "default",
+    "active": true,
+    "commission_type": null,
+    "updated_at": "2026-08-25"
+  }
+]

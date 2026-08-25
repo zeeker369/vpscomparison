@@ -1,0 +1,66 @@
+[
+  {
+    "id": "sg-sin",
+    "country": "Singapore",
+    "city": "Singapore",
+    "display_name": "Singapore",
+    "iata_like_code": "SIN",
+    "continent": "Asia"
+  },
+  {
+    "id": "jp-tyo",
+    "country": "Japan",
+    "city": "Tokyo",
+    "display_name": "Tokyo, Japan",
+    "iata_like_code": "TYO",
+    "continent": "Asia"
+  },
+  {
+    "id": "us-nyc",
+    "country": "United States",
+    "city": "New York",
+    "display_name": "New York, USA",
+    "iata_like_code": "NYC",
+    "continent": "North America"
+  },
+  {
+    "id": "us-sfo",
+    "country": "United States",
+    "city": "San Francisco",
+    "display_name": "San Francisco, USA",
+    "iata_like_code": "SFO",
+    "continent": "North America"
+  },
+  {
+    "id": "nl-ams",
+    "country": "Netherlands",
+    "city": "Amsterdam",
+    "display_name": "Amsterdam, Netherlands",
+    "iata_like_code": "AMS",
+    "continent": "Europe"
+  },
+  {
+    "id": "de-fra",
+    "country": "Germany",
+    "city": "Frankfurt",
+    "display_name": "Frankfurt, Germany",
+    "iata_like_code": "FRA",
+    "continent": "Europe"
+  },
+  {
+    "id": "gb-lon",
+    "country": "United Kingdom",
+    "city": "London",
+    "display_name": "London, UK",
+    "iata_like_code": "LON",
+    "continent": "Europe"
+  },
+  {
+    "id": "au-syd",
+    "country": "Australia",
+    "city": "Sydney",
+    "display_name": "Sydney, Australia",
+    "iata_like_code": "SYD",
+    "continent": "Oceania"
+  }
+]

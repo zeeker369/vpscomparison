@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-08-24",
+  "principles": [
+    "Hard constraints are evaluated before editorial ranking when possible.",
+    "Price, RAM, billing, management preference and workload fit are independent inputs.",
+    "Affiliate status never affects score."
+  ],
+  "weights": {
+    "workload_fit": 0.42,
+    "billing_fit": 0.18,
+    "management_fit": 0.14,
+    "budget_fit": 0.16,
+    "value_fit": 0.1
+  }
+}

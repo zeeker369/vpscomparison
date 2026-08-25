@@ -1,0 +1,19 @@
+{
+  "id": "hostinger",
+  "name": "Hostinger",
+  "slug": "hostinger",
+  "website_url": "https://www.hostinger.com/vps-hosting",
+  "provider_type": "hosting",
+  "status": "active",
+  "founded_year": 2004,
+  "headquarters_country": "Lithuania",
+  "review_url": "/reviews/hostinger/",
+  "description": "Prepaid KVM VPS with a hosting-oriented control experience and aggressive first-term pricing.",
+  "verification": {
+    "status": "verified",
+    "last_verified_at": "2026-08-24",
+    "source_ids": [
+      "hostinger-vps-official-2026-08-24"
+    ]
+  }
+}

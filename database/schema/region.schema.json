@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "region.schema.json",
+  "title": "Region",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "country",
+    "city",
+    "display_name"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "iata_like_code": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "continent": {
+      "type": "string"
+    }
+  }
+}

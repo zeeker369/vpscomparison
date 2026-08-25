@@ -1,0 +1,10 @@
+{
+  "id": "digitalocean-basic-regular",
+  "provider_id": "digitalocean",
+  "name": "Basic Droplet - Regular",
+  "category": "cloud_compute",
+  "cpu_class": "shared",
+  "storage_class": "ssd",
+  "status": "active",
+  "notes": "Regular CPU Basic Droplets from the current official pricing table."
+}

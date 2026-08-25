@@ -1,0 +1,32 @@
+[
+  {
+    "id": "wordpress",
+    "label": "WordPress",
+    "category": "website"
+  },
+  {
+    "id": "woocommerce",
+    "label": "WooCommerce",
+    "category": "website"
+  },
+  {
+    "id": "website",
+    "label": "Website / content site",
+    "category": "website"
+  },
+  {
+    "id": "developer",
+    "label": "Developer app / API",
+    "category": "infrastructure"
+  },
+  {
+    "id": "game",
+    "label": "Game server",
+    "category": "infrastructure"
+  },
+  {
+    "id": "temporary",
+    "label": "Short-lived test server",
+    "category": "infrastructure"
+  }
+]

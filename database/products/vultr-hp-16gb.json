@@ -1,0 +1,56 @@
+{
+  "id": "vultr-hp-16gb",
+  "provider_id": "vultr",
+  "family_id": "vultr-high-performance",
+  "merchant_plan_code": null,
+  "name": "High Performance 16 GB",
+  "product_type": "cloud_compute",
+  "status": "active",
+  "merchant_url": "https://www.vultr.com/products/cloud-compute/",
+  "resources": {
+    "vcpu": null,
+    "ram_mb": 16384,
+    "storage_gb": null,
+    "storage_type": "nvme",
+    "bandwidth_gb": null,
+    "virtualization": null,
+    "sites": null,
+    "sites_unlimited": false,
+    "monthly_visits": null,
+    "server_bandwidth_gb": null,
+    "cdn_bandwidth_gb": null,
+    "php_workers": null,
+    "gpu_model": null,
+    "gpu_vram_gb": null
+  },
+  "billing": {
+    "model": "hourly",
+    "hourly_available": true,
+    "minimum_term_months": null
+  },
+  "management": {
+    "level": "self-managed",
+    "panel": "Cloud console"
+  },
+  "platform": {
+    "wordpress": true,
+    "woocommerce": true,
+    "linux": true,
+    "windows": false,
+    "game_server": true
+  },
+  "network": {
+    "ipv4": null,
+    "ipv6": null
+  },
+  "verification": {
+    "status": "partial",
+    "last_verified_at": "2026-08-25",
+    "source_ids": [
+      "vultr-billing-docs-2026-08-24",
+      "vultr-provisioning-docs-2026-08-24",
+      "vultr-site-published-prices-2026-08-24"
+    ],
+    "notes": "Current site publishes about $96/mo; detailed live specs need catalog verification."
+  }
+}

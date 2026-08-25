@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "product.schema.json",
+  "title": "HostingProduct",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id","provider_id","family_id","name","product_type","status","merchant_url","resources","billing","management","platform","verification"],
+  "properties": {
+    "id": {"type":"string","pattern":"^[a-z0-9-]+$"},
+    "provider_id": {"type":"string"},
+    "family_id": {"type":"string"},
+    "merchant_plan_code": {"type":["string","null"]},
+    "name": {"type":"string"},
+    "product_type": {"enum":["vps","cloud_compute","managed_vps","managed_wordpress","cloud_hosting","gpu_cloud","game_hosting","bare_metal"]},
+    "status": {"enum":["active","retired","paused"]},
+    "merchant_url": {"type":"string"},
+    "resources": {
+      "type":"object",
+      "additionalProperties": false,
+      "required":["vcpu","ram_mb","storage_gb","storage_type","bandwidth_gb","virtualization","sites","sites_unlimited","monthly_visits","server_bandwidth_gb","cdn_bandwidth_gb","php_workers","gpu_model","gpu_vram_gb"],
+      "properties": {
+        "vcpu":{"type":["number","null"]},
+        "ram_mb":{"type":["integer","null"]},
+        "storage_gb":{"type":["number","null"]},
+        "storage_type":{"type":["string","null"]},
+        "bandwidth_gb":{"type":["number","null"]},
+        "virtualization":{"type":["string","null"]},
+        "sites":{"type":["integer","null"]},
+        "sites_unlimited":{"type":"boolean"},
+        "monthly_visits":{"type":["integer","null"]},
+        "server_bandwidth_gb":{"type":["number","null"]},
+        "cdn_bandwidth_gb":{"type":["number","null"]},
+        "php_workers":{"type":["integer","null"]},
+        "gpu_model":{"type":["string","null"]},
+        "gpu_vram_gb":{"type":["number","null"]}
+      }
+    },
+    "billing": {
+      "type":"object",
+      "required":["model","hourly_available"],
+      "properties": {
+        "model":{"enum":["prepaid","hourly","per-second","monthly","hybrid"]},
+        "hourly_available":{"type":"boolean"},
+        "minimum_term_months":{"type":["integer","null"]}
+      }
+    },
+    "management": {
+      "type":"object",
+      "required":["level","panel"],
+      "properties": {
+        "level":{"enum":["self-managed","panel-assisted","fully-managed"]},
+        "panel":{"type":["string","null"]}
+      }
+    },
+    "platform": {
+      "type":"object",
+      "required":["wordpress","woocommerce","linux","windows","game_server"],
+      "properties": {
+        "wordpress":{"type":"boolean"},"woocommerce":{"type":"boolean"},"linux":{"type":"boolean"},"windows":{"type":"boolean"},"game_server":{"type":"boolean"}
+      }
+    },
+    "network": {
+      "type":"object",
+      "properties": {"ipv4":{"type":["boolean","null"]},"ipv6":{"type":["boolean","null"]}}
+    },
+    "verification": {
+      "type":"object",
+      "required":["status","last_verified_at","source_ids"],
+      "properties": {
+        "status":{"enum":["verified","partial","needs_review"]},
+        "last_verified_at":{"type":"string"},
+        "source_ids":{"type":"array","items":{"type":"string"}},
+        "notes":{"type":"string"}
+      }
+    }
+  }
+}

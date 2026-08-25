@@ -1,0 +1,10 @@
+{
+  "id": "hostinger-kvm",
+  "provider_id": "hostinger",
+  "name": "KVM VPS",
+  "category": "vps",
+  "cpu_class": "shared",
+  "storage_class": "nvme",
+  "status": "active",
+  "notes": "Four public KVM tiers in the current USD catalog."
+}

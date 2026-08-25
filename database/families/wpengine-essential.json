@@ -1,0 +1,10 @@
+{
+  "id": "wpengine-essential",
+  "provider_id": "wpengine",
+  "name": "Essential Managed WordPress",
+  "category": "managed_wordpress",
+  "cpu_class": "managed",
+  "storage_class": "managed",
+  "status": "active",
+  "notes": "WP Engine Essential managed WordPress plans."
+}

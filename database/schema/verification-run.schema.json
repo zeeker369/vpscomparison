@@ -1,0 +1,5 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"verification-run.schema.json","type":"object",
+  "required":["id","run_at","providers_checked","products_checked","price_records_checked","notes"],
+  "properties":{"id":{"type":"string"},"run_at":{"type":"string"},"providers_checked":{"type":"integer"},"products_checked":{"type":"integer"},"price_records_checked":{"type":"integer"},"price_changes":{"type":"integer"},"notes":{"type":"string"}}
+}

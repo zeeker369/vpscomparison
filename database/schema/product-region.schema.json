@@ -1,0 +1,5 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"product-region.schema.json","type":"object",
+  "required":["product_id","region_id","available","verified_at"],
+  "properties":{"product_id":{"type":"string"},"region_id":{"type":"string"},"available":{"type":"boolean"},"verified_at":{"type":"string"},"source_id":{"type":["string","null"]},"notes":{"type":"string"}}
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source.schema.json",
+  "title": "Source",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "provider_id",
+    "source_type",
+    "url",
+    "retrieved_at",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "provider_id": {
+      "type": "string"
+    },
+    "source_type": {
+      "enum": [
+        "official-pricing",
+        "official-docs",
+        "merchant-cart",
+        "api",
+        "manual-test",
+        "internal-published"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "retrieved_at": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "active",
+        "stale",
+        "blocked"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

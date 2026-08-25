@@ -1,0 +1,21 @@
+{
+  "id": "vultr",
+  "name": "Vultr",
+  "slug": "vultr",
+  "website_url": "https://www.vultr.com/products/cloud-compute/",
+  "provider_type": "cloud",
+  "status": "active",
+  "founded_year": 2014,
+  "headquarters_country": "United States",
+  "review_url": "/reviews/vultr/",
+  "description": "Cloud compute platform focused on flexible deployment, hourly billing, and a broad location footprint.",
+  "verification": {
+    "status": "partial",
+    "last_verified_at": "2026-08-24",
+    "source_ids": [
+      "vultr-billing-docs-2026-08-24",
+      "vultr-provisioning-docs-2026-08-24",
+      "vultr-site-published-prices-2026-08-24"
+    ]
+  }
+}

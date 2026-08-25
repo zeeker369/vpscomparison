@@ -1,0 +1,19 @@
+{
+  "id": "kinsta",
+  "name": "Kinsta",
+  "slug": "kinsta",
+  "website_url": "https://kinsta.com/pricing/",
+  "provider_type": "managed-wordpress",
+  "status": "active",
+  "founded_year": 2013,
+  "headquarters_country": "United States",
+  "review_url": null,
+  "description": "Fully managed WordPress hosting with single-site and multi-site plans, CDN, backups, and managed platform operations.",
+  "verification": {
+    "status": "verified",
+    "last_verified_at": "2026-08-24",
+    "source_ids": [
+      "kinsta-wordpress-pricing-2026-08-24"
+    ]
+  }
+}
