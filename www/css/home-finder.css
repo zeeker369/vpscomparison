@@ -116,3 +116,94 @@
 .home-route-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:1120px){.home-route-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:720px){.home-route-grid{grid-template-columns:1fr}}
+
+/* Homepage commercial comparison cards: tighter typography, aligned metadata and CTAs. */
+#vps-4gb-comparison .section-head,
+#managed-wordpress-comparison .section-head{align-items:flex-end;margin-bottom:18px}
+#vps-4gb-comparison .section-head>p,
+#managed-wordpress-comparison .section-head>p{max-width:520px;text-align:right;font-size:14px;line-height:1.45}
+#vps-4gb-comparison .cards-grid,
+#managed-wordpress-comparison .cards-grid{align-items:stretch}
+#vps-4gb-comparison .card,
+#managed-wordpress-comparison .card{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  padding:22px 22px 20px;
+}
+#vps-4gb-comparison .card>.eyebrow,
+#managed-wordpress-comparison .card>.eyebrow{
+  align-self:flex-start;
+  margin-bottom:14px;
+  padding:5px 10px;
+  font-size:11px;
+  line-height:1.2;
+}
+#vps-4gb-comparison .card>h3,
+#managed-wordpress-comparison .card>h3{
+  margin:0 0 12px;
+  font-size:23px;
+  line-height:1.16;
+  letter-spacing:-.02em;
+}
+#vps-4gb-comparison .card>p,
+#managed-wordpress-comparison .card>p{
+  flex:1 1 auto;
+  margin:0 0 16px;
+  color:#475467;
+  font-size:15px;
+  line-height:1.55;
+}
+#vps-4gb-comparison .card>p strong,
+#managed-wordpress-comparison .card>p strong{
+  color:#334155;
+  font-weight:750;
+}
+#vps-4gb-comparison .meta-row,
+#managed-wordpress-comparison .meta-row{
+  margin-top:0;
+  margin-bottom:9px;
+  gap:7px;
+  font-size:12px;
+  line-height:1.2;
+}
+#vps-4gb-comparison .meta-row span,
+#managed-wordpress-comparison .meta-row span{
+  padding:7px 10px;
+  white-space:nowrap;
+}
+#vps-4gb-comparison .finder-match-actions,
+#managed-wordpress-comparison .finder-match-actions{
+  margin-top:auto;
+  padding-top:6px;
+  grid-template-columns:.78fr 1.22fr;
+  gap:9px;
+}
+#vps-4gb-comparison .finder-match-actions .btn,
+#managed-wordpress-comparison .finder-match-actions .btn{
+  min-height:42px;
+  padding:9px 12px;
+  font-size:12px;
+  line-height:1.2;
+}
+#vps-4gb-comparison>.finder-result-note,
+#managed-wordpress-comparison>.finder-result-note{margin-top:12px;font-size:11px;line-height:1.5}
+
+@media (max-width:1024px){
+  #vps-4gb-comparison .section-head>p,
+  #managed-wordpress-comparison .section-head>p{text-align:left;max-width:680px}
+  #vps-4gb-comparison .card>p,
+  #managed-wordpress-comparison .card>p{font-size:14px}
+}
+@media (max-width:720px){
+  #vps-4gb-comparison .card,
+  #managed-wordpress-comparison .card{padding:18px}
+  #vps-4gb-comparison .card>h3,
+  #managed-wordpress-comparison .card>h3{font-size:21px}
+  #vps-4gb-comparison .card>p,
+  #managed-wordpress-comparison .card>p{font-size:14px;line-height:1.5}
+  #vps-4gb-comparison .meta-row span,
+  #managed-wordpress-comparison .meta-row span{white-space:normal}
+  #vps-4gb-comparison .finder-match-actions,
+  #managed-wordpress-comparison .finder-match-actions{grid-template-columns:1fr}
+}
