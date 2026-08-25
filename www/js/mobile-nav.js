@@ -1,4 +1,13 @@
 (function(){
+  var themeHref='/css/dark-tech.css?v=20260825a';
+  if(!document.querySelector('link[data-vps-dark-tech]')){
+    var theme=document.createElement('link');
+    theme.rel='stylesheet';
+    theme.href=themeHref;
+    theme.setAttribute('data-vps-dark-tech','');
+    document.head.appendChild(theme);
+  }
+
   var header = document.getElementById('siteHeader');
   if (!header) return;
   var toggle = header.querySelector('.nav-toggle');
