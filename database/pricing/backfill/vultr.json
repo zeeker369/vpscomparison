@@ -1,0 +1,50 @@
+{
+  "provider_id": "vultr",
+  "version": "1.0",
+  "tracking_started": "2026-08-24",
+  "policy": "Records before tracking_started are reconstructed only from dated official sources. Missing dates are not interpolated. Historical backfill must not be presented as continuous VPSComparison observation.",
+  "records": [
+    {
+      "event_date": "2022-03-11",
+      "record_type": "family-starting-price",
+      "product_family": "cloud-compute",
+      "price_usd_monthly_from": 5.0,
+      "evidence_type": "historical_backfill",
+      "confidence": "high",
+      "source_type": "official-blog",
+      "source_title": "High Performance and Truly EPYC: Vultr’s New VMs Are Ready for Anything",
+      "source_url": "https://blogs.vultr.com/High-Performance-and-Truly-EPYC-Vultrs-New-VMs-Are-Ready-for-Anything",
+      "retrieved_at": "2026-08-25",
+      "notes": "Vultr announced a refreshed shared-vCPU Cloud Compute lineup starting at $5/month."
+    },
+    {
+      "event_date": "2022-03-11",
+      "record_type": "family-starting-price",
+      "product_family": "optimized-cloud-compute",
+      "price_usd_monthly_from": 28.0,
+      "evidence_type": "historical_backfill",
+      "confidence": "high",
+      "source_type": "official-blog",
+      "source_title": "High Performance and Truly EPYC: Vultr’s New VMs Are Ready for Anything",
+      "source_url": "https://blogs.vultr.com/High-Performance-and-Truly-EPYC-Vultrs-New-VMs-Are-Ready-for-Anything",
+      "retrieved_at": "2026-08-25",
+      "notes": "Vultr announced Optimized Cloud Compute with dedicated vCPUs starting at $28/month."
+    },
+    {
+      "event_date": "2023-01-01",
+      "announced_at": "2022-11-30",
+      "record_type": "bandwidth-policy",
+      "free_account_egress_tb": 2,
+      "ingress_price_usd_per_gb": 0.0,
+      "egress_overage_usd_per_gb": 0.01,
+      "global_pooling": true,
+      "evidence_type": "historical_backfill",
+      "confidence": "high",
+      "source_type": "official-blog",
+      "source_title": "Vultr Announces Reduced Bandwidth Pricing, 2 TB of Free Monthly Egress, Free Ingress, and Global Pooling",
+      "source_url": "https://blogs.vultr.com/Vultr-Announces-Reduced-Bandwidth-Pricing-2-Tb-Of-Free-Monthly-Egress-Free-Ingress-And-Global-Pooling",
+      "retrieved_at": "2026-08-25",
+      "notes": "Policy announced 30 Nov 2022 and stated to take effect 1 Jan 2023."
+    }
+  ]
+}
