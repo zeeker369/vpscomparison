@@ -20,6 +20,7 @@
 - [Hostinger VPS review](https://www.vpscomparison.com/reviews/hostinger/)
 - [Vultr review](https://www.vpscomparison.com/reviews/vultr/)
 - [DigitalOcean review](https://www.vpscomparison.com/reviews/digitalocean/)
+- [SiteGround managed WordPress review](https://www.vpscomparison.com/reviews/siteground/)
 - [Kinsta managed WordPress review](https://www.vpscomparison.com/reviews/kinsta/)
 - [WP Engine managed WordPress review](https://www.vpscomparison.com/reviews/wp-engine/)
 - [Vultr vs DigitalOcean](https://www.vpscomparison.com/vs/vultr-vs-digitalocean/)
@@ -36,6 +37,7 @@
 - For managed WordPress, compare the provider's published capacity boundary: visits, server bandwidth, storage, CDN allowance, and site count where available.
 - Missing managed-hosting capacity is treated as uncertainty, not as proof that a plan can handle high traffic.
 - Match billing to runtime: prepaid intro pricing for always-on workloads, monthly managed hosting for WordPress operations, and hourly/per-second billing for short-lived infrastructure.
-- The current database snapshot is dated 25 Aug 2026. Verified products show the real last-check date, and partial products remain labeled. Confirm the merchant cart before payment.
-- Kinsta has an active affiliate link in the current database. WP Engine currently does not; WP Engine review CTAs use normal official merchant links.
+- The current Finder database snapshot is dated 25 Aug 2026. Verified products show the real last-check date, and partial products remain labeled. Confirm the merchant cart before payment.
+- SiteGround and Kinsta have active affiliate links in the current affiliate data. WP Engine currently does not; WP Engine review CTAs use normal official merchant links.
+- SiteGround is reviewed and linked from the managed WordPress comparison, but is not yet inserted into the Finder product/ranking dataset.
 - Product facts, editorial fit scores, verification state, and affiliate links are separate data layers. Paid relationships do not define eligibility.
