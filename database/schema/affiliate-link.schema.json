@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "affiliate-link.schema.json",
+  "type": "object",
+  "required": [
+    "id",
+    "provider_id",
+    "destination",
+    "affiliate_url",
+    "active"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "provider_id": {
+      "type": "string"
+    },
+    "family_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "destination": {
+      "type": "string"
+    },
+    "affiliate_url": {
+      "type": "string"
+    },
+    "geo": {
+      "type": "string"
+    },
+    "campaign": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "commission_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "product_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "nvme-storage",
+    "label": "NVMe storage",
+    "type": "objective"
+  },
+  {
+    "id": "hourly-billing",
+    "label": "Hourly billing",
+    "type": "objective"
+  },
+  {
+    "id": "per-second-billing",
+    "label": "Per-second billing",
+    "type": "objective"
+  },
+  {
+    "id": "prepaid-billing",
+    "label": "Prepaid billing",
+    "type": "objective"
+  },
+  {
+    "id": "control-panel",
+    "label": "Hosting/VPS control panel",
+    "type": "objective"
+  },
+  {
+    "id": "cloud-console",
+    "label": "Cloud console",
+    "type": "objective"
+  },
+  {
+    "id": "public-api",
+    "label": "Public API",
+    "type": "objective"
+  },
+  {
+    "id": "weekly-backups",
+    "label": "Weekly backups",
+    "type": "objective"
+  },
+  {
+    "id": "full-root",
+    "label": "Full root access",
+    "type": "objective"
+  },
+  {
+    "id": "managed-wordpress",
+    "label": "Managed WordPress platform",
+    "type": "objective"
+  },
+  {
+    "id": "daily-backups",
+    "label": "Daily backups",
+    "type": "objective"
+  },
+  {
+    "id": "cdn",
+    "label": "CDN included",
+    "type": "objective"
+  },
+  {
+    "id": "staging",
+    "label": "Staging environment",
+    "type": "objective"
+  },
+  {
+    "id": "wordpress-support",
+    "label": "WordPress-focused support",
+    "type": "objective"
+  }
+]

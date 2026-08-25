@@ -1,0 +1,20 @@
+{
+  "id": "digitalocean",
+  "name": "DigitalOcean",
+  "slug": "digitalocean",
+  "website_url": "https://www.digitalocean.com/pricing/droplets",
+  "provider_type": "cloud",
+  "status": "active",
+  "founded_year": 2011,
+  "headquarters_country": "United States",
+  "review_url": "/reviews/digitalocean/",
+  "description": "Developer-focused cloud platform with simple Droplet pricing and managed services around compute.",
+  "verification": {
+    "status": "verified",
+    "last_verified_at": "2026-08-24",
+    "source_ids": [
+      "digitalocean-droplet-pricing-2026-08-24",
+      "digitalocean-droplet-docs-2026-08-24"
+    ]
+  }
+}

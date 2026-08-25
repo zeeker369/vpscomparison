@@ -1,0 +1,1010 @@
+[
+  {
+    "product_id": "digitalocean-basic-16gb",
+    "use_case": "wordpress",
+    "score": 80,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-16gb",
+    "use_case": "woocommerce",
+    "score": 86,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-16gb",
+    "use_case": "website",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-16gb",
+    "use_case": "developer",
+    "score": 95,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-16gb",
+    "use_case": "game",
+    "score": 84,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-16gb",
+    "use_case": "temporary",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-1gb",
+    "use_case": "wordpress",
+    "score": 40,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-1gb",
+    "use_case": "woocommerce",
+    "score": 32,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-1gb",
+    "use_case": "website",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-1gb",
+    "use_case": "developer",
+    "score": 95,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-1gb",
+    "use_case": "game",
+    "score": 59,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-1gb",
+    "use_case": "temporary",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-2gb-1vcpu",
+    "use_case": "wordpress",
+    "score": 75,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-2gb-1vcpu",
+    "use_case": "woocommerce",
+    "score": 67,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-2gb-1vcpu",
+    "use_case": "website",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-2gb-1vcpu",
+    "use_case": "developer",
+    "score": 95,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-2gb-1vcpu",
+    "use_case": "game",
+    "score": 59,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-2gb-1vcpu",
+    "use_case": "temporary",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-2gb-2vcpu",
+    "use_case": "wordpress",
+    "score": 75,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-2gb-2vcpu",
+    "use_case": "woocommerce",
+    "score": 67,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-2gb-2vcpu",
+    "use_case": "website",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-2gb-2vcpu",
+    "use_case": "developer",
+    "score": 95,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-2gb-2vcpu",
+    "use_case": "game",
+    "score": 59,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-2gb-2vcpu",
+    "use_case": "temporary",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-4gb",
+    "use_case": "wordpress",
+    "score": 80,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-4gb",
+    "use_case": "woocommerce",
+    "score": 72,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-4gb",
+    "use_case": "website",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-4gb",
+    "use_case": "developer",
+    "score": 95,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-4gb",
+    "use_case": "game",
+    "score": 84,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-4gb",
+    "use_case": "temporary",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-512mb",
+    "use_case": "wordpress",
+    "score": 40,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-512mb",
+    "use_case": "woocommerce",
+    "score": 32,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-512mb",
+    "use_case": "website",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-512mb",
+    "use_case": "developer",
+    "score": 95,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-512mb",
+    "use_case": "game",
+    "score": 59,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-512mb",
+    "use_case": "temporary",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-8gb",
+    "use_case": "wordpress",
+    "score": 80,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-8gb",
+    "use_case": "woocommerce",
+    "score": 86,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-8gb",
+    "use_case": "website",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-8gb",
+    "use_case": "developer",
+    "score": 95,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-8gb",
+    "use_case": "game",
+    "score": 84,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "digitalocean-basic-8gb",
+    "use_case": "temporary",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-1",
+    "use_case": "wordpress",
+    "score": 92,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-1",
+    "use_case": "woocommerce",
+    "score": 84,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-1",
+    "use_case": "website",
+    "score": 90,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-1",
+    "use_case": "developer",
+    "score": 75,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-1",
+    "use_case": "game",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-1",
+    "use_case": "temporary",
+    "score": 40,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-2",
+    "use_case": "wordpress",
+    "score": 92,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-2",
+    "use_case": "woocommerce",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-2",
+    "use_case": "website",
+    "score": 90,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-2",
+    "use_case": "developer",
+    "score": 75,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-2",
+    "use_case": "game",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-2",
+    "use_case": "temporary",
+    "score": 40,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-4",
+    "use_case": "wordpress",
+    "score": 92,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-4",
+    "use_case": "woocommerce",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-4",
+    "use_case": "website",
+    "score": 90,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-4",
+    "use_case": "developer",
+    "score": 75,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-4",
+    "use_case": "game",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-4",
+    "use_case": "temporary",
+    "score": 40,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-8",
+    "use_case": "wordpress",
+    "score": 92,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-8",
+    "use_case": "woocommerce",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-8",
+    "use_case": "website",
+    "score": 90,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-8",
+    "use_case": "developer",
+    "score": 75,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-8",
+    "use_case": "game",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-kvm-8",
+    "use_case": "temporary",
+    "score": 40,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-wp-premium",
+    "use_case": "wordpress",
+    "score": 92,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-wp-premium",
+    "use_case": "woocommerce",
+    "score": 90,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-wp-premium",
+    "use_case": "website",
+    "score": 88,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-wp-premium",
+    "use_case": "developer",
+    "score": 20,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-wp-premium",
+    "use_case": "game",
+    "score": 0,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-wp-premium",
+    "use_case": "temporary",
+    "score": 10,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-wp-unlimited",
+    "use_case": "wordpress",
+    "score": 92,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-wp-unlimited",
+    "use_case": "woocommerce",
+    "score": 90,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-wp-unlimited",
+    "use_case": "website",
+    "score": 88,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-wp-unlimited",
+    "use_case": "developer",
+    "score": 20,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-wp-unlimited",
+    "use_case": "game",
+    "score": 0,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "hostinger-wp-unlimited",
+    "use_case": "temporary",
+    "score": 10,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "kinsta-single-20gb",
+    "use_case": "wordpress",
+    "score": 96,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "kinsta-single-20gb",
+    "use_case": "woocommerce",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "kinsta-single-20gb",
+    "use_case": "website",
+    "score": 88,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "kinsta-single-20gb",
+    "use_case": "developer",
+    "score": 20,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "kinsta-single-20gb",
+    "use_case": "game",
+    "score": 0,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "kinsta-single-20gb",
+    "use_case": "temporary",
+    "score": 10,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "kinsta-single-40gb",
+    "use_case": "wordpress",
+    "score": 96,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "kinsta-single-40gb",
+    "use_case": "woocommerce",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "kinsta-single-40gb",
+    "use_case": "website",
+    "score": 88,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "kinsta-single-40gb",
+    "use_case": "developer",
+    "score": 20,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "kinsta-single-40gb",
+    "use_case": "game",
+    "score": 0,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "kinsta-single-40gb",
+    "use_case": "temporary",
+    "score": 10,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-16gb",
+    "use_case": "wordpress",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-16gb",
+    "use_case": "woocommerce",
+    "score": 88,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-16gb",
+    "use_case": "website",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-16gb",
+    "use_case": "developer",
+    "score": 92,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-16gb",
+    "use_case": "game",
+    "score": 90,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-16gb",
+    "use_case": "temporary",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-1gb",
+    "use_case": "wordpress",
+    "score": 40,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-1gb",
+    "use_case": "woocommerce",
+    "score": 32,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-1gb",
+    "use_case": "website",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-1gb",
+    "use_case": "developer",
+    "score": 92,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-1gb",
+    "use_case": "game",
+    "score": 65,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-1gb",
+    "use_case": "temporary",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-4gb",
+    "use_case": "wordpress",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-4gb",
+    "use_case": "woocommerce",
+    "score": 74,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-4gb",
+    "use_case": "website",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-4gb",
+    "use_case": "developer",
+    "score": 92,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-4gb",
+    "use_case": "game",
+    "score": 90,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-4gb",
+    "use_case": "temporary",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-8gb",
+    "use_case": "wordpress",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-8gb",
+    "use_case": "woocommerce",
+    "score": 88,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-8gb",
+    "use_case": "website",
+    "score": 82,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-8gb",
+    "use_case": "developer",
+    "score": 92,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-8gb",
+    "use_case": "game",
+    "score": 90,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "vultr-hp-8gb",
+    "use_case": "temporary",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "wpengine-professional",
+    "use_case": "wordpress",
+    "score": 96,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "wpengine-professional",
+    "use_case": "woocommerce",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "wpengine-professional",
+    "use_case": "website",
+    "score": 88,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "wpengine-professional",
+    "use_case": "developer",
+    "score": 20,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "wpengine-professional",
+    "use_case": "game",
+    "score": 0,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "wpengine-professional",
+    "use_case": "temporary",
+    "score": 10,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "wpengine-startup",
+    "use_case": "wordpress",
+    "score": 96,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "wpengine-startup",
+    "use_case": "woocommerce",
+    "score": 94,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "wpengine-startup",
+    "use_case": "website",
+    "score": 88,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "wpengine-startup",
+    "use_case": "developer",
+    "score": 20,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "wpengine-startup",
+    "use_case": "game",
+    "score": 0,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  },
+  {
+    "product_id": "wpengine-startup",
+    "use_case": "temporary",
+    "score": 10,
+    "reason": "Editorial fit score v2; objective eligibility, capacity, price, and management filters are evaluated separately.",
+    "method_version": "2.0",
+    "updated_at": "2026-08-24"
+  }
+]

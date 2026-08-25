@@ -1,0 +1,9 @@
+{
+  "id": "verification-2026-08-25-v2",
+  "run_at": "2026-08-25T10:45:00+08:00",
+  "providers_checked": 5,
+  "products_checked": 21,
+  "price_records_checked": 39,
+  "price_changes": 0,
+  "notes": "Daily price verification. Hostinger VPS/Managed WordPress, DigitalOcean Basic Droplets, Kinsta, and WP Engine rechecked against official pricing pages; steady-state prices unchanged. Kinsta Single 20GB current first-month-free promo recorded separately. Vultr monthly ladder unchanged; 4 Vultr products remain partial pending direct live catalog/API capture. Vultr hourly values were normalized from derived precision to merchant-displayed rounded rates (data-quality correction, not a market price change)."
+}

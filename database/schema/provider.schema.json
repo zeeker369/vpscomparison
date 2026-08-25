@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "provider.schema.json",
+  "title": "Provider",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "slug",
+    "website_url",
+    "provider_type",
+    "status",
+    "verification"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "website_url": {
+      "type": "string"
+    },
+    "provider_type": {
+      "enum": [
+        "hosting",
+        "cloud",
+        "hyperscaler",
+        "managed-cloud",
+        "managed-wordpress",
+        "gpu-cloud",
+        "bare-metal"
+      ]
+    },
+    "status": {
+      "enum": [
+        "active",
+        "retired",
+        "paused"
+      ]
+    },
+    "founded_year": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "headquarters_country": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "review_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "status",
+        "last_verified_at"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "verified",
+            "partial",
+            "needs_review"
+          ]
+        },
+        "last_verified_at": {
+          "type": "string"
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

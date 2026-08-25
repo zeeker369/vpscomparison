@@ -1,0 +1,10 @@
+{
+  "id": "vultr-high-performance",
+  "provider_id": "vultr",
+  "name": "High Performance Cloud Compute",
+  "category": "cloud_compute",
+  "cpu_class": "shared",
+  "storage_class": "nvme",
+  "status": "active",
+  "notes": "Name retained from the current VPSComparison money pages. Current Vultr docs use broader Cloud Compute / shared CPU terminology; merchant catalog should be rechecked before large-scale ingestion."
+}

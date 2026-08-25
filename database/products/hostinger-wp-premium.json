@@ -1,0 +1,54 @@
+{
+  "id": "hostinger-wp-premium",
+  "provider_id": "hostinger",
+  "family_id": "hostinger-managed-wordpress",
+  "merchant_plan_code": null,
+  "name": "Premium",
+  "product_type": "managed_wordpress",
+  "status": "active",
+  "merchant_url": "https://www.hostinger.com/wordpress-hosting",
+  "resources": {
+    "vcpu": null,
+    "ram_mb": null,
+    "storage_gb": 20,
+    "storage_type": "ssd",
+    "bandwidth_gb": null,
+    "virtualization": null,
+    "sites": 3,
+    "sites_unlimited": false,
+    "monthly_visits": null,
+    "server_bandwidth_gb": null,
+    "cdn_bandwidth_gb": null,
+    "php_workers": null,
+    "gpu_model": null,
+    "gpu_vram_gb": null
+  },
+  "billing": {
+    "model": "prepaid",
+    "hourly_available": false,
+    "minimum_term_months": 48
+  },
+  "management": {
+    "level": "fully-managed",
+    "panel": "hPanel"
+  },
+  "platform": {
+    "wordpress": true,
+    "woocommerce": true,
+    "linux": false,
+    "windows": false,
+    "game_server": false
+  },
+  "network": {
+    "ipv4": null,
+    "ipv6": null
+  },
+  "verification": {
+    "status": "verified",
+    "last_verified_at": "2026-08-25",
+    "source_ids": [
+      "hostinger-wordpress-official-2026-08-24"
+    ],
+    "notes": "Public USD 48-month promotional price; renewal differs."
+  }
+}

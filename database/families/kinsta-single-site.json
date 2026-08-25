@@ -1,0 +1,10 @@
+{
+  "id": "kinsta-single-site",
+  "provider_id": "kinsta",
+  "name": "Single-site Managed WordPress",
+  "category": "managed_wordpress",
+  "cpu_class": "managed",
+  "storage_class": "managed",
+  "status": "active",
+  "notes": "Kinsta single-site business plans; capacity may be sold by bandwidth or visits."
+}

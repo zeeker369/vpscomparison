@@ -1,0 +1,54 @@
+{
+  "id": "kinsta-single-40gb",
+  "provider_id": "kinsta",
+  "family_id": "kinsta-single-site",
+  "merchant_plan_code": "single-40gb",
+  "name": "Single 40GB",
+  "product_type": "managed_wordpress",
+  "status": "active",
+  "merchant_url": "https://kinsta.com/pricing/",
+  "resources": {
+    "vcpu": null,
+    "ram_mb": null,
+    "storage_gb": 10,
+    "storage_type": "managed",
+    "bandwidth_gb": null,
+    "virtualization": null,
+    "sites": 1,
+    "sites_unlimited": false,
+    "monthly_visits": null,
+    "server_bandwidth_gb": 40,
+    "cdn_bandwidth_gb": 250,
+    "php_workers": null,
+    "gpu_model": null,
+    "gpu_vram_gb": null
+  },
+  "billing": {
+    "model": "monthly",
+    "hourly_available": false,
+    "minimum_term_months": 1
+  },
+  "management": {
+    "level": "fully-managed",
+    "panel": "MyKinsta"
+  },
+  "platform": {
+    "wordpress": true,
+    "woocommerce": true,
+    "linux": false,
+    "windows": false,
+    "game_server": false
+  },
+  "network": {
+    "ipv4": null,
+    "ipv6": null
+  },
+  "verification": {
+    "status": "verified",
+    "last_verified_at": "2026-08-25",
+    "source_ids": [
+      "kinsta-wordpress-pricing-2026-08-24"
+    ],
+    "notes": "Monthly list price."
+  }
+}

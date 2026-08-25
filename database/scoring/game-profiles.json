@@ -1,0 +1,50 @@
+[
+  {
+    "id": "minecraft",
+    "label": "Minecraft",
+    "ram_small_mb": 4096,
+    "ram_medium_mb": 8192,
+    "ram_large_mb": 16384,
+    "notes": "Editorial baseline; plugins/modpacks and world size can materially raise memory needs."
+  },
+  {
+    "id": "palworld",
+    "label": "Palworld",
+    "ram_small_mb": 8192,
+    "ram_medium_mb": 16384,
+    "ram_large_mb": 32768,
+    "notes": "Editorial baseline; player count and world activity can materially raise memory needs."
+  },
+  {
+    "id": "rust",
+    "label": "Rust",
+    "ram_small_mb": 8192,
+    "ram_medium_mb": 16384,
+    "ram_large_mb": 32768,
+    "notes": "Editorial baseline; map size, mods, and player count matter."
+  },
+  {
+    "id": "valheim",
+    "label": "Valheim",
+    "ram_small_mb": 4096,
+    "ram_medium_mb": 8192,
+    "ram_large_mb": 16384,
+    "notes": "Editorial baseline; mods and concurrent players can increase needs."
+  },
+  {
+    "id": "cs2",
+    "label": "CS2",
+    "ram_small_mb": 4096,
+    "ram_medium_mb": 8192,
+    "ram_large_mb": 16384,
+    "notes": "Editorial baseline; tick rate, plugins, and player count affect CPU/RAM needs."
+  },
+  {
+    "id": "other",
+    "label": "Other game",
+    "ram_small_mb": 4096,
+    "ram_medium_mb": 8192,
+    "ram_large_mb": 16384,
+    "notes": "Generic editorial fallback only; verify the game publisher/server requirements."
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "id": "hostinger-vps-official-2026-08-24",
+    "provider_id": "hostinger",
+    "source_type": "official-pricing",
+    "url": "https://www.hostinger.com/vps-hosting",
+    "title": "Hostinger VPS Hosting",
+    "retrieved_at": "2026-08-24",
+    "status": "active",
+    "notes": "Public USD catalog. Promotions are volatile and may differ by referral/campaign."
+  },
+  {
+    "id": "digitalocean-droplet-pricing-2026-08-24",
+    "provider_id": "digitalocean",
+    "source_type": "official-pricing",
+    "url": "https://www.digitalocean.com/pricing/droplets",
+    "title": "DigitalOcean Droplet Pricing",
+    "retrieved_at": "2026-08-24",
+    "status": "active",
+    "notes": "Official Basic Droplet price table."
+  },
+  {
+    "id": "digitalocean-droplet-docs-2026-08-24",
+    "provider_id": "digitalocean",
+    "source_type": "official-docs",
+    "url": "https://docs.digitalocean.com/products/droplets/concepts/choosing-a-plan/",
+    "title": "Choosing the Right CPU Droplet Plan",
+    "retrieved_at": "2026-08-24",
+    "status": "active",
+    "notes": "Official plan-family documentation."
+  },
+  {
+    "id": "vultr-billing-docs-2026-08-24",
+    "provider_id": "vultr",
+    "source_type": "official-docs",
+    "url": "https://docs.vultr.com/support/platform/billing/how-am-i-billed-for-my-servers",
+    "title": "Vultr server billing",
+    "retrieved_at": "2026-08-24",
+    "status": "active",
+    "notes": "Official docs: server products are billed hourly; non-GPU server types are capped at 672 hours/month."
+  },
+  {
+    "id": "vultr-provisioning-docs-2026-08-24",
+    "provider_id": "vultr",
+    "source_type": "official-docs",
+    "url": "https://docs.vultr.com/products/compute/instances/cloud-compute/provisioning",
+    "title": "Vultr Cloud Compute provisioning",
+    "retrieved_at": "2026-08-24",
+    "status": "active",
+    "notes": "Official docs confirm shared CPU Cloud Compute and example plan code vc2-2c-4gb."
+  },
+  {
+    "id": "vultr-site-published-prices-2026-08-24",
+    "provider_id": "vultr",
+    "source_type": "internal-published",
+    "url": "/reviews/vultr/",
+    "title": "Current VPSComparison Vultr review",
+    "retrieved_at": "2026-08-24",
+    "status": "active",
+    "notes": "Temporary v1 bridge for 1/4/8/16 GB published price ladder until live catalog/API verification is automated."
+  },
+  {
+    "id": "hostinger-wordpress-official-2026-08-24",
+    "provider_id": "hostinger",
+    "source_type": "official-pricing",
+    "url": "https://www.hostinger.com/wordpress-hosting",
+    "title": "Hostinger managed hosting for WordPress",
+    "retrieved_at": "2026-08-24",
+    "status": "active",
+    "notes": "Official USD pricing page; promotional prices and renewal rates captured separately."
+  },
+  {
+    "id": "kinsta-wordpress-pricing-2026-08-24",
+    "provider_id": "kinsta",
+    "source_type": "official-pricing",
+    "url": "https://kinsta.com/pricing/",
+    "title": "Kinsta WordPress hosting plans",
+    "retrieved_at": "2026-08-24",
+    "status": "active",
+    "notes": "Official monthly plan table. First-month promotional pricing is not used as steady-state list price."
+  },
+  {
+    "id": "wpengine-wordpress-pricing-2026-08-24",
+    "provider_id": "wpengine",
+    "source_type": "official-pricing",
+    "url": "https://wpengine.com/plans",
+    "title": "WP Engine Managed Hosting Platform Plans",
+    "retrieved_at": "2026-08-24",
+    "status": "active",
+    "notes": "Official Essential plan pricing and capacity."
+  },
+  {
+    "id": "hostinger-vps-official-2026-08-25",
+    "provider_id": "hostinger",
+    "source_type": "official-pricing",
+    "url": "https://www.hostinger.com/vps-hosting",
+    "title": "Hostinger VPS Hosting",
+    "retrieved_at": "2026-08-25",
+    "status": "active",
+    "notes": "Official public USD catalog. KVM intro and 2-year renewal monthly-equivalent rates rechecked; unchanged from 2026-08-24."
+  },
+  {
+    "id": "digitalocean-droplet-pricing-2026-08-25",
+    "provider_id": "digitalocean",
+    "source_type": "official-pricing",
+    "url": "https://www.digitalocean.com/pricing/droplets",
+    "title": "DigitalOcean Droplet Pricing",
+    "retrieved_at": "2026-08-25",
+    "status": "active",
+    "notes": "Official Basic Droplet price table rechecked; monthly caps and displayed hourly equivalents unchanged from 2026-08-24."
+  },
+  {
+    "id": "vultr-pricing-official-2026-08-25",
+    "provider_id": "vultr",
+    "source_type": "official-pricing",
+    "url": "https://www.vultr.com/pricing/",
+    "title": "Vultr pricing",
+    "retrieved_at": "2026-08-25",
+    "status": "active",
+    "notes": "Official pricing destination rechecked. Exact High Performance catalog values remain marked partial because the live table is not reliably machine-readable in this verification workflow; monthly ladder was corroborated with fresh public observations."
+  },
+  {
+    "id": "vultr-billing-docs-2026-08-25",
+    "provider_id": "vultr",
+    "source_type": "official-docs",
+    "url": "https://docs.vultr.com/support/platform/billing/how-am-i-billed-for-my-servers",
+    "title": "Vultr server billing",
+    "retrieved_at": "2026-08-25",
+    "status": "active",
+    "notes": "Official billing documentation rechecked; server products are hourly and non-GPU server types use a monthly cap."
+  },
+  {
+    "id": "hostinger-wordpress-official-2026-08-25",
+    "provider_id": "hostinger",
+    "source_type": "official-pricing",
+    "url": "https://www.hostinger.com/wordpress-hosting",
+    "title": "Hostinger managed hosting for WordPress",
+    "retrieved_at": "2026-08-25",
+    "status": "active",
+    "notes": "Official USD pricing page rechecked; Premium and Unlimited promotional monthly equivalents and renewal rates unchanged from 2026-08-24."
+  },
+  {
+    "id": "kinsta-wordpress-pricing-2026-08-25",
+    "provider_id": "kinsta",
+    "source_type": "official-pricing",
+    "url": "https://kinsta.com/pricing/",
+    "title": "Kinsta WordPress hosting plans",
+    "retrieved_at": "2026-08-25",
+    "status": "active",
+    "notes": "Official monthly plan table rechecked. Single 20GB remains $35/mo after the current first-month-free promotion; Single 40GB remains $50/mo."
+  },
+  {
+    "id": "wpengine-wordpress-pricing-2026-08-25",
+    "provider_id": "wpengine",
+    "source_type": "official-pricing",
+    "url": "https://wpengine.com/plans",
+    "title": "WP Engine Managed Hosting Platform Plans",
+    "retrieved_at": "2026-08-25",
+    "status": "active",
+    "notes": "Official Essential plan pricing rechecked; Startup starts at $30/mo and Professional at $55/mo."
+  }
+]

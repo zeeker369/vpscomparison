@@ -1,0 +1,54 @@
+{
+  "id": "hostinger-kvm-2",
+  "provider_id": "hostinger",
+  "family_id": "hostinger-kvm",
+  "merchant_plan_code": null,
+  "name": "KVM 2",
+  "product_type": "vps",
+  "status": "active",
+  "merchant_url": "https://www.hostinger.com/vps-hosting",
+  "resources": {
+    "vcpu": 2,
+    "ram_mb": 8192,
+    "storage_gb": 100,
+    "storage_type": "nvme",
+    "bandwidth_gb": 8000,
+    "virtualization": "kvm",
+    "sites": null,
+    "sites_unlimited": false,
+    "monthly_visits": null,
+    "server_bandwidth_gb": null,
+    "cdn_bandwidth_gb": null,
+    "php_workers": null,
+    "gpu_model": null,
+    "gpu_vram_gb": null
+  },
+  "billing": {
+    "model": "prepaid",
+    "hourly_available": false,
+    "minimum_term_months": 24
+  },
+  "management": {
+    "level": "panel-assisted",
+    "panel": "hPanel / VPS panel"
+  },
+  "platform": {
+    "wordpress": true,
+    "woocommerce": true,
+    "linux": true,
+    "windows": false,
+    "game_server": true
+  },
+  "network": {
+    "ipv4": null,
+    "ipv6": null
+  },
+  "verification": {
+    "status": "verified",
+    "last_verified_at": "2026-08-25",
+    "source_ids": [
+      "hostinger-vps-official-2026-08-24"
+    ],
+    "notes": "Public USD listing; promo price can vary by campaign."
+  }
+}

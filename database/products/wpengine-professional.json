@@ -1,0 +1,54 @@
+{
+  "id": "wpengine-professional",
+  "provider_id": "wpengine",
+  "family_id": "wpengine-essential",
+  "merchant_plan_code": "professional",
+  "name": "Professional",
+  "product_type": "managed_wordpress",
+  "status": "active",
+  "merchant_url": "https://wpengine.com/plans",
+  "resources": {
+    "vcpu": null,
+    "ram_mb": null,
+    "storage_gb": 15,
+    "storage_type": "managed",
+    "bandwidth_gb": 150,
+    "virtualization": null,
+    "sites": 3,
+    "sites_unlimited": false,
+    "monthly_visits": 75000,
+    "server_bandwidth_gb": null,
+    "cdn_bandwidth_gb": null,
+    "php_workers": null,
+    "gpu_model": null,
+    "gpu_vram_gb": null
+  },
+  "billing": {
+    "model": "monthly",
+    "hourly_available": false,
+    "minimum_term_months": 1
+  },
+  "management": {
+    "level": "fully-managed",
+    "panel": "WP Engine User Portal"
+  },
+  "platform": {
+    "wordpress": true,
+    "woocommerce": true,
+    "linux": false,
+    "windows": false,
+    "game_server": false
+  },
+  "network": {
+    "ipv4": null,
+    "ipv6": null
+  },
+  "verification": {
+    "status": "verified",
+    "last_verified_at": "2026-08-25",
+    "source_ids": [
+      "wpengine-wordpress-pricing-2026-08-24"
+    ],
+    "notes": "Official starting monthly price and listed capacity."
+  }
+}

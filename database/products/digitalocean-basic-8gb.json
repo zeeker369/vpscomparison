@@ -1,0 +1,54 @@
+{
+  "id": "digitalocean-basic-8gb",
+  "provider_id": "digitalocean",
+  "family_id": "digitalocean-basic-regular",
+  "merchant_plan_code": null,
+  "name": "Basic 8 GiB",
+  "product_type": "cloud_compute",
+  "status": "active",
+  "merchant_url": "https://www.digitalocean.com/pricing/droplets",
+  "resources": {
+    "vcpu": 4,
+    "ram_mb": 8192,
+    "storage_gb": 160,
+    "storage_type": "ssd",
+    "bandwidth_gb": 5000,
+    "virtualization": null,
+    "sites": null,
+    "sites_unlimited": false,
+    "monthly_visits": null,
+    "server_bandwidth_gb": null,
+    "cdn_bandwidth_gb": null,
+    "php_workers": null,
+    "gpu_model": null,
+    "gpu_vram_gb": null
+  },
+  "billing": {
+    "model": "per-second",
+    "hourly_available": true,
+    "minimum_term_months": null
+  },
+  "management": {
+    "level": "self-managed",
+    "panel": "Cloud console"
+  },
+  "platform": {
+    "wordpress": true,
+    "woocommerce": true,
+    "linux": true,
+    "windows": false,
+    "game_server": true
+  },
+  "network": {
+    "ipv4": null,
+    "ipv6": null
+  },
+  "verification": {
+    "status": "verified",
+    "last_verified_at": "2026-08-25",
+    "source_ids": [
+      "digitalocean-droplet-pricing-2026-08-24"
+    ],
+    "notes": "Per-second billing effective 2026-01-01; official table also provides hourly and monthly caps."
+  }
+}

@@ -1,0 +1,205 @@
+[
+  {
+    "feature_ids": [
+      "control-panel",
+      "full-root",
+      "nvme-storage",
+      "prepaid-billing",
+      "public-api",
+      "weekly-backups"
+    ],
+    "product_id": "hostinger-kvm-1"
+  },
+  {
+    "feature_ids": [
+      "control-panel",
+      "full-root",
+      "nvme-storage",
+      "prepaid-billing",
+      "public-api",
+      "weekly-backups"
+    ],
+    "product_id": "hostinger-kvm-2"
+  },
+  {
+    "feature_ids": [
+      "control-panel",
+      "full-root",
+      "nvme-storage",
+      "prepaid-billing",
+      "public-api",
+      "weekly-backups"
+    ],
+    "product_id": "hostinger-kvm-4"
+  },
+  {
+    "feature_ids": [
+      "control-panel",
+      "full-root",
+      "nvme-storage",
+      "prepaid-billing",
+      "public-api",
+      "weekly-backups"
+    ],
+    "product_id": "hostinger-kvm-8"
+  },
+  {
+    "feature_ids": [
+      "cloud-console",
+      "full-root",
+      "hourly-billing",
+      "nvme-storage"
+    ],
+    "product_id": "vultr-hp-1gb"
+  },
+  {
+    "feature_ids": [
+      "cloud-console",
+      "full-root",
+      "hourly-billing",
+      "nvme-storage"
+    ],
+    "product_id": "vultr-hp-4gb"
+  },
+  {
+    "feature_ids": [
+      "cloud-console",
+      "full-root",
+      "hourly-billing",
+      "nvme-storage"
+    ],
+    "product_id": "vultr-hp-8gb"
+  },
+  {
+    "feature_ids": [
+      "cloud-console",
+      "full-root",
+      "hourly-billing",
+      "nvme-storage"
+    ],
+    "product_id": "vultr-hp-16gb"
+  },
+  {
+    "feature_ids": [
+      "cloud-console",
+      "full-root",
+      "hourly-billing",
+      "per-second-billing"
+    ],
+    "product_id": "digitalocean-basic-512mb"
+  },
+  {
+    "feature_ids": [
+      "cloud-console",
+      "full-root",
+      "hourly-billing",
+      "per-second-billing"
+    ],
+    "product_id": "digitalocean-basic-1gb"
+  },
+  {
+    "feature_ids": [
+      "cloud-console",
+      "full-root",
+      "hourly-billing",
+      "per-second-billing"
+    ],
+    "product_id": "digitalocean-basic-2gb-1vcpu"
+  },
+  {
+    "feature_ids": [
+      "cloud-console",
+      "full-root",
+      "hourly-billing",
+      "per-second-billing"
+    ],
+    "product_id": "digitalocean-basic-2gb-2vcpu"
+  },
+  {
+    "feature_ids": [
+      "cloud-console",
+      "full-root",
+      "hourly-billing",
+      "per-second-billing"
+    ],
+    "product_id": "digitalocean-basic-4gb"
+  },
+  {
+    "feature_ids": [
+      "cloud-console",
+      "full-root",
+      "hourly-billing",
+      "per-second-billing"
+    ],
+    "product_id": "digitalocean-basic-8gb"
+  },
+  {
+    "feature_ids": [
+      "cloud-console",
+      "full-root",
+      "hourly-billing",
+      "per-second-billing"
+    ],
+    "product_id": "digitalocean-basic-16gb"
+  },
+  {
+    "product_id": "hostinger-wp-premium",
+    "feature_ids": [
+      "managed-wordpress",
+      "control-panel",
+      "weekly-backups",
+      "cdn",
+      "wordpress-support"
+    ]
+  },
+  {
+    "product_id": "hostinger-wp-unlimited",
+    "feature_ids": [
+      "managed-wordpress",
+      "control-panel",
+      "daily-backups",
+      "cdn",
+      "wordpress-support"
+    ]
+  },
+  {
+    "product_id": "kinsta-single-20gb",
+    "feature_ids": [
+      "managed-wordpress",
+      "daily-backups",
+      "cdn",
+      "staging",
+      "wordpress-support"
+    ]
+  },
+  {
+    "product_id": "kinsta-single-40gb",
+    "feature_ids": [
+      "managed-wordpress",
+      "daily-backups",
+      "cdn",
+      "staging",
+      "wordpress-support"
+    ]
+  },
+  {
+    "product_id": "wpengine-startup",
+    "feature_ids": [
+      "managed-wordpress",
+      "daily-backups",
+      "cdn",
+      "staging",
+      "wordpress-support"
+    ]
+  },
+  {
+    "product_id": "wpengine-professional",
+    "feature_ids": [
+      "managed-wordpress",
+      "daily-backups",
+      "cdn",
+      "staging",
+      "wordpress-support"
+    ]
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "id": "verification-2026-08-24-v2",
+  "run_at": "2026-08-24T20:12:00+08:00",
+  "providers_checked": 5,
+  "products_checked": 21,
+  "price_records_checked": 38,
+  "price_changes": 0,
+  "notes": "Database v2 migration. Hostinger VPS/WordPress, DigitalOcean Droplets, Kinsta and WP Engine pricing verified against official pages today. Vultr price ladder remains partial until direct catalog/API verification."
+}
