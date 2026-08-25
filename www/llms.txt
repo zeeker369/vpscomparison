@@ -34,5 +34,5 @@
 - Compare the same RAM class first so teaser 1 GB plans do not distort the decision.
 - Match billing to runtime: prepaid intro pricing for always-on workloads versus hourly billing for short-lived infrastructure.
 - Check region before checkout when latency or data location matters, then confirm the selected provider offers that location.
-- The current database snapshot is dated 24 Aug 2026. Verified products show the real last-check date, and partial products remain labeled. Confirm the merchant cart before payment.
+- The current database snapshot is dated 25 Aug 2026. Verified products show the real last-check date, and partial products remain labeled. Confirm the merchant cart before payment.
 - Some outbound links are affiliate links. Product facts, editorial fit scores, and affiliate links are separate data layers. The Finder is rules-based; game sizing is not a benchmark and paid relationships do not define eligibility.
