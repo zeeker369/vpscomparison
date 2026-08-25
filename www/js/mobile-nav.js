@@ -1,12 +1,14 @@
 (function(){
-  var themeHref='/css/obsidian-signal.css?v=20260825a';
-  var oldTheme=document.querySelector('link[data-vps-dark-tech]');
-  if(oldTheme) oldTheme.remove();
-  if(!document.querySelector('link[data-vps-obsidian-signal]')){
+  var themeHref='/css/aero-chrome.css?v=20260825a';
+  var oldDark=document.querySelector('link[data-vps-dark-tech]');
+  var oldObsidian=document.querySelector('link[data-vps-obsidian-signal]');
+  if(oldDark) oldDark.remove();
+  if(oldObsidian) oldObsidian.remove();
+  if(!document.querySelector('link[data-vps-aero-chrome]')){
     var theme=document.createElement('link');
     theme.rel='stylesheet';
     theme.href=themeHref;
-    theme.setAttribute('data-vps-obsidian-signal','');
+    theme.setAttribute('data-vps-aero-chrome','');
     document.head.appendChild(theme);
   }
 
