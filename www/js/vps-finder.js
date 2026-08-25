@@ -16,6 +16,7 @@
   var gameField=root.querySelector('[data-field-game]');
   var gameSizeField=root.querySelector('[data-field-game-size]');
   var capacityHint=root.querySelector('[data-capacity-hint]');
+  var showAll=false;
 
   /* Deep-linkable presets for route cards and future landing pages. */
   try {
@@ -82,6 +83,7 @@
   }
   function isCompute(p){ return ['vps','cloud_compute','managed_vps','gpu_cloud','bare_metal'].indexOf(p.productType)>=0; }
   function isManagedWP(p){ return p.productType==='managed_wordpress'; }
+  function hasManagedCapacity(p){ return p.monthlyVisits!=null||p.serverBandwidthGb!=null; }
 
   function budgetLimit(pref){
     return {under10:10,under25:25,under50:50,under100:100}[pref]||null;
@@ -116,23 +118,37 @@
     if(p.ramMb>target){ var up=p.ramMb/target; return Math.max(50,Math.round(90-(up-1)*18)); }
     var down=target/p.ramMb; return Math.max(0,Math.round(72-(down-1)*42));
   }
+
+  /* Missing managed-WordPress capacity is uncertainty, not a free pass. */
+  function siteCapacityTargets(scale){
+    return {
+      small:{visits:25000,bandwidth:20,unknown:55,unknownPenalty:0},
+      growing:{visits:50000,bandwidth:40,unknown:45,unknownPenalty:4},
+      high:{visits:75000,bandwidth:75,unknown:35,unknownPenalty:8}
+    }[scale]||{visits:25000,bandwidth:20,unknown:55,unknownPenalty:0};
+  }
   function siteCapacityFit(p,scale){
-    var visitTarget={small:25000,growing:75000,high:250000}[scale]||25000;
-    var bandwidthTarget={small:20,growing:40,high:100}[scale]||20;
+    var target=siteCapacityTargets(scale);
     if(isManagedWP(p)){
       if(p.monthlyVisits!=null){
-        if(p.monthlyVisits>=visitTarget) return p.monthlyVisits===visitTarget?100:92;
-        return Math.max(25,Math.round(70*(p.monthlyVisits/visitTarget)));
+        if(p.monthlyVisits>=target.visits) return p.monthlyVisits===target.visits?100:92;
+        return Math.max(25,Math.round(70*(p.monthlyVisits/target.visits)));
       }
       if(p.serverBandwidthGb!=null){
-        if(p.serverBandwidthGb>=bandwidthTarget) return p.serverBandwidthGb===bandwidthTarget?94:90;
-        return Math.max(30,Math.round(70*(p.serverBandwidthGb/bandwidthTarget)));
+        if(p.serverBandwidthGb>=target.bandwidth) return p.serverBandwidthGb===target.bandwidth?94:90;
+        return Math.max(30,Math.round(70*(p.serverBandwidthGb/target.bandwidth)));
       }
-      return 78;
+      return target.unknown;
     }
     var ramTarget={small:4096,growing:8192,high:16384}[scale]||4096;
     return ramFit(p,ramTarget);
   }
+  function unknownCapacityPenalty(p,values){
+    if(!isManagedWP(p)||hasManagedCapacity(p)) return 0;
+    if(values.workload!=='wordpress'&&values.workload!=='woocommerce') return 0;
+    return siteCapacityTargets(values.siteScale).unknownPenalty;
+  }
+
   function gameProfile(id){ return (data.gameProfiles||[]).find(function(x){return x.id===id;})||(data.gameProfiles||[])[0]; }
   function gameRam(values){
     var g=gameProfile(values.game), key='ram_'+values.gameSize+'_mb';
@@ -172,8 +188,7 @@
     if(isCompute(p)){
       var target=targetRam(values); if(target&&p.ramMb!==target) return false;
     }else if(isManagedWP(p)){
-      /* Unknown provider capacity must never be promoted to an exact match. */
-      if(p.monthlyVisits==null&&p.serverBandwidthGb==null) return false;
+      if(!hasManagedCapacity(p)) return false;
       if(capacityFit(p,values)<70) return false;
     }
     return true;
@@ -206,6 +221,7 @@
       var cap=capacityFit(p,values), mgmt=managementFit(p,values.management,values.workload), bill=billingFit(p,values.billing), budget=budgetFit(p,values.budget), value=valueFit(p,pool);
       var weights=values.workload==='game'?{work:0.25,cap:0.35,mgmt:0.10,bill:0.10,budget:0.12,value:0.08}:{work:0.30,cap:0.20,mgmt:0.20,bill:0.10,budget:0.12,value:0.08};
       var total=workload*weights.work+cap*weights.cap+mgmt*weights.mgmt+bill*weights.bill+budget*weights.budget+value*weights.value;
+      total-=unknownCapacityPenalty(p,values);
       if(p.verificationStatus==='partial') total-=2;
       return {product:p,score:Math.max(0,Math.min(99,Math.round(total))),exact:exact(p,values),capacity:cap};
     }).sort(function(a,b){
@@ -223,6 +239,7 @@
     }else{
       if(p.monthlyVisits) out.push((p.monthlyVisits/1000)+'k visits/mo');
       else if(p.serverBandwidthGb) out.push(p.serverBandwidthGb+' GB server bandwidth');
+      else if(isManagedWP(p)) out.push('Capacity not published');
       var sites=siteLabel(p); if(sites) out.push(sites);
     }
     var limit=budgetLimit(values.budget);
@@ -248,6 +265,24 @@
     }
     return xs.slice(0,3);
   }
+  function lowerRankReason(item,values){
+    var p=item.product, target=siteCapacityTargets(values.siteScale);
+    if(isManagedWP(p)&&(values.workload==='wordpress'||values.workload==='woocommerce')){
+      if(!hasManagedCapacity(p)){
+        return 'Capacity is not published for this traffic level, so this plan is ranked below options with verifiable capacity.';
+      }
+      if(p.monthlyVisits!=null&&p.monthlyVisits<target.visits){
+        return 'Published capacity is '+(p.monthlyVisits/1000)+'k visits/mo versus the '+(target.visits/1000)+'k comparison target for this site-size band.';
+      }
+      if(p.serverBandwidthGb!=null&&p.serverBandwidthGb<target.bandwidth){
+        return 'Published server bandwidth is '+p.serverBandwidthGb+' GB versus the '+target.bandwidth+' GB comparison target for this site-size band.';
+      }
+    }
+    var limit=budgetLimit(values.budget);
+    if(limit&&p.price!=null&&p.price>limit) return 'This plan is over the selected monthly budget.';
+    if(values.billing==='hourly'&&!p.hourlyAvailable) return 'This plan does not match the selected hourly billing preference.';
+    return 'Another plan scores better on the selected mix of workload fit, capacity, billing, price, and verified data.';
+  }
   function renderCard(item,index,values){
     var p=item.product, why=reasons(item,values);
     var label=index===0?(item.exact?'Best match':'Closest match'):(item.exact?'Exact alternative':'Alternative');
@@ -255,11 +290,13 @@
     var renewal=p.renewalPrice!=null?'<span class="finder-card-renewal">Renews '+money(p.renewalPrice)+'/mo</span>':'';
     var review=p.reviewUrl?'<a class="btn btn-secondary" href="'+p.reviewUrl+'">Review</a>':'';
     var cta=p.affiliateUrl?'<a class="btn btn-primary" href="'+p.affiliateUrl+'" target="_blank" rel="nofollow sponsored noopener">Open '+p.provider+'</a>':'<a class="btn btn-primary" href="'+p.merchantUrl+'" target="_blank" rel="noopener">View '+p.provider+'</a>';
+    var lower=index>=3?'<p class="finder-result-note"><strong>Why it ranks lower:</strong> '+lowerRankReason(item,values)+'</p>':'';
     return '<article class="finder-match'+(index===0?' finder-match--best':'')+'">'+
       '<div class="finder-match-rank"><span>#'+(index+1)+'</span><strong>'+label+'</strong><em>'+item.score+'% match</em></div>'+
       '<div class="finder-match-main"><div class="finder-match-title"><p>'+productTypeLabel(p)+' · '+p.provider+'</p><h3>'+p.product+'</h3></div><div class="finder-match-price"><strong>'+priceLabel(p)+'</strong>'+renewal+'</div></div>'+
       '<div class="finder-match-specs">'+specChips(p).map(function(x){return '<span>'+x+'</span>';}).join('')+'</div>'+
       '<ul class="finder-match-reasons">'+why.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>'+
+      lower+
       '<div class="finder-match-meta"><span>'+billingLabel(p)+'</span><span>'+verification+'</span></div>'+
       '<div class="finder-match-actions">'+review+cta+'</div></article>';
   }
@@ -278,29 +315,60 @@
       if(!wp&&mgmt.value==='managed') mgmt.value='any';
     }
     if(capacityHint){
-      if(game){ var gp=gameProfile(values.game); capacityHint.textContent='Sizing baseline: '+gb(gameRam(values))+' RAM for '+(gp?gp.label:'this game')+'. Mods, maps, and player count can require more.'; }
-      else if(wp){ capacityHint.textContent=values.management==='managed'?'Managed WordPress capacity is compared by visits/bandwidth/sites where providers publish it.':'For VPS alternatives, site size maps to a RAM baseline; exact needs still depend on plugins and traffic.'; }
-      else capacityHint.textContent='RAM is treated as a hard capacity target when an exact size exists.';
+      if(game){
+        var gp=gameProfile(values.game);
+        capacityHint.textContent='Sizing baseline: '+gb(gameRam(values))+' RAM for '+(gp?gp.label:'this game')+'. Mods, maps, and player count can require more.';
+      } else if(wp&&values.management==='managed'){
+        capacityHint.textContent='Managed WordPress capacity uses published visits/bandwidth/sites where available. Missing capacity is treated as uncertainty and is penalized more heavily for higher-traffic sites.';
+      } else if(wp){
+        capacityHint.textContent='For VPS alternatives, site size maps to a RAM baseline; exact needs still depend on plugins and traffic.';
+      } else {
+        capacityHint.textContent='RAM is treated as a hard capacity target when an exact size exists.';
+      }
     }
+  }
+
+  function showMoreControl(total){
+    if(total<=3) return '';
+    var label=showAll?'Show top 3':'Show all '+total+' matches';
+    return '<div style="grid-column:1/-1;display:flex;justify-content:center;margin-top:2px">'+
+      '<button type="button" class="btn btn-secondary" data-finder-show-more aria-expanded="'+(showAll?'true':'false')+'">'+label+'</button>'+
+      '</div>';
   }
 
   function render(){
     var values=currentValues(); updateFields(values); values=currentValues();
-    var ranked=rank(values), exactCount=ranked.filter(function(x){return x.exact;}).length, shown=ranked.slice(0,3);
-    if(summary) summary.textContent=data.productCount+' products checked across '+data.providerCount+' providers · '+exactCount+' exact match'+(exactCount===1?'':'es')+' · top 3 shown';
+    var ranked=rank(values), exactCount=ranked.filter(function(x){return x.exact;}).length;
+    var shown=showAll?ranked:ranked.slice(0,3);
+    if(summary){
+      var shownText=showAll?'all '+ranked.length+' shown':(ranked.length>3?'top 3 of '+ranked.length+' shown':ranked.length+' shown');
+      summary.textContent=data.productCount+' products checked across '+data.providerCount+' providers · '+exactCount+' exact match'+(exactCount===1?'':'es')+' · '+shownText;
+    }
     if(verified) verified.textContent=verificationText();
     if(warning){
       var msg='';
       if(!ranked.length) msg='No product in the current database supports this workload and management combination yet.';
       else if(!exactCount) msg='No product satisfies every selected constraint. The ranking shows the closest trade-offs instead of inventing an exact answer.';
+      if((values.workload==='wordpress'||values.workload==='woocommerce')&&values.management==='managed'&&values.siteScale==='high'){
+        msg+=(msg?' ':'')+'High-traffic rankings penalize plans whose capacity is not published instead of assuming unknown capacity is sufficient.';
+      }
       if(values.workload==='game') msg+=(msg?' ':'')+'Game-server sizing is an editorial baseline, not a benchmark result.';
       warning.hidden=!msg; warning.textContent=msg;
     }
-    if(list) list.innerHTML=shown.map(function(x,i){return renderCard(x,i,values);}).join('');
+    if(list) list.innerHTML=shown.map(function(x,i){return renderCard(x,i,values);}).join('')+showMoreControl(ranked.length);
     result.classList.remove('finder-result--updated'); void result.offsetWidth; result.classList.add('finder-result--updated');
   }
 
-  form.addEventListener('submit',function(e){e.preventDefault();render();});
-  form.addEventListener('change',render);
+  form.addEventListener('submit',function(e){e.preventDefault();showAll=false;render();});
+  form.addEventListener('change',function(){showAll=false;render();});
+  if(list){
+    list.addEventListener('click',function(e){
+      var btn=e.target.closest('[data-finder-show-more]');
+      if(!btn) return;
+      showAll=!showAll;
+      render();
+      if(!showAll) result.scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+  }
   render();
 })();
