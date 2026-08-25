@@ -1,230 +1,225 @@
-/* VPSComparison · Strata Signal V5
-   Layered color system: carbon shell, graphite work layer, warm ivory content layer, signal yellow focus layer. */
+/* ===== Strata Signal V6 · Light-zone polish ===== */
+
 :root{
-  --ss-shell:#070708;
-  --ss-shell-2:#0c0c0f;
-  --ss-graphite:#14161a;
-  --ss-graphite-2:#1b1e23;
-  --ss-graphite-3:#252931;
-  --ss-ivory:#f4f0e7;
-  --ss-ivory-2:#e8e0d2;
-  --ss-ink:#131416;
-  --ss-text:#d5d0c6;
-  --ss-muted:#969187;
-  --ss-yellow:#ffd557;
-  --ss-yellow-2:#ffe57d;
-  --ss-yellow-soft:#fff2b7;
-  --ss-cyan:#6ed6df;
-  --ss-green:#78c69a;
-  --ss-amber:#d9a23b;
-  --ss-red:#d86464;
-  --ss-line-dark:rgba(255,255,255,.085);
-  --ss-line-warm:rgba(255,213,87,.22);
-  --ss-shadow:0 26px 70px rgba(0,0,0,.34);
-  --ss-shadow-soft:0 12px 38px rgba(0,0,0,.22);
-  --ss-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --v6-ivory-shell:#F7F4EE;
+  --v6-ivory-shell-2:#F3EEE4;
+  --v6-ivory-card:#FFFDF8;
+  --v6-ivory-card-2:#FAF6EE;
+  --v6-ink:#171717;
+  --v6-ink-2:#4F5967;
+  --v6-ink-3:#6B7280;
+  --v6-line:#E8E0D3;
+  --v6-line-strong:#DCCFBA;
+  --v6-chip:#F3EEE5;
+  --v6-shadow:
+    0 18px 44px rgba(15,23,42,.08),
+    0 4px 12px rgba(15,23,42,.04);
+  --v6-shadow-soft:
+    0 10px 28px rgba(15,23,42,.06),
+    0 2px 8px rgba(15,23,42,.03);
 }
-html{color-scheme:dark}
-body{
-  color:var(--ss-text);
+
+/* 1) 下半段整体气质：更高级的浅色层 */
+#vps-4gb-comparison,
+#managed-wordpress-comparison{
+  position:relative;
+  z-index:0;
+}
+
+#vps-4gb-comparison::before,
+#managed-wordpress-comparison::before{
+  content:"";
+  position:absolute;
+  inset:-18px -22px;
+  z-index:-1;
+  border-radius:28px;
   background:
-    radial-gradient(circle at 18% -8%,rgba(255,213,87,.11),transparent 30%),
-    radial-gradient(circle at 82% 2%,rgba(110,214,223,.055),transparent 24%),
-    linear-gradient(180deg,var(--ss-shell) 0%,var(--ss-shell-2) 58%,#060607 100%);
-  background-attachment:fixed;
+    radial-gradient(circle at top left, rgba(255,255,255,.82), transparent 28%),
+    linear-gradient(180deg,var(--v6-ivory-shell) 0%, var(--v6-ivory-shell-2) 100%);
+  border:1px solid rgba(232,224,211,.78);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.65),
+    0 22px 60px rgba(15,23,42,.06);
 }
-body:before{
-  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+
+/* 2) buying route 六张卡 */
+.home-route-card{
   background:
-    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),
-    radial-gradient(circle at 50% 28%,transparent 0%,rgba(0,0,0,.30) 72%);
-  background-size:52px 52px,52px 52px,auto;
-}
-::selection{background:rgba(255,213,87,.34);color:#111}
-a{color:inherit}
-
-/* Layer 1 — shell/header */
-.site-header{
-  background:rgba(8,8,10,.88)!important;
-  border-bottom:1px solid rgba(255,213,87,.12)!important;
-  box-shadow:0 10px 36px rgba(0,0,0,.28)!important;
-  backdrop-filter:blur(18px) saturate(118%);
-}
-.brand strong{color:#faf7f0!important}
-.brand small{color:var(--ss-muted)!important}
-.brand-mark{
-  color:#111!important;
-  background:linear-gradient(145deg,#fff0a4 0%,var(--ss-yellow) 54%,#d6aa28 100%)!important;
-  border:1px solid rgba(255,244,187,.45)!important;
-  box-shadow:0 0 0 1px rgba(0,0,0,.45),0 10px 24px rgba(0,0,0,.30)!important;
-}
-.nav a{color:#aaa69e!important}
-.nav a:hover{color:var(--ss-yellow)!important}
-.nav-toggle{color:#f5f2eb!important;background:#131418!important;border-color:rgba(255,213,87,.24)!important}
-
-/* Type hierarchy */
-.hero h1,.page-hero h1,.section-head h2,.article-card h1,.article-card h2,.article-card h3,.card h2,.card h3,.decision-card h3,.toc-card h3{
-  color:#f8f5ee!important;letter-spacing:-.028em
-}
-.lead,.section-head p,.section-head a,.card p,.footer-grid p,.footer-grid li,.prose,.prose p,.prose li{color:#c9c5bd!important}
-.muted,.provider-review-muted,.provider-review-table-note,.finder-result-note,.finder-helper{color:var(--ss-muted)!important}
-.breadcrumb,.breadcrumb a{color:#848179!important}
-
-/* Layer 2 — graphite work surfaces */
-.hero-panel,.decision-card,.article-card,.toc-card .sticky-box,.card,.compare-box,.quick-links a,.hero-points li,
-.home-proof-item,.home-route-card,
-.provider-review-stat,.provider-review-panel,.provider-review-fit-item,.provider-review-price-history,
-.affiliate-box,.price-verified{
-  background:linear-gradient(180deg,var(--ss-graphite-2),var(--ss-graphite))!important;
-  border:1px solid var(--ss-line-dark)!important;
-  box-shadow:var(--ss-shadow-soft)!important;
-}
-.card,.article-card,.decision-card,.toc-card .sticky-box,.compare-box,.provider-review-panel{position:relative;overflow:hidden}
-.card:before,.article-card:before,.decision-card:before,.toc-card .sticky-box:before,.compare-box:before,.provider-review-panel:before{
-  content:"";position:absolute;left:16px;right:16px;top:0;height:1px;pointer-events:none;
-  background:linear-gradient(90deg,transparent,rgba(255,213,87,.30),transparent);
-}
-.card:hover,.card--article:hover,.card--link:hover,.home-route-card:hover{
-  border-color:rgba(255,213,87,.26)!important;
-  box-shadow:0 22px 56px rgba(0,0,0,.36)!important;
-  transform:translateY(-2px);
+    linear-gradient(180deg,var(--v6-ivory-card) 0%,var(--v6-ivory-card-2) 100%) !important;
+  border:1px solid var(--v6-line) !important;
+  box-shadow:var(--v6-shadow) !important;
+  border-radius:22px !important;
 }
 
-/* Layer 3 — warm ivory islands for key reading surfaces */
-.finder-result,.verdict-box{
-  color:#222!important;
-  background:linear-gradient(180deg,#f7f3eb,#eae3d7)!important;
-  border:1px solid #d7cdbd!important;
-  box-shadow:0 18px 44px rgba(0,0,0,.22)!important;
+.home-route-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),transparent);
+  pointer-events:none;
 }
-.finder-result .finder-ranked-head p,.finder-result .finder-verified,.finder-result .finder-result-note{color:#656057!important}
-.finder-result .finder-verified{color:#2f8053!important}
-.verdict-box{border-left:4px solid var(--ss-yellow)!important}
-.verdict-box,.verdict-box p,.verdict-box li,.verdict-box strong{color:#24231f!important}
 
-/* Layer 4 — signal yellow focus */
-.btn{border-radius:10px!important;font-weight:820!important;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease,background .16s ease,color .16s ease}
-.btn-primary{
-  color:#121212!important;
-  background:linear-gradient(180deg,var(--ss-yellow-2),var(--ss-yellow))!important;
-  border-color:#d7b12f!important;
-  box-shadow:0 10px 24px rgba(190,149,30,.20),inset 0 1px 0 rgba(255,255,255,.52)!important;
+.home-route-card:hover{
+  transform:translateY(-3px) !important;
+  border-color:var(--v6-line-strong) !important;
+  box-shadow:
+    0 24px 54px rgba(15,23,42,.10),
+    0 6px 16px rgba(15,23,42,.05) !important;
 }
-.btn-primary:hover{transform:translateY(-1px);background:linear-gradient(180deg,#fff09d,#ffdc62)!important;box-shadow:0 14px 32px rgba(190,149,30,.28)!important}
-.btn-secondary{
-  color:#ece8df!important;
-  background:linear-gradient(180deg,#202228,#15171b)!important;
-  border-color:rgba(255,255,255,.10)!important;
-}
-.btn-secondary:hover{color:var(--ss-yellow)!important;border-color:rgba(255,213,87,.34)!important;background:#23262b!important}
-.eyebrow{
-  color:#171717!important;background:var(--ss-yellow)!important;border:1px solid #ddb631!important;border-radius:7px!important;
-  letter-spacing:.065em!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)!important;
-}
-.meta-row{color:var(--ss-muted)!important}
-.meta-row span,.provider-review-scoreline span{color:#bbb6ac!important;background:#202228!important;border:1px solid rgba(255,255,255,.07)!important;border-radius:7px!important}
 
-/* Hero split-depth */
-.hero--launch,.page-hero{position:relative;isolation:isolate}
-.hero--launch:before,.page-hero:before{
-  content:"";position:absolute;z-index:-1;left:50%;top:-135px;transform:translateX(-50%);width:min(980px,94vw);height:420px;pointer-events:none;
+.home-route-card h3{
+  color:var(--v6-ink) !important;
+  letter-spacing:-.02em;
+}
+
+.home-route-card p{
+  color:var(--v6-ink-2) !important;
+}
+
+/* 标签精修：更像产品 badge */
+.home-route-card .eyebrow{
+  color:#171717 !important;
+  background:linear-gradient(180deg,#FFE58B 0%, #FFD557 100%) !important;
+  border:1px solid #E8BC2A !important;
+  border-radius:10px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.55),
+    0 2px 6px rgba(255,213,87,.18);
+  font-weight:800 !important;
+  letter-spacing:.02em !important;
+}
+
+/* 3) 4GB comparison + managed WP 卡片 */
+#vps-4gb-comparison .card,
+#managed-wordpress-comparison .card{
   background:
-    linear-gradient(90deg,transparent 0 8%,rgba(255,213,87,.08) 8% 8.15%,transparent 8.15% 92%,rgba(110,214,223,.055) 92% 92.15%,transparent 92.15%),
-    radial-gradient(ellipse,rgba(255,213,87,.09),rgba(16,16,18,.12) 48%,transparent 76%);
+    linear-gradient(180deg,var(--v6-ivory-card) 0%,var(--v6-ivory-card-2) 100%) !important;
+  border:1px solid var(--v6-line) !important;
+  border-radius:24px !important;
+  box-shadow:var(--v6-shadow) !important;
 }
 
-/* Finder = dark instrument embedded in layered page */
-.vps-finder{
-  background:linear-gradient(145deg,#101116 0%,#191b20 52%,#0d0e12 100%)!important;
-  border:1px solid rgba(255,213,87,.24)!important;
-  border-radius:16px!important;
-  box-shadow:0 30px 76px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.035)!important;
-  position:relative;overflow:hidden;
+#vps-4gb-comparison .card:hover,
+#managed-wordpress-comparison .card:hover{
+  border-color:var(--v6-line-strong) !important;
+  box-shadow:
+    0 24px 54px rgba(15,23,42,.10),
+    0 6px 16px rgba(15,23,42,.05) !important;
 }
-.vps-finder:before{
-  content:"BUYING ENGINE // STRATA MODE";position:absolute;right:18px;top:12px;
-  color:#c4a84e;font:700 10px/1.2 var(--ss-mono);letter-spacing:.14em;
+
+/* 标题 / 文案 / 价格层级 */
+#vps-4gb-comparison .card h3,
+#managed-wordpress-comparison .card h3,
+#vps-4gb-comparison .card h4,
+#managed-wordpress-comparison .card h4{
+  color:var(--v6-ink) !important;
 }
-.vps-finder:after{
-  content:"";position:absolute;left:0;right:0;top:0;height:3px;pointer-events:none;
-  background:linear-gradient(90deg,var(--ss-yellow) 0 18%,#2a2d34 18% 82%,var(--ss-cyan) 82% 100%);opacity:.95;
+
+#vps-4gb-comparison .card p,
+#managed-wordpress-comparison .card p{
+  color:var(--v6-ink-2) !important;
 }
-.finder-copy h2{color:#fff!important}
-.finder-copy>p{color:#b9b6af!important}
-.finder-field span{color:#d5d1c8!important}
-.finder-field select{color:#f4f0e8!important;background:#0d0e12!important;border-color:#363942!important;border-radius:9px!important}
-.finder-field select:focus{border-color:var(--ss-yellow)!important;box-shadow:0 0 0 3px rgba(255,213,87,.11)!important}
-.finder-field select option{background:#0d0e12;color:#fff}
-.finder-capacity-hint{color:#aaa59b!important;background:#101116!important;border:1px solid #30333a!important;border-radius:8px!important}
-.finder-result-badge{color:#111!important;background:var(--ss-yellow)!important;border:1px solid #d7b12f!important;border-radius:6px!important;font-family:var(--ss-mono)!important;letter-spacing:.06em!important}
-.finder-warning{color:#6a4b00!important;background:#fff1bd!important;border-color:#e8c663!important}
-.finder-match{background:#fffdf8!important;border:1px solid #ddd5c8!important;border-radius:10px!important;box-shadow:none!important;position:relative}
-.finder-match--best{border:2px solid var(--ss-yellow)!important;box-shadow:0 14px 30px rgba(181,140,23,.16)!important}
-.finder-match--best:after{content:"PRIMARY MATCH";position:absolute;right:12px;top:10px;color:#8d6e08;font:800 10px/1 var(--ss-mono);letter-spacing:.12em}
-.finder-match-rank>span{background:#ece8df!important;color:#57524a!important;border-radius:6px!important}
-.finder-match--best .finder-match-rank>span{background:#fff1af!important;color:#6f5600!important}
-.finder-match-rank strong,.finder-match-title p{color:#68635b!important}
-.finder-match-rank em,.finder-match-title h3{color:#1b1b19!important}
-.finder-match-price>strong{color:#181713!important;font-family:var(--ss-mono)!important}
-.finder-card-renewal{color:#6f6a62!important}
-.finder-match-specs span{color:#4d4942!important;background:#f0ece4!important;border:1px solid #dfd8cc!important;border-radius:6px!important}
-.finder-match-reasons li{color:#514d46!important}
-.finder-match-reasons li:before{color:#b28a00!important}
-.finder-match-meta{color:#777169!important;border-top-color:#e2dbcf!important;font-family:var(--ss-mono)!important}
 
-/* Comparison cards: alternating layer cues */
-#vps-4gb-comparison .card,#managed-wordpress-comparison .card{border-color:rgba(255,255,255,.08)!important}
-#vps-4gb-comparison .card:nth-child(1),#managed-wordpress-comparison .card:nth-child(1){background:linear-gradient(180deg,#1a1c21,#121317)!important}
-#vps-4gb-comparison .card:nth-child(2),#managed-wordpress-comparison .card:nth-child(2){background:linear-gradient(180deg,#252931,#181b20)!important}
-#vps-4gb-comparison .card:nth-child(3),#managed-wordpress-comparison .card:nth-child(3){background:linear-gradient(180deg,#18191d,#0f1013)!important}
-#vps-4gb-comparison .card>p,#managed-wordpress-comparison .card>p{color:#bdb8af!important}
-#vps-4gb-comparison .card>p strong,#managed-wordpress-comparison .card>p strong{color:var(--ss-yellow-soft)!important;font-family:var(--ss-mono)!important}
+#vps-4gb-comparison .card strong,
+#managed-wordpress-comparison .card strong{
+  color:var(--v6-ink) !important;
+}
 
-/* Review/article */
-.prose a{color:#f0cf61!important}.prose a:hover{color:#ffe58c!important}
-.prose code{color:#efeae1!important;background:#202228!important;border:1px solid rgba(255,255,255,.08)!important}
-.prose pre{background:#090a0d!important;color:#e5e1d9!important;border:1px solid rgba(255,213,87,.14)!important}
-.prose blockquote{color:#d0cbc2!important;background:#1b1d22!important;border-left-color:var(--ss-yellow)!important}
-.quick-links a:hover{border-color:rgba(255,213,87,.28)!important;background:#23262c!important}
+/* 参数 chip 更轻一点 */
+#vps-4gb-comparison .card .meta-row span,
+#managed-wordpress-comparison .card .meta-row span,
+#vps-4gb-comparison .card .finder-match-specs span,
+#managed-wordpress-comparison .card .finder-match-specs span{
+  background:var(--v6-chip) !important;
+  border:1px solid var(--v6-line) !important;
+  color:#4E4A43 !important;
+  border-radius:10px !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5);
+}
 
-/* Tables = light content layer nested in dark page */
-.prose table{background:#f6f2e9!important;border-color:#d9d0c3!important;box-shadow:0 16px 40px rgba(0,0,0,.22)!important}
-.prose table thead,.prose table th{background:#17191e!important;color:var(--ss-yellow)!important}
-.prose table th,.prose table td{border-bottom-color:#ded6ca!important;border-right-color:#e6dfd4!important;color:#46423b!important}
-.prose table td strong{color:#171713!important}
-.prose table tbody tr:nth-child(even){background:#eee8dd!important}
-.prose table tbody tr:hover{background:#fff4c9!important}
+/* 4) 黄色主按钮：更精致，不那么“平” */
+#vps-4gb-comparison .btn-primary,
+#managed-wordpress-comparison .btn-primary,
+.home-route-card .btn-primary{
+  color:#171717 !important;
+  background:linear-gradient(180deg,#FFE58B 0%,#FFD557 52%,#F4C940 100%) !important;
+  border:1px solid #E6BA2A !important;
+  box-shadow:
+    0 10px 24px rgba(255,213,87,.18),
+    inset 0 1px 0 rgba(255,255,255,.55) !important;
+}
 
-/* Semantic review states */
-.provider-review-stat small{color:#918d84!important}.provider-review-stat strong{color:#f4f0e8!important}
-.provider-review-panel--good{border-color:rgba(120,198,154,.26)!important;background:linear-gradient(180deg,#17231c,#141817)!important}
-.provider-review-panel--warn{border-color:rgba(217,162,59,.28)!important;background:linear-gradient(180deg,#262012,#181610)!important}
-.provider-review-note{color:#cbc6bc!important;background:#1b1d22!important;border-left-color:var(--ss-yellow)!important}
-.provider-review-note--muted{background:#17181c!important;border-left-color:#77736b!important}
-.provider-review-badge--strong{background:#3a3215!important;color:#ffe47f!important}
-.provider-review-badge--good{background:#173020!important;color:#8bd1a8!important}
-.provider-review-badge--mixed{background:#312510!important;color:#e8b95d!important}
-.provider-review-badge--weak{background:#24262b!important;color:#aaa69e!important}
-.provider-review-price-history__status,.affiliate-box__badge{color:#141414!important;background:var(--ss-yellow)!important;border-color:#d7b12f!important}
-.provider-review-kicker{color:var(--ss-yellow)!important}
-.price-verified__stamp{color:var(--ss-green)!important;background:#15261b!important;border-color:rgba(120,198,154,.24)!important}
-.affiliate-box h3,.price-verified__date{color:#f3efe7!important}.affiliate-box p,.price-verified__meta{color:#a8a39a!important}
-.affiliate-disclosure{border-top-color:rgba(255,255,255,.07)!important}
+#vps-4gb-comparison .btn-primary:hover,
+#managed-wordpress-comparison .btn-primary:hover,
+.home-route-card .btn-primary:hover{
+  background:linear-gradient(180deg,#FFEAA1 0%,#FFD557 55%,#F1C338 100%) !important;
+  box-shadow:
+    0 14px 30px rgba(255,213,87,.22),
+    inset 0 1px 0 rgba(255,255,255,.62) !important;
+}
 
-/* Sidebar/footer */
-.decision-card--sidebar li{color:#bcb7ad!important;background:#1c1e23!important;border-color:rgba(255,255,255,.07)!important}
-.decision-card--sidebar li strong{color:#f0ece5!important}
-.toc a{color:#aaa69d!important}.toc a:hover{color:var(--ss-yellow)!important}
-.site-footer{background:#050506!important;border-top-color:rgba(255,213,87,.12)!important}
-.footer-grid h3{color:#f0ece5!important}.footer-grid a:hover{color:var(--ss-yellow)!important}
-*{scrollbar-color:#6f5a20 #0b0c0f}
+/* 5) 深色次按钮保留，但更精致 */
+#vps-4gb-comparison .btn-secondary,
+#managed-wordpress-comparison .btn-secondary{
+  color:#FFFFFF !important;
+  background:linear-gradient(180deg,#1E2430 0%,#101622 100%) !important;
+  border:1px solid #242D3C !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 8px 18px rgba(16,22,34,.14) !important;
+}
 
-@media(max-width:1120px){.nav-shell{background:rgba(9,9,11,.985)!important;border-color:rgba(255,213,87,.15)!important;box-shadow:0 24px 58px rgba(0,0,0,.46)!important}}
-@media(max-width:720px){
-  body:before{background-size:36px 36px,36px 36px,auto}
-  .hero--launch:before,.page-hero:before{height:290px;top:-105px}
-  .vps-finder:before{content:"ENGINE // STRATA";right:14px}
-  .finder-match--best:after{display:none}
-  .card,.article-card,.decision-card,.provider-review-panel,.provider-review-fit-item,.provider-review-price-history{box-shadow:0 10px 28px rgba(0,0,0,.24)!important}
+#vps-4gb-comparison .btn-secondary:hover,
+#managed-wordpress-comparison .btn-secondary:hover{
+  background:linear-gradient(180deg,#252C3A 0%,#121926 100%) !important;
+  border-color:#2D3748 !important;
+}
+
+/* 6) 细节文案、说明、分隔线 */
+#vps-4gb-comparison .muted,
+#managed-wordpress-comparison .muted,
+#vps-4gb-comparison small,
+#managed-wordpress-comparison small{
+  color:var(--v6-ink-3) !important;
+}
+
+#vps-4gb-comparison hr,
+#managed-wordpress-comparison hr{
+  border-color:var(--v6-line) !important;
+}
+
+/* 7) 如果有浅色区里的 finder 结果卡，也一起统一 */
+.finder-result .finder-match{
+  background:
+    linear-gradient(180deg,var(--v6-ivory-card) 0%,var(--v6-ivory-card-2) 100%) !important;
+  border:1px solid var(--v6-line) !important;
+  box-shadow:var(--v6-shadow-soft) !important;
+}
+
+.finder-result .finder-match h3,
+.finder-result .finder-match strong{
+  color:var(--v6-ink) !important;
+}
+
+.finder-result .finder-match p,
+.finder-result .finder-match li,
+.finder-result .finder-match .finder-card-renewal{
+  color:var(--v6-ink-2) !important;
+}
+
+/* 8) 移动端稍微收一点阴影和圆角 */
+@media (max-width: 720px){
+  .home-route-card,
+  #vps-4gb-comparison .card,
+  #managed-wordpress-comparison .card{
+    border-radius:18px !important;
+    box-shadow:0 10px 24px rgba(15,23,42,.06),0 2px 6px rgba(15,23,42,.03) !important;
+  }
+
+  #vps-4gb-comparison::before,
+  #managed-wordpress-comparison::before{
+    inset:-10px -10px;
+    border-radius:20px;
+  }
 }
