@@ -1,29 +1,4 @@
 (function(){
-  var themeHref='/css/strata-signal.css?v=20260825a';
-  var lowerHref='/css/strata-lower-ivory.css?v=20260825a';
-  var oldDark=document.querySelector('link[data-vps-dark-tech]');
-  var oldObsidian=document.querySelector('link[data-vps-obsidian-signal]');
-  var oldAero=document.querySelector('link[data-vps-aero-chrome]');
-  var oldNoir=document.querySelector('link[data-vps-noir-brass]');
-  if(oldDark) oldDark.remove();
-  if(oldObsidian) oldObsidian.remove();
-  if(oldAero) oldAero.remove();
-  if(oldNoir) oldNoir.remove();
-  if(!document.querySelector('link[data-vps-strata-signal]')){
-    var theme=document.createElement('link');
-    theme.rel='stylesheet';
-    theme.href=themeHref;
-    theme.setAttribute('data-vps-strata-signal','');
-    document.head.appendChild(theme);
-  }
-  if(!document.querySelector('link[data-vps-strata-lower-ivory]')){
-    var lower=document.createElement('link');
-    lower.rel='stylesheet';
-    lower.href=lowerHref;
-    lower.setAttribute('data-vps-strata-lower-ivory','');
-    document.head.appendChild(lower);
-  }
-
   var header = document.getElementById('siteHeader');
   if (!header) return;
   var toggle = header.querySelector('.nav-toggle');
