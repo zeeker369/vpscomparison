@@ -1,16 +1,18 @@
 (function(){
-  var themeHref='/css/noir-brass.css?v=20260825a';
+  var themeHref='/css/strata-signal.css?v=20260825a';
   var oldDark=document.querySelector('link[data-vps-dark-tech]');
   var oldObsidian=document.querySelector('link[data-vps-obsidian-signal]');
   var oldAero=document.querySelector('link[data-vps-aero-chrome]');
+  var oldNoir=document.querySelector('link[data-vps-noir-brass]');
   if(oldDark) oldDark.remove();
   if(oldObsidian) oldObsidian.remove();
   if(oldAero) oldAero.remove();
-  if(!document.querySelector('link[data-vps-noir-brass]')){
+  if(oldNoir) oldNoir.remove();
+  if(!document.querySelector('link[data-vps-strata-signal]')){
     var theme=document.createElement('link');
     theme.rel='stylesheet';
     theme.href=themeHref;
-    theme.setAttribute('data-vps-noir-brass','');
+    theme.setAttribute('data-vps-strata-signal','');
     document.head.appendChild(theme);
   }
 
