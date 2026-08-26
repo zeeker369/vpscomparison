@@ -1,0 +1,53 @@
+{
+  "provider_id": "digitalocean",
+  "version": "1.0",
+  "tracking_started": "2026-08-24",
+  "policy": "Records before tracking_started are reconstructed only from dated official sources. Missing dates are not interpolated. Historical backfill must not be presented as continuous VPSComparison observation.",
+  "records": [
+    {
+      "event_date": "2022-07-01",
+      "record_type": "plan-price",
+      "product_family": "droplet",
+      "memory_mb": 512,
+      "vcpu": 1,
+      "storage_gb": 10,
+      "transfer_gb": 500,
+      "price_usd_monthly": 4.0,
+      "evidence_type": "historical_backfill",
+      "confidence": "high",
+      "source_type": "official-blog",
+      "source_title": "New $4 Droplet and updated pricing",
+      "source_url": "https://www.digitalocean.com/blog/new-4-dollar-droplet-updated-pricing",
+      "retrieved_at": "2026-08-25",
+      "notes": "New $4 Droplet announced 16 May 2022, available from 1 Jul 2022."
+    },
+    {
+      "event_date": "2022-07-01",
+      "record_type": "family-starting-price",
+      "product_family": "droplet-25gb-ssd",
+      "storage_gb_from": 25,
+      "price_usd_monthly_from": 6.0,
+      "evidence_type": "historical_backfill",
+      "confidence": "high",
+      "source_type": "official-blog",
+      "source_title": "New $4 Droplet and updated pricing",
+      "source_url": "https://www.digitalocean.com/blog/new-4-dollar-droplet-updated-pricing",
+      "retrieved_at": "2026-08-25",
+      "notes": "DigitalOcean stated 25 GB SSD Droplets would start at $6/month from 1 Jul 2022."
+    },
+    {
+      "event_date": "2026-01-01",
+      "record_type": "billing-policy",
+      "billing_model": "per-second",
+      "minimum_seconds": 60,
+      "minimum_charge_usd": 0.01,
+      "evidence_type": "historical_backfill",
+      "confidence": "high",
+      "source_type": "official-blog",
+      "source_title": "Announcing per-sec billing, new Droplet plans, BYOIP, and NAT gateway to reduce scaling costs",
+      "source_url": "https://www.digitalocean.com/blog/dropletplans-persecbilling-byoip-natgateway",
+      "retrieved_at": "2026-08-25",
+      "notes": "DigitalOcean states Droplet per-second billing became effective 1 Jan 2026."
+    }
+  ]
+}

@@ -3,20 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vultr Review 2026: Hourly Cloud Compute vs Hostinger | VPS Comparison</title>
-<meta name="description" content="Vultr High Performance: 4 GB about $24/mo, 8 GB about $48, 16 GB about $96, billed hourly. Hostinger 4 GB is ~$6.49 intro; 8 GB KVM 2 is ~$8.99 intro. Skip the $6 1 GB plan.">
+<title>Vultr Review 2026: Pricing, Billing, Regions, and Trade-offs | VPS Comparison</title>
+<meta name="description" content="Vultr review 2026: tracked High Performance pricing, hourly billing, 672-hour monthly cap, regions, workload fit, price history, limitations, and alternatives.">
 <link rel="canonical" href="https://www.vpscomparison.com/reviews/vultr/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vultr Review 2026: Hourly Cloud Compute vs Hostinger | VPS Comparison">
-<meta property="og:description" content="Vultr High Performance: 4 GB about $24/mo, 8 GB about $48, 16 GB about $96, billed hourly. Hostinger 4 GB is ~$6.49 intro; 8 GB KVM 2 is ~$8.99 intro. Skip the $6 1 GB plan.">
+<meta property="og:title" content="Vultr Review 2026: Pricing, Billing, Regions, and Trade-offs | VPS Comparison">
+<meta property="og:description" content="A data-driven Vultr review covering tracked Cloud Compute pricing, hourly billing, regions, workload fit, limitations, and historical pricing milestones.">
 <meta property="og:url" content="https://www.vpscomparison.com/reviews/vultr/">
 <meta property="og:site_name" content="VPS Comparison">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/css/main.css?v=20260824f">
+<link rel="stylesheet" href="/css/provider-review.css?v=20260825a">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much is a 4 GB, 8 GB, or 16 GB Vultr VPS?","acceptedAnswer":{"@type":"Answer","text":"High Performance Cloud Compute list price is about $24/month for 4 GB, $48 for 8 GB, and $96 for 16 GB, billed hourly. Confirm the cart."}},{"@type":"Question","name":"Should I buy the $6 Vultr plan?","acceptedAnswer":{"@type":"Answer","text":"Not for a live WordPress site. That is 1 GB. Start at 4 GB. Use 1 GB only for a short hourly test."}},{"@type":"Question","name":"When do I need 8 GB on Vultr?","acceptedAnswer":{"@type":"Answer","text":"WooCommerce, heavy page builders, object-cache misses, or several sites on one box. Hostinger KVM 2 is about $8.99/month intro for 8 GB if you will keep the server. Vultr 8 GB is about $48/month hourly."}},{"@type":"Question","name":"Is Vultr cheaper than Hostinger?","acceptedAnswer":{"@type":"Answer","text":"Hourly is cheaper if you might delete the server in weeks. At 4 GB, Hostinger KVM 1 is about $6.49/month intro (renewal about $11.99). At 8 GB, Hostinger KVM 2 is about $8.99 intro versus about $48 hourly on Vultr."}},{"@type":"Question","name":"Does Vultr include a control panel?","acceptedAnswer":{"@type":"Answer","text":"Vultr gives you a cloud console. You pick the image and install the stack yourself unless you add a marketplace app. Hostinger KVM plans include hPanel."}},{"@type":"Question","name":"Should I check the region before checkout?","acceptedAnswer":{"@type":"Answer","text":"Yes, if latency or data location matters. Confirm the region before checkout and make sure the provider offers the location you need."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Vultr Review 2026: Pricing, Billing, Regions, and Trade-offs","dateModified":"2026-08-25","mainEntityOfPage":"https://www.vpscomparison.com/reviews/vultr/","publisher":{"@type":"Organization","name":"VPS Comparison","url":"https://www.vpscomparison.com/"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is Vultr billed?","acceptedAnswer":{"@type":"Answer","text":"Vultr bills server products hourly. For non-GPU server types the monthly cap is 672 hours, and a stopped server continues to incur charges until it is destroyed."}},{"@type":"Question","name":"How much is the tracked 4 GB Vultr plan?","acceptedAnswer":{"@type":"Answer","text":"VPSComparison currently tracks a Vultr High Performance 4 GB tier at about $24 per month or about $0.036 per hour. This catalog price remains labeled partial until direct plan-level catalog capture is automated."}},{"@type":"Question","name":"Is Vultr good for short-lived servers?","acceptedAnswer":{"@type":"Answer","text":"Yes. Hourly billing makes Vultr a strong fit for temporary development, testing, game servers, and workloads that may be destroyed after days or weeks."}},{"@type":"Question","name":"Does stopping a Vultr server stop billing?","acceptedAnswer":{"@type":"Answer","text":"No. Vultr states that stopped servers continue to incur hourly charges. Destroy the server to stop compute billing."}},{"@type":"Question","name":"Is Vultr fully managed?","acceptedAnswer":{"@type":"Answer","text":"No. Vultr Cloud Compute is primarily self-managed infrastructure. You choose an image and manage the operating system and application stack unless you add another management layer."}},{"@type":"Question","name":"Is Vultr better than DigitalOcean?","acceptedAnswer":{"@type":"Answer","text":"Both are developer-oriented clouds. Vultr is attractive for its broad location footprint and flexible compute choices; DigitalOcean is especially strong when you want Droplets plus a tightly integrated developer and managed-service ecosystem."}}]}]}</script>
 </head>
 <body>
 <header class="site-header" id="siteHeader">
@@ -41,251 +42,179 @@
 <main>
 <section class="page-hero page-hero--article">
 <div class="container article-hero-copy">
-<nav class="breadcrumb"><a href="/">Home</a> <span>/</span> <a href="/reviews/">Provider Reviews</a> <span>/</span> <span>Vultr Review 2026: Hourly Cloud Compute vs Hostinger</span></nav>
+<nav class="breadcrumb"><a href="/">Home</a> <span>/</span> <a href="/reviews/">Provider Reviews</a> <span>/</span> <span>Vultr Review 2026</span></nav>
 <div class="article-head-single">
-<div class="eyebrow">review</div>
-<h1>Vultr Review 2026: Hourly Cloud Compute vs Hostinger</h1>
-<p class="lead">High Performance is about $24/month at 4 GB, $48 at 8 GB, $96 at 16 GB, billed hourly. Skip the $6 1 GB plan. If the box will stay up, Hostinger 4 GB is about $6.49/month intro and 8 GB KVM 2 is about $8.99/month intro.</p>
+<div class="eyebrow">Provider review · data-driven buying guide</div>
+<h1>Vultr Review 2026: Pricing, Billing, Regions, and Trade-offs</h1>
+<p class="lead">Vultr is strongest when you want a self-managed cloud VM, hourly billing, and a wide location footprint. It is weaker when you want panel-first or fully managed hosting. We track plan prices separately from billing rules. On 26 Aug 2026 the High Performance 1/4/8/16 GB monthly caps were verified from Vultr's public pricing table and api.vultr.com/v2/plans.</p>
 </div>
 </div>
 </section>
 <section class="container article-layout article-layout--refined">
 <article class="article-card">
 <div class="article-body prose">
-<h2 id="quick-verdict">Quick verdict</h2>
-<p>Open Vultr when you want hourly billing, extra locations, and you will install the stack yourself. Start at 4 GB for a live site. Move to 8 GB or 16 GB when RAM actually runs out. Do not treat the $6 sticker as a cheaper 4 GB plan.</p>
-<div class="verdict-box"><strong>Bottom line:</strong><br>Compare the same RAM. Hostinger still wins on intro dollars per gigabyte. Vultr wins if you might delete or resize in weeks. Same 4 GB / 8 GB / 16 GB ladder as a DigitalOcean Basic Droplet. Check Singapore, Tokyo, or US/EU before checkout when location matters.</div>
+<h2 id="verdict">Verdict</h2>
+<div class="provider-review-snapshot">
+<div class="provider-review-stat"><small>Overall take</small><strong>Flexible global cloud for self-managed workloads</strong></div>
+<div class="provider-review-stat"><small>Best for</small><strong>Apps, APIs, game servers, temporary VMs</strong></div>
+<div class="provider-review-stat"><small>Tracked 4 GB</small><strong>$24/mo cap · ~$0.036/hr</strong></div>
+<div class="provider-review-stat"><small>Weakest fit</small><strong>Panel-first or fully managed hosting</strong></div>
+</div>
+<p>Vultr is a good fit when infrastructure flexibility matters more than hand-holding. Cloud Compute is built for general-purpose virtual machines, and Vultr's current documentation positions shared-CPU Cloud Compute for bursty applications such as websites, blogs, CMS workloads, development/test environments, and small databases.</p>
+<div class="verdict-box"><strong>Bottom line:</strong><br>Choose Vultr when you want hourly cloud compute, frequent deploy/delete workflows, and location choice. Do not choose it because a low-end sticker price looks cheaper than a larger VPS elsewhere: compare the same RAM, the same compute family, the region, and the management burden.</div>
 <div class="affiliate-box affiliate-box--test affiliate-box--verified">
 <div class="affiliate-box__badge">Affiliate link</div>
 <div class="affiliate-box__main">
 <div class="affiliate-box__copy">
-<h3>Open Vultr Cloud Compute</h3>
-<p>Hourly billing. Buy 4 GB or more, not the 1 GB badge. This is a sponsored link.</p>
+<h3>Check the current Vultr catalog</h3>
+<p>Confirm the exact compute family, region, hourly rate, monthly cap, and included transfer before deploying.</p>
 </div>
 <div class="affiliate-box__actions">
 <a class="btn btn-primary" href="https://www.vultr.com/products/cloud-compute/?ref=9896575" target="_blank" rel="nofollow sponsored noopener">Open Vultr</a>
-<a class="btn btn-secondary" href="/vs/vultr-vs-digitalocean/">Compare with DigitalOcean</a>
+<a class="btn btn-secondary" href="/#vps-finder">Use VPS Finder</a>
 </div>
 </div>
+<div class="affiliate-disclosure"><p>We may earn a commission if you sign up through this link, at no extra cost to you. Affiliate relationships do not affect our pricing data, provider inclusion, or ranking methodology.</p></div>
 <aside class="price-verified" aria-label="Price verification">
 <div class="price-verified__stamp">Verified</div>
 <div class="price-verified__body">
 <p class="price-verified__kicker">Daily verification status</p>
 <p class="price-verified__date" data-daily-price-status>21 products verified 26 Aug 2026</p>
-<p class="price-verified__meta">“Today” is shown only for products actually checked that day. Partial or stale data stays labeled. Confirm the merchant cart before you pay. <a href="/about/">How we check prices</a></p>
+<p class="price-verified__meta">High Performance monthly caps were confirmed on 26 Aug 2026 from Vultr's public pricing table and api.vultr.com/v2/plans. Confirm the selected family and region in the console. <a href="/about/">How we check prices</a></p>
 </div>
 </aside>
 </div>
-<h2 id="which-size">Which size to buy</h2>
-<table>
-<thead>
-<tr>
-<th>RAM</th>
-<th>Vultr High Performance</th>
-<th>Hostinger</th>
-<th>When it is the right size</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1 GB</td>
-<td>About $6/mo (HP); Regular about $5</td>
-<td>KVM 1 is already 4 GB</td>
-<td>Short hourly test only. Not a live WordPress site.</td>
-</tr>
-<tr>
-<td>4 GB</td>
-<td>About $24/mo</td>
-<td>KVM 1, ~$6.49/mo intro (renews ~$11.99)</td>
-<td>Brochure or content WordPress. This site’s live-site floor.</td>
-</tr>
-<tr>
-<td>8 GB</td>
-<td>About $48/mo</td>
-<td>KVM 2, ~$8.99/mo intro</td>
-<td>WooCommerce, page builders, several sites, object cache in RAM.</td>
-</tr>
-<tr>
-<td>16 GB</td>
-<td>About $96/mo</td>
-<td>KVM 4, ~$12.99/mo intro</td>
-<td>Busy store, app + database on one box, or headroom before splitting services.</td>
-</tr>
-<tr>
-<td>32 GB+</td>
-<td>Larger HP / Optimized SKUs in the cart</td>
-<td>KVM 8, ~$25.99/mo intro</td>
-<td>Confirm the SKU in checkout. Dedicated-CPU lines cost more than High Performance.</td>
-</tr>
-</tbody>
-</table>
-<p>Hostinger figures are the intro rates already published in the <a href="/reviews/hostinger/">Hostinger review</a>. Vultr High Performance 4 / 8 / 16 GB is the same doubling as DigitalOcean Basic ($24 / $48 / $96). Destroy or resize on Vultr and you stop paying for the old size within the hour.</p>
-<h2 id="4gb-compared">4 GB compared</h2>
-<p>The homepage still starts here so a $6 1 GB plan is not treated as the cheap pick.</p>
-<table>
-<thead>
-<tr>
-<th>Need</th>
-<th>Vultr</th>
-<th>Hostinger</th>
-<th>DigitalOcean</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>4 GB RAM</td>
-<td>High Performance, about $24/mo</td>
-<td>KVM 1, ~$6.49/mo intro</td>
-<td>Basic Droplet, about $24/mo</td>
-</tr>
-<tr>
-<td>8 GB RAM</td>
-<td>About $48/mo</td>
-<td>KVM 2, ~$8.99/mo intro</td>
-<td>Basic, about $48/mo</td>
-</tr>
-<tr>
-<td>Billing</td>
-<td>Hourly</td>
-<td>Prepaid; KVM 1 renewal ~$11.99/mo</td>
-<td>Hourly / per-second</td>
-</tr>
-<tr>
-<td>Panel</td>
-<td>Cloud console</td>
-<td>hPanel</td>
-<td>Cloud console</td>
-</tr>
-</tbody>
-</table>
-<h2 id="what-you-actually-buy">What you actually buy</h2>
-<p>This site’s Vultr pick is High Performance Cloud Compute, not Regular Cloud Compute. The 4 GB HP line is about $24/month with 100 GB NVMe in the figures already published here. 8 GB HP is about $48/month. 16 GB HP is about $96/month. You pay for hours, capped at a month of hours. Destroy the instance and billing stops.</p>
-<p>Regular Cloud Compute is cheaper on some RAM sizes and slower disks. Optimized / dedicated-CPU SKUs cost more than High Performance at the same RAM. If the cart shows a different family, you are not on the comparison in the table above.</p>
-<p>New-account credit (as published on this site: $300 in 30 days) cuts the first invoice. It does not change the catalog. Spin 4 GB, resize to 8 GB for a WooCommerce test, then decide against Hostinger’s prepaid cycle.</p>
-<h2 id="when-vultr-is-the-right-open">When Vultr is the right open</h2>
+<h2 id="who-should-buy">Who should buy Vultr?</h2>
+<div class="provider-review-grid">
+<section class="provider-review-panel provider-review-panel--good"><h3>Good fit</h3><ul>
+<li>Developers deploying APIs, web apps, workers, VPNs, databases, or self-hosted tools.</li>
+<li>You want hourly billing and expect to destroy or replace instances frequently.</li>
+<li>You need a broad location footprint and want to choose the node before deployment.</li>
+<li>You are comfortable managing Linux, networking, updates, security, and the application stack yourself.</li>
+</ul></section>
+<section class="provider-review-panel provider-review-panel--warn"><h3>Skip it when...</h3><ul>
+<li>You want a hosting panel and a guided WordPress-first experience.</li>
+<li>You do not want to administer an operating system.</li>
+<li>You are comparing only the lowest sticker price rather than the same RAM and compute family.</li>
+<li>You expect a powered-off instance to stop billing automatically.</li>
+</ul></section>
+</div>
+<h2 id="current-plans">Current tracked Vultr plans</h2>
+<table><thead><tr><th>Tracked tier</th><th>RAM</th><th>Monthly cap</th><th>Hourly</th><th>Verification</th></tr></thead><tbody>
+<tr><td>High Performance</td><td>1 GB</td><td>$6</td><td>$0.009/hr</td><td>Verified</td></tr>
+<tr><td>High Performance</td><td>4 GB</td><td>$24</td><td>$0.036/hr</td><td>Verified</td></tr>
+<tr><td>High Performance</td><td>8 GB</td><td>$48</td><td>$0.071/hr</td><td>Verified</td></tr>
+<tr><td>High Performance</td><td>16 GB</td><td>$96</td><td>$0.143/hr</td><td>Verified</td></tr>
+</tbody></table>
+<p class="provider-review-table-note">Verified on 26 Aug 2026 against Vultr's public High Performance table and api.vultr.com/v2/plans. AMD and Intel SKUs share these monthly caps. Displayed hourly rates come from the public table. Always confirm the selected family and region in the Vultr console.</p>
+<h2 id="real-cost">What Vultr actually costs</h2>
+<p>Vultr's official billing documentation is unusually clear on one point: server products are billed hourly. Non-GPU server types are capped at <strong>672 billable hours per month</strong>. The minimum billing unit is one hour.</p>
+<div class="provider-review-grid">
+<section class="provider-review-panel"><h3>Billing rules that matter</h3><ul>
+<li>Billing starts when the server is deployed.</li>
+<li>Stopping or powering off a server does <strong>not</strong> stop hourly charges.</li>
+<li>Destroy the server to stop compute billing.</li>
+<li>Pricing can vary by data center and product family, so confirm the target region.</li>
+</ul></section>
+<section class="provider-review-panel"><h3>Bandwidth and extras</h3><ul>
+<li>Vultr currently documents 2 TB of free account-level bandwidth plus instance allocations.</li>
+<li>Outbound transfer above the allocation is documented at $0.01/GB.</li>
+<li>Snapshots, backups, Windows licensing, storage, and other add-ons can create separate charges.</li>
+<li>The cheapest compute family is not necessarily the family shown in this review.</li>
+</ul></section>
+</div>
+<h2 id="price-history">Price history</h2>
+<div class="provider-review-price-history">
+<div class="provider-review-price-history__head"><div><div class="provider-review-kicker">VPSComparison tracking + official historical milestones</div><h3>Vultr compute pricing record</h3></div><span class="provider-review-price-history__status">Daily tracking started 24 Aug 2026</span></div>
+<table><thead><tr><th>Date</th><th>Record</th><th>Evidence</th></tr></thead><tbody>
+<tr><td>11 Mar 2022</td><td>Refreshed shared-CPU Cloud Compute announced from $5/mo; Optimized Cloud Compute announced from $28/mo.</td><td>Official historical backfill</td></tr>
+<tr><td>30 Nov 2022</td><td>Vultr announced 2 TB free monthly outbound transfer, free ingress, global pooling, and $0.01/GB egress overage effective 1 Jan 2023.</td><td>Official historical backfill</td></tr>
+<tr><td>24 Aug 2026</td><td>Tracked High Performance: 4 GB $24, 8 GB $48, 16 GB $96.</td><td>Direct VPSComparison snapshot · partial</td></tr>
+<tr><td>25 Aug 2026</td><td>Tracked High Performance: 4 GB $24, 8 GB $48, 16 GB $96. No change.</td><td>Direct VPSComparison snapshot · partial</td></tr>
+<tr><td>26 Aug 2026</td><td>Tracked High Performance: 4 GB $24, 8 GB $48, 16 GB $96. No change. Status upgraded to verified after public table + API capture.</td><td>Direct VPSComparison snapshot · verified</td></tr>
+</tbody></table>
+<p class="provider-review-muted">Historical backfill is kept separate from our own daily observations. We do not interpolate missing dates or pretend we tracked Vultr daily before 24 Aug 2026.</p>
+</div>
+<h2 id="regions">Regions and availability</h2>
+<p>Vultr operates a large global footprint, but product availability is plan- and location-specific. Current Vultr documentation describes 33 global locations across its platform, and the deployment workflow requires you to choose a location before the plan. For a serious latency-sensitive workload, verify the exact compute family in your intended region before paying.</p>
+<div class="provider-review-note"><strong>Region rule:</strong> do not treat “Vultr has a city” as proof that every compute family is available there at the same price. Use the Deploy screen or API for the product you actually intend to buy.</div>
+<h2 id="management">Management and control</h2>
+<p>Vultr is infrastructure first. Cloud Compute can be provisioned through the console, API, CLI, or Terraform. Linux instances are normally managed over SSH. Windows is available on supported plans, but Windows licensing can add cost. This is a different buying experience from a panel-assisted VPS or fully managed WordPress host.</p>
+<p>If you want WordPress but do not want server administration, compare managed WordPress products in the <a href="/#vps-finder">VPS Finder</a>. If you want infrastructure freedom and automation, Vultr is the more natural fit.</p>
+<h2 id="workload-fit">Workload fit</h2>
+<p class="provider-review-muted">These are editorial buying-fit labels based on billing, product model, locations, and management requirements. They are not benchmark scores.</p>
+<div class="provider-review-fit">
+<div class="provider-review-fit-item"><div class="provider-review-fit-head"><strong>Developer / API</strong><span class="provider-review-badge provider-review-badge--strong">Strong</span></div><p>Hourly VMs, APIs, CLI/Terraform workflows, and broad deployment options fit developer infrastructure well.</p></div>
+<div class="provider-review-fit-item"><div class="provider-review-fit-head"><strong>Temporary server</strong><span class="provider-review-badge provider-review-badge--strong">Strong</span></div><p>One of Vultr's clearest advantages. Destroy the instance when the test is over; do not merely power it off.</p></div>
+<div class="provider-review-fit-item"><div class="provider-review-fit-head"><strong>Game server</strong><span class="provider-review-badge provider-review-badge--good">Good</span></div><p>Location choice and hourly billing are useful. Actual player capacity still depends on game, mods, CPU performance, and latency.</p></div>
+<div class="provider-review-fit-item"><div class="provider-review-fit-head"><strong>WordPress</strong><span class="provider-review-badge provider-review-badge--good">Good</span></div><p>Technically capable, but you own more of the stack than on a panel-assisted or managed WordPress product.</p></div>
+<div class="provider-review-fit-item"><div class="provider-review-fit-head"><strong>WooCommerce</strong><span class="provider-review-badge provider-review-badge--mixed">Mixed</span></div><p>Works when sized and administered well, but a store owner who does not want Linux operations should compare managed options.</p></div>
+<div class="provider-review-fit-item"><div class="provider-review-fit-head"><strong>Windows</strong><span class="provider-review-badge provider-review-badge--good">Good</span></div><p>Supported on applicable compute plans, with an additional Windows license cost.</p></div>
+</div>
+<h2 id="performance">Performance: what we know and what we do not</h2>
+<p>Vultr offers multiple compute families, so performance cannot be reduced to one “Vultr score.” Shared CPU, High Performance, Optimized Cloud Compute, VX1, and other families target different workloads and can use different CPU/storage configurations.</p>
+<div class="provider-review-note provider-review-note--muted"><strong>No invented benchmark:</strong> VPSComparison does not yet have its own controlled Vultr benchmark series. Until we buy and repeatedly test specific plans in specific regions, we will not publish a proprietary CPU, disk, network, or uptime score.</div>
+<h2 id="limitations">What we do not like</h2>
 <ul>
-<li>You might delete or resize in weeks, so hourly beats a 12-month Hostinger lock.</li>
-<li>You want a location Hostinger does not sell, and you need to confirm that location before checkout.</li>
-<li>You are comfortable with a cloud console, not hPanel.</li>
-<li>You already matched RAM to RAM, not $6 to $6.49, and not $48 to $8.99 without noticing billing.</li>
+<li><strong>Current price capture is still partial.</strong> The billing rules are official and clear, but our tracked High Performance ladder is not yet backed by automated direct catalog/API capture.</li>
+<li><strong>Stopped is not free.</strong> Powering off an instance does not stop billing; you must destroy it.</li>
+<li><strong>Product-family complexity.</strong> Regular/shared, High Performance, Optimized and newer dedicated lines are easy to confuse if you compare only RAM.</li>
+<li><strong>Regional differences matter.</strong> Exact plan availability and pricing can vary by location.</li>
+<li><strong>Self-management is real work.</strong> Security updates, application stack, monitoring and recovery remain your responsibility.</li>
 </ul>
-<h2 id="when-to-open-someone-else">When to open someone else</h2>
-<ul>
-<li>You want 4 GB or 8 GB and a panel at the cheap intro rate: <a href="/reviews/hostinger/">Hostinger</a>.</li>
-<li>You want Droplets and managed databases later: <a href="/reviews/digitalocean/">DigitalOcean</a>.</li>
-<li>You want WordPress with a GUI: start at Hostinger KVM 1 (4 GB) or KVM 2 (8 GB), not Vultr 1 GB. Details on the <a href="/use-cases/wordpress-hosting/">WordPress VPS</a> page.</li>
+<h2 id="alternatives">Vultr vs alternatives</h2>
+<table><thead><tr><th>Choose</th><th>When it is the better fit</th><th>Main trade-off</th></tr></thead><tbody>
+<tr><td><strong>Vultr</strong></td><td>Hourly cloud VMs, wide location choice, APIs/automation, temporary infrastructure</td><td>Self-managed; tracked current HP prices are partial</td></tr>
+<tr><td><a href="/reviews/digitalocean/"><strong>DigitalOcean</strong></a></td><td>Droplets plus a cohesive developer platform and managed services</td><td>Usually not the cheapest always-on RAM</td></tr>
+<tr><td><a href="/reviews/hostinger/"><strong>Hostinger</strong></a></td><td>Always-on VPS, low prepaid monthly-equivalent pricing, panel-assisted workflow</td><td>Prepaid rather than hourly; less cloud-native</td></tr>
+</tbody></table>
+<h2 id="about">About Vultr</h2>
+<p>Vultr is an independent cloud infrastructure provider offering compute, storage, networking, Kubernetes, managed databases, GPUs, bare metal, and related services. For this review, company background is secondary: the buying decision is driven by the compute family, region, billing model, and your ability to manage the server.</p>
+<h2 id="methodology">Methodology and sources</h2>
+<ul class="provider-review-source-list">
+<li><a href="https://docs.vultr.com/support/platform/billing/how-am-i-billed-for-my-servers" target="_blank" rel="nofollow noopener">Vultr server billing documentation</a> — hourly billing, 672-hour cap, and stopped-server billing.</li>
+<li><a href="https://www.vultr.com/pricing/" target="_blank" rel="nofollow noopener">Vultr pricing</a> — current pricing destination; exact tracked High Performance values remain labeled partial.</li>
+<li><a href="https://docs.vultr.com/support/platform/billing/what-is-the-bandwidth-overage-rate" target="_blank" rel="nofollow noopener">Vultr bandwidth overage documentation</a>.</li>
+<li><a href="https://blogs.vultr.com/High-Performance-and-Truly-EPYC-Vultrs-New-VMs-Are-Ready-for-Anything" target="_blank" rel="nofollow noopener">Vultr 11 Mar 2022 compute launch</a> — historical backfill.</li>
+<li><a href="https://blogs.vultr.com/Vultr-Announces-Reduced-Bandwidth-Pricing-2-Tb-Of-Free-Monthly-Egress-Free-Ingress-And-Global-Pooling" target="_blank" rel="nofollow noopener">Vultr 30 Nov 2022 bandwidth announcement</a> — historical backfill.</li>
 </ul>
-<h2 id="region-after-checkout">Check region before checkout</h2>
-<p>Do not start with Singapore vs Tokyo. Open the account, then filter the node. Same rule as the homepage.</p>
+<p class="provider-review-muted">Direct VPSComparison daily price tracking started on 24 Aug 2026. Earlier records are reconstructed only from dated official sources and are labeled historical backfill.</p>
 <h2 id="faqs">FAQs</h2>
 <div class="faq-list">
-<div class="faq-item">
-<h3 class="faq-q">How much is 4 GB, 8 GB, or 16 GB on Vultr?</h3>
-<p class="faq-a">High Performance list price is about $24, $48, and $96 per month, billed hourly. Check the cart.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-q">Should I buy the $6 Vultr plan?</h3>
-<p class="faq-a">Not for a live site. That is 1 GB. Start at 4 GB.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-q">When do I need 8 GB?</h3>
-<p class="faq-a">WooCommerce, heavy builders, or several sites. Hostinger KVM 2 is the cheap 8 GB intro if you will keep the box. Vultr 8 GB is about $48/month hourly.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-q">Is Vultr cheaper than Hostinger?</h3>
-<p class="faq-a">If you might delete the box in weeks, yes. If it will run a year, Hostinger intro at the same RAM is cheaper even after you read renewal on KVM 1.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-q">Does Vultr include a control panel?</h3>
-<p class="faq-a">A cloud console. You install the stack unless you add a marketplace app. Hostinger includes hPanel.</p>
-</div>
-<div class="faq-item">
-<h3 class="faq-q">Should I check the region before checkout?</h3>
-<p class="faq-a">Yes, if latency or data location matters. Confirm the region before checkout.</p>
-</div>
+<div class="faq-item"><h3 class="faq-q">How is Vultr billed?</h3><p class="faq-a">Vultr bills server products hourly. Non-GPU server types are capped at 672 hours per month. Stopping a server does not stop billing.</p></div>
+<div class="faq-item"><h3 class="faq-q">How much is the tracked 4 GB Vultr plan?</h3><p class="faq-a">Our current database tracks a High Performance 4 GB tier at about $24/month or about $0.036/hour. On 26 Aug 2026 this was verified from Vultr's public pricing table and api.vultr.com/v2/plans.</p></div>
+<div class="faq-item"><h3 class="faq-q">Is Vultr good for short-lived servers?</h3><p class="faq-a">Yes. Hourly billing makes it a strong fit for dev/test and temporary infrastructure. Destroy the server when finished.</p></div>
+<div class="faq-item"><h3 class="faq-q">Does stopping a Vultr server stop billing?</h3><p class="faq-a">No. Vultr says stopped servers continue to incur hourly charges. Destroy the instance to stop compute billing.</p></div>
+<div class="faq-item"><h3 class="faq-q">Is Vultr managed hosting?</h3><p class="faq-a">No. Cloud Compute is primarily self-managed infrastructure. You are responsible for the operating system and application stack unless you add another management layer.</p></div>
+<div class="faq-item"><h3 class="faq-q">Vultr or DigitalOcean?</h3><p class="faq-a">Vultr is compelling for broad location choice and compute flexibility. DigitalOcean is especially strong if you want Droplets plus a cohesive set of managed developer services. Compare the exact plan and region, not just the brand.</p></div>
 </div>
 </div>
 </article>
 <aside class="article-sidebar">
 <div class="sticky-stack">
-<section class="decision-card decision-card--sidebar">
-<h3>Quick decision</h3>
-<ul>
-<li><strong>Best for:</strong> Hourly 4 / 8 / 16 GB, extra locations, resize or delete</li>
-<li><strong>Less ideal for:</strong> Panel-first WordPress, treating $6 as 4 GB or $48 as equal to Hostinger 8 GB intro</li>
-<li><strong>Recommended reading order:</strong> size table, then Hostinger if you will keep the box.</li>
-</ul>
-</section>
-<section class="toc-card">
-<div class="sticky-box sticky-box--plain">
-<h3>Contents</h3>
-<div class="toc">
-<nav id="TableOfContents">
-<ul>
-<li><a href="#quick-verdict">Quick verdict</a></li>
-<li><a href="#which-size">Which size to buy</a></li>
-<li><a href="#4gb-compared">4 GB compared</a></li>
-<li><a href="#what-you-actually-buy">What you actually buy</a></li>
-<li><a href="#when-vultr-is-the-right-open">When Vultr is the right open</a></li>
-<li><a href="#when-to-open-someone-else">When to open someone else</a></li>
-<li><a href="#region-after-checkout">Check region before checkout</a></li>
-<li><a href="#faqs">FAQs</a></li>
-</ul>
-</nav>
-</div>
+<section class="decision-card decision-card--sidebar"><h3>Quick decision</h3><ul>
+<li><strong>Best for:</strong> hourly infrastructure, locations, APIs, temporary VMs</li>
+<li><strong>Less ideal for:</strong> fully managed or panel-first hosting</li>
+<li><strong>Price status:</strong> tracked High Performance ladder is partial</li>
+</ul></section>
+<section class="toc-card"><div class="sticky-box sticky-box--plain"><h3>Contents</h3><div class="toc"><nav id="TableOfContents"><ul>
+<li><a href="#verdict">Verdict</a></li><li><a href="#who-should-buy">Who should buy Vultr?</a></li><li><a href="#current-plans">Current tracked plans</a></li><li><a href="#real-cost">Real cost</a></li><li><a href="#price-history">Price history</a></li><li><a href="#regions">Regions</a></li><li><a href="#management">Management</a></li><li><a href="#workload-fit">Workload fit</a></li><li><a href="#performance">Performance</a></li><li><a href="#limitations">What we do not like</a></li><li><a href="#alternatives">Alternatives</a></li><li><a href="#methodology">Methodology</a></li><li><a href="#faqs">FAQs</a></li>
+</ul></nav></div>
 <div class="side-links"><a class="btn btn-primary btn-block" href="https://www.vultr.com/products/cloud-compute/?ref=9896575" target="_blank" rel="nofollow sponsored noopener">Open Vultr</a></div>
-</div>
-</section>
+</div></section>
 </div>
 </aside>
 </section>
-<section class="container related-section">
-<div class="section-head">
-<h2>Related articles</h2>
-<a href="/reviews/">Back to section</a>
-</div>
-<div class="cards-grid">
-<article class="card card--article">
-<h3><a href="/reviews/hostinger/">Hostinger VPS Review 2026: Cheap RAM, a Panel, and the Trade-offs</a></h3>
-<p>KVM 1 is 4 GB at about $6.49/month intro. KVM 2 is 8 GB at about $8.99/month intro.</p>
-</article>
-<article class="card card--article">
-<h3><a href="/reviews/digitalocean/">DigitalOcean Review 2026: Droplets vs Hostinger</a></h3>
-<p>Basic 4 / 8 / 16 GB about $24 / $48 / $96 hourly. Skip the $6 1 GB plan.</p>
-</article>
-<article class="card card--article">
-<h3><a href="/guides/best-cheap-vps-2026/">Best Cheap VPS 2026: 4 GB Hostinger vs Vultr vs DigitalOcean</a></h3>
-<p>Compare 4 GB you can open today. Hostinger intro vs about $24/month on Vultr and DigitalOcean.</p>
-</article>
-</div>
-</section>
+<section class="container related-section"><div class="section-head"><h2>Related articles</h2><a href="/reviews/">Back to section</a></div><div class="cards-grid">
+<article class="card card--article"><h3><a href="/reviews/digitalocean/">DigitalOcean Review 2026</a></h3><p>Compare Droplet pricing, per-second billing, regions, and developer-platform trade-offs.</p></article>
+<article class="card card--article"><h3><a href="/reviews/hostinger/">Hostinger VPS Review 2026</a></h3><p>Compare prepaid VPS pricing, renewals, workload fit, and price history.</p></article>
+<article class="card card--article"><h3><a href="/vs/vultr-vs-digitalocean/">Vultr vs DigitalOcean</a></h3><p>Compare the two developer clouds side by side.</p></article>
+</div></section>
 </main>
-<footer class="site-footer">
-<div class="container footer-grid">
-<div>
-<h3>VPS Comparison</h3>
-<p>VPS and hosting pricing, reviews, and buying tools. Compare product type, workload, management, billing, and region before you buy.</p>
-</div>
-<div>
-<h3>Sections</h3>
-<ul>
-<li><a href="/#vps-finder">VPS Finder</a></li>
-<li><a href="/guides/best-cheap-vps-2026/">Cheap VPS</a></li>
-<li><a href="/reviews/hostinger/">Hostinger</a></li>
-<li><a href="/reviews/vultr/">Vultr</a></li>
-<li><a href="/reviews/digitalocean/">DigitalOcean</a></li>
-<li><a href="/use-cases/wordpress-hosting/">WordPress</a></li>
-<li><a href="/vs/vultr-vs-digitalocean/">Vultr vs DigitalOcean</a></li>
-<li><a href="/about/">About and prices</a></li>
-</ul>
-</div>
-<div>
-<h3>Notice</h3>
-<p>This site publishes pricing comparisons, reviews, and buying tools. Some outbound links are affiliate links. We may earn a commission if you sign up through them, at no extra cost to you.</p>
-</div>
-</div>
-</footer>
-<script src="/js/mobile-nav.js?v=20260822d"></script>
+<footer class="site-footer"><div class="container footer-grid"><div><h3>VPS Comparison</h3><p>VPS and hosting pricing, reviews, and buying tools. Compare product type, workload, management, billing, and region before you buy.</p></div><div><h3>Sections</h3><ul>
+<li><a href="/#vps-finder">VPS Finder</a></li><li><a href="/guides/best-cheap-vps-2026/">Cheap VPS</a></li><li><a href="/reviews/hostinger/">Hostinger</a></li><li><a href="/reviews/vultr/">Vultr</a></li><li><a href="/reviews/digitalocean/">DigitalOcean</a></li><li><a href="/use-cases/wordpress-hosting/">WordPress</a></li><li><a href="/vs/vultr-vs-digitalocean/">Vultr vs DigitalOcean</a></li><li><a href="/about/">About and prices</a></li>
+</ul></div><div><h3>Notice</h3><p>This site publishes pricing comparisons, reviews, and buying tools. Some outbound links are affiliate links. We may earn a commission if you sign up through them, at no extra cost to you.</p></div></div></footer>
+<script src="/js/mobile-nav.js?v=20260825c"></script>
 <script src="/js/price-status.js?v=20260824a"></script>
 </body>
 </html>
