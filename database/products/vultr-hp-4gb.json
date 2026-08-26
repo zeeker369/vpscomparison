@@ -2,7 +2,7 @@
   "id": "vultr-hp-4gb",
   "provider_id": "vultr",
   "family_id": "vultr-high-performance",
-  "merchant_plan_code": null,
+  "merchant_plan_code": "vhp-2c-4gb-amd",
   "name": "High Performance 4 GB",
   "product_type": "cloud_compute",
   "status": "active",
@@ -12,7 +12,7 @@
     "ram_mb": 4096,
     "storage_gb": 100,
     "storage_type": "nvme",
-    "bandwidth_gb": null,
+    "bandwidth_gb": 5120,
     "virtualization": null,
     "sites": null,
     "sites_unlimited": false,
@@ -44,13 +44,13 @@
     "ipv6": null
   },
   "verification": {
-    "status": "partial",
-    "last_verified_at": "2026-08-25",
+    "status": "verified",
+    "last_verified_at": "2026-08-26",
     "source_ids": [
-      "vultr-billing-docs-2026-08-24",
-      "vultr-provisioning-docs-2026-08-24",
-      "vultr-site-published-prices-2026-08-24"
+      "vultr-pricing-official-2026-08-26",
+      "vultr-plans-api-2026-08-26",
+      "vultr-billing-docs-2026-08-26"
     ],
-    "notes": "4 GB / ~ $24 path is already published on the current site. Exact live plan code and regional price should be verified before API-scale expansion."
+    "notes": "Official High Performance AMD/Intel 4 GB catalog: $24/mo, $0.036/hr displayed. AMD SKU vhp-2c-4gb-amd; Intel SKU shares the same monthly cap."
   }
 }

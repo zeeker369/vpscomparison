@@ -1,0 +1,9 @@
+{
+  "id": "verification-2026-08-26-v2",
+  "run_at": "2026-08-26T22:20:00+08:00",
+  "providers_checked": 5,
+  "products_checked": 21,
+  "price_records_checked": 39,
+  "price_changes": 0,
+  "notes": "Daily price verification. Hostinger VPS/Managed WordPress, DigitalOcean Basic Droplets, Kinsta, and WP Engine rechecked against official pricing pages; steady-state prices unchanged. Kinsta Single 20GB first-month-free promo still present and stored separately from the $35 list price. Vultr High Performance 1/4/8/16 GB monthly caps confirmed at $6/$24/$48/$96 from both the public pricing table and api.vultr.com/v2/plans; displayed hourly rates unchanged. Those 4 Vultr products are upgraded from partial to verified after direct catalog/API capture. No USD amount changed."
+}

@@ -10,12 +10,12 @@
   "review_url": "/reviews/vultr/",
   "description": "Cloud compute platform focused on flexible deployment, hourly billing, and a broad location footprint.",
   "verification": {
-    "status": "partial",
-    "last_verified_at": "2026-08-24",
+    "status": "verified",
+    "last_verified_at": "2026-08-26",
     "source_ids": [
-      "vultr-billing-docs-2026-08-24",
-      "vultr-provisioning-docs-2026-08-24",
-      "vultr-site-published-prices-2026-08-24"
+      "vultr-pricing-official-2026-08-26",
+      "vultr-plans-api-2026-08-26",
+      "vultr-billing-docs-2026-08-26"
     ]
   }
 }

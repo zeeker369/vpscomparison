@@ -2,17 +2,17 @@
   "id": "vultr-hp-8gb",
   "provider_id": "vultr",
   "family_id": "vultr-high-performance",
-  "merchant_plan_code": null,
+  "merchant_plan_code": "vhp-4c-8gb-amd",
   "name": "High Performance 8 GB",
   "product_type": "cloud_compute",
   "status": "active",
   "merchant_url": "https://www.vultr.com/products/cloud-compute/",
   "resources": {
-    "vcpu": null,
+    "vcpu": 4,
     "ram_mb": 8192,
-    "storage_gb": null,
+    "storage_gb": 180,
     "storage_type": "nvme",
-    "bandwidth_gb": null,
+    "bandwidth_gb": 6144,
     "virtualization": null,
     "sites": null,
     "sites_unlimited": false,
@@ -44,13 +44,13 @@
     "ipv6": null
   },
   "verification": {
-    "status": "partial",
-    "last_verified_at": "2026-08-25",
+    "status": "verified",
+    "last_verified_at": "2026-08-26",
     "source_ids": [
-      "vultr-billing-docs-2026-08-24",
-      "vultr-provisioning-docs-2026-08-24",
-      "vultr-site-published-prices-2026-08-24"
+      "vultr-pricing-official-2026-08-26",
+      "vultr-plans-api-2026-08-26",
+      "vultr-billing-docs-2026-08-26"
     ],
-    "notes": "Current site publishes about $48/mo; detailed live specs need catalog verification."
+    "notes": "Official High Performance AMD/Intel 8 GB catalog: $48/mo, $0.071/hr displayed. AMD SKU vhp-4c-8gb-amd; Intel SKU shares the same monthly cap."
   }
 }

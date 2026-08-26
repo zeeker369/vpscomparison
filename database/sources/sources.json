@@ -158,5 +158,85 @@
     "retrieved_at": "2026-08-25",
     "status": "active",
     "notes": "Official Essential plan pricing rechecked; Startup starts at $30/mo and Professional at $55/mo."
+  },
+  {
+    "id": "hostinger-vps-official-2026-08-26",
+    "provider_id": "hostinger",
+    "source_type": "official-pricing",
+    "url": "https://www.hostinger.com/vps-hosting",
+    "title": "Hostinger VPS Hosting",
+    "retrieved_at": "2026-08-26",
+    "status": "active",
+    "notes": "Official public USD catalog rechecked. KVM intro and 2-year renewal monthly-equivalent rates unchanged from 2026-08-25."
+  },
+  {
+    "id": "digitalocean-droplet-pricing-2026-08-26",
+    "provider_id": "digitalocean",
+    "source_type": "official-pricing",
+    "url": "https://www.digitalocean.com/pricing/droplets",
+    "title": "DigitalOcean Droplet Pricing",
+    "retrieved_at": "2026-08-26",
+    "status": "active",
+    "notes": "Official Basic Droplet price table rechecked; monthly caps and displayed hourly equivalents unchanged from 2026-08-25."
+  },
+  {
+    "id": "vultr-pricing-official-2026-08-26",
+    "provider_id": "vultr",
+    "source_type": "official-pricing",
+    "url": "https://www.vultr.com/pricing/",
+    "title": "Vultr pricing",
+    "retrieved_at": "2026-08-26",
+    "status": "active",
+    "notes": "Official High Performance AMD table captured. Displayed monthly/hourly rates: 1 GB $6.00/$0.009, 4 GB $24.00/$0.036, 8 GB $48.00/$0.071, 16 GB $96.00/$0.143."
+  },
+  {
+    "id": "vultr-plans-api-2026-08-26",
+    "provider_id": "vultr",
+    "source_type": "api",
+    "url": "https://api.vultr.com/v2/plans",
+    "title": "Vultr public plans API",
+    "retrieved_at": "2026-08-26",
+    "status": "active",
+    "notes": "Public v2/plans catalog captured. High Performance AMD/Intel monthly caps match the public table. API hourly_cost is a truncated 720-hour figure; Finder keeps merchant-displayed hourly rates from the pricing page."
+  },
+  {
+    "id": "vultr-billing-docs-2026-08-26",
+    "provider_id": "vultr",
+    "source_type": "official-docs",
+    "url": "https://docs.vultr.com/support/platform/billing/how-am-i-billed-for-my-servers",
+    "title": "Vultr server billing",
+    "retrieved_at": "2026-08-26",
+    "status": "active",
+    "notes": "Official billing documentation rechecked; server products are hourly and non-GPU server types use a monthly cap."
+  },
+  {
+    "id": "hostinger-wordpress-official-2026-08-26",
+    "provider_id": "hostinger",
+    "source_type": "official-pricing",
+    "url": "https://www.hostinger.com/wordpress-hosting",
+    "title": "Hostinger managed hosting for WordPress",
+    "retrieved_at": "2026-08-26",
+    "status": "active",
+    "notes": "Official USD pricing page rechecked; Premium $2.99 intro / $10.99 renewal and Unlimited $3.99 intro / $16.99 renewal unchanged. 48-month first-term totals still $143.52 and $191.52."
+  },
+  {
+    "id": "kinsta-wordpress-pricing-2026-08-26",
+    "provider_id": "kinsta",
+    "source_type": "official-pricing",
+    "url": "https://kinsta.com/pricing/",
+    "title": "Kinsta WordPress hosting plans",
+    "retrieved_at": "2026-08-26",
+    "status": "active",
+    "notes": "Official monthly plan table rechecked. Single 20GB remains $35/mo after the current first-month-free promotion; Single 40GB remains $50/mo."
+  },
+  {
+    "id": "wpengine-wordpress-pricing-2026-08-26",
+    "provider_id": "wpengine",
+    "source_type": "official-pricing",
+    "url": "https://wpengine.com/plans",
+    "title": "WP Engine Managed Hosting Platform Plans",
+    "retrieved_at": "2026-08-26",
+    "status": "active",
+    "notes": "Official Essential plan pricing rechecked; Startup starts at $30/mo and Professional at $55/mo."
   }
 ]

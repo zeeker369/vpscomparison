@@ -45,9 +45,9 @@
   },
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-08-25",
+    "last_verified_at": "2026-08-26",
     "source_ids": [
-      "kinsta-wordpress-pricing-2026-08-24"
+      "kinsta-wordpress-pricing-2026-08-26"
     ],
     "notes": "Monthly list price; Kinsta currently advertises a first-month promotion, which is not used as the steady-state primary price."
   }

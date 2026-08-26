@@ -1,12 +1,12 @@
 {
   "version": "2.0",
-  "generated_at": "2026-08-25",
-  "latest_verified_at": "2026-08-25",
+  "generated_at": "2026-08-26",
+  "latest_verified_at": "2026-08-26",
   "providers": 5,
   "products": 21,
-  "verified_products": 17,
-  "verified_on_latest_date": 17,
-  "partial_products": 4,
+  "verified_products": 21,
+  "verified_on_latest_date": 21,
+  "partial_products": 0,
   "needs_review_products": 0,
   "current_price_records": 39
 }

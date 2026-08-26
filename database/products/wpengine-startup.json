@@ -45,9 +45,9 @@
   },
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-08-25",
+    "last_verified_at": "2026-08-26",
     "source_ids": [
-      "wpengine-wordpress-pricing-2026-08-24"
+      "wpengine-wordpress-pricing-2026-08-26"
     ],
     "notes": "Official starting monthly price and listed capacity."
   }
