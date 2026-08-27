@@ -11,11 +11,11 @@
   "description": "Cloud compute platform focused on flexible deployment, hourly billing, and a broad location footprint.",
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-08-26",
+    "last_verified_at": "2026-08-27",
     "source_ids": [
-      "vultr-pricing-official-2026-08-26",
-      "vultr-plans-api-2026-08-26",
-      "vultr-billing-docs-2026-08-26"
+      "vultr-pricing-official-2026-08-27",
+      "vultr-plans-api-2026-08-27",
+      "vultr-billing-docs-2026-08-27"
     ]
   }
 }

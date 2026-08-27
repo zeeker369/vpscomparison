@@ -45,11 +45,11 @@
   },
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-08-26",
+    "last_verified_at": "2026-08-27",
     "source_ids": [
-      "vultr-pricing-official-2026-08-26",
-      "vultr-plans-api-2026-08-26",
-      "vultr-billing-docs-2026-08-26"
+      "vultr-pricing-official-2026-08-27",
+      "vultr-plans-api-2026-08-27",
+      "vultr-billing-docs-2026-08-27"
     ],
     "notes": "Official High Performance AMD/Intel 16 GB catalog: $96/mo, $0.143/hr displayed. AMD SKU vhp-8c-16gb-amd; Intel SKU shares the same monthly cap."
   }
