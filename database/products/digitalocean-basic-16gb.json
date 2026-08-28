@@ -45,9 +45,9 @@
   },
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-08-27",
+    "last_verified_at": "2026-08-28",
     "source_ids": [
-      "digitalocean-droplet-pricing-2026-08-27"
+      "digitalocean-droplet-pricing-2026-08-28"
     ],
     "notes": "Per-second billing effective 2026-01-01; official table also provides hourly and monthly caps."
   }
