@@ -1,6 +1,6 @@
 {
   "database_version": "2.0",
-  "generated_at": "2026-08-28",
+  "generated_at": "2026-08-30",
   "canonical_entity": "product",
   "providers": 5,
   "families": 6,
@@ -10,5 +10,5 @@
   "partial_products": 0,
   "use_cases": 6,
   "game_profiles": 6,
-  "notes": "2026-08-28 daily verification. USD amounts unchanged. Price verification state remains date-aware."
+  "notes": "2026-08-30 daily verification. USD amounts unchanged. Price verification state remains date-aware."
 }

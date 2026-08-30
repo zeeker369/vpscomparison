@@ -11,9 +11,9 @@
   "description": "Fully managed WordPress hosting with single-site and multi-site plans, CDN, backups, and managed platform operations.",
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-08-28",
+    "last_verified_at": "2026-08-30",
     "source_ids": [
-      "kinsta-wordpress-pricing-2026-08-28"
+      "kinsta-wordpress-pricing-2026-08-30"
     ]
   }
 }
