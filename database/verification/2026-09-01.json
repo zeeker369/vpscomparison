@@ -1,0 +1,9 @@
+{
+  "id": "verification-2026-09-01-v1",
+  "run_at": "2026-09-01T21:50:00+08:00",
+  "providers_checked": 5,
+  "products_checked": 21,
+  "price_records_checked": 39,
+  "price_changes": 2,
+  "notes": "Daily price verification. Hostinger VPS/Managed WordPress, DigitalOcean Basic Droplets, Kinsta, and Vultr High Performance USD amounts unchanged. Vultr monthly caps from api.vultr.com/v2/plans; displayed hourly rates from the public pricing table remain $0.009/$0.036/$0.071/$0.143. Kinsta Single 20GB first-month-free promo still present. WP Engine list prices changed: Startup $30→$35 and Professional $55→$65, from official /plans configurator annual base_price ($420/$780). Hub first-year coupon $28/$52 per month is not stored as list."
+}

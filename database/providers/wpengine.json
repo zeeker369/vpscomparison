@@ -11,9 +11,9 @@
   "description": "Managed WordPress platform with visit-based capacity tiers, backups, security tooling, CDN, staging, and WordPress support.",
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-08-31",
+    "last_verified_at": "2026-09-01",
     "source_ids": [
-      "wpengine-wordpress-pricing-2026-08-31"
+      "wpengine-wordpress-pricing-2026-09-01"
     ]
   }
 }

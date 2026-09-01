@@ -45,11 +45,11 @@
   },
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-08-31",
+    "last_verified_at": "2026-09-01",
     "source_ids": [
-      "vultr-pricing-official-2026-08-31",
-      "vultr-plans-api-2026-08-31",
-      "vultr-billing-docs-2026-08-31"
+      "vultr-pricing-official-2026-09-01",
+      "vultr-plans-api-2026-09-01",
+      "vultr-billing-docs-2026-09-01"
     ],
     "notes": "Official High Performance AMD/Intel 1 GB catalog: $6/mo, $0.009/hr displayed. AMD SKU vhp-1c-1gb-amd; Intel SKU shares the same monthly cap."
   }
