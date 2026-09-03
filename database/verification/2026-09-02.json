@@ -1,0 +1,9 @@
+{
+  "id": "verification-2026-09-02-v1",
+  "run_at": "2026-09-03T10:45:00+08:00",
+  "providers_checked": 5,
+  "products_checked": 21,
+  "price_records_checked": 39,
+  "price_changes": 0,
+  "notes": "Backfilled on 3 Sep 2026. No live 2 Sep checkout was run that calendar day. Official Hostinger, DigitalOcean, Vultr, Kinsta, and WP Engine USD amounts on 1 Sep and 3 Sep were identical, so this snapshot records the intervening day at those unchanged amounts. WP Engine list remains Startup $35 / Professional $65; first-year coupon is not stored as list. Kinsta Single 20GB first-month-free promo remains $0."
+}
