@@ -45,9 +45,9 @@
   },
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-09-03",
+    "last_verified_at": "2026-09-04",
     "source_ids": [
-      "hostinger-wordpress-official-2026-09-03"
+      "hostinger-wordpress-official-2026-09-04"
     ],
     "notes": "Public USD 48-month promotional price; renewal differs."
   }

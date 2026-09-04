@@ -11,9 +11,9 @@
   "description": "Developer-focused cloud platform with simple Droplet pricing and managed services around compute.",
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-09-03",
+    "last_verified_at": "2026-09-04",
     "source_ids": [
-      "digitalocean-droplet-pricing-2026-09-03"
+      "digitalocean-droplet-pricing-2026-09-04"
     ]
   }
 }
