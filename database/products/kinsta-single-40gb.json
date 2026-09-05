@@ -45,9 +45,9 @@
   },
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-09-04",
+    "last_verified_at": "2026-09-05",
     "source_ids": [
-      "kinsta-wordpress-pricing-2026-09-04"
+      "kinsta-wordpress-pricing-2026-09-05"
     ],
     "notes": "Monthly list price."
   }

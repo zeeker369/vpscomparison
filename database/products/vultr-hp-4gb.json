@@ -45,11 +45,11 @@
   },
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-09-04",
+    "last_verified_at": "2026-09-05",
     "source_ids": [
-      "vultr-pricing-official-2026-09-04",
-      "vultr-plans-api-2026-09-04",
-      "vultr-billing-docs-2026-09-04"
+      "vultr-pricing-official-2026-09-05",
+      "vultr-plans-api-2026-09-05",
+      "vultr-billing-docs-2026-09-05"
     ],
     "notes": "Official High Performance AMD/Intel 4 GB catalog: $24/mo, $0.036/hr displayed. AMD SKU vhp-2c-4gb-amd; Intel SKU shares the same monthly cap."
   }

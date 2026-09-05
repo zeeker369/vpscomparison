@@ -11,10 +11,10 @@
   "description": "Prepaid KVM VPS with a hosting-oriented control experience and aggressive first-term pricing.",
   "verification": {
     "status": "verified",
-    "last_verified_at": "2026-09-04",
+    "last_verified_at": "2026-09-05",
     "source_ids": [
-      "hostinger-vps-official-2026-09-04",
-      "hostinger-wordpress-official-2026-09-04"
+      "hostinger-vps-official-2026-09-05",
+      "hostinger-wordpress-official-2026-09-05"
     ]
   }
 }
