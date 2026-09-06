@@ -6,14 +6,14 @@ This directory is the source-of-truth dataset for the buying engine. It is delib
 
 `product` is the canonical buyable unit. A product can be a VPS, cloud-compute instance, managed WordPress plan, managed VPS, cloud hosting, GPU cloud, game hosting, or bare metal.
 
-## Current bootstrap (5 Sep 2026)
+## Current bootstrap (6 Sep 2026)
 
 - 5 providers
 - 6 product families
 - 21 products
 - 39 current price records
 - 21 fully verified products
-- 0 partial products (Vultr High Performance catalog/API rechecked 5 Sep 2026)
+- 0 partial products (Vultr High Performance catalog/API rechecked 6 Sep 2026)
 - 6 first-class workloads
 - 6 game-server sizing profiles
 

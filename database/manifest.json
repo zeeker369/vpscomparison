@@ -1,6 +1,6 @@
 {
   "database_version": "2.0",
-  "generated_at": "2026-09-05",
+  "generated_at": "2026-09-06",
   "canonical_entity": "product",
   "providers": 5,
   "families": 6,
@@ -10,5 +10,5 @@
   "partial_products": 0,
   "use_cases": 6,
   "game_profiles": 6,
-  "notes": "2026-09-05 daily verification. All tracked USD amounts unchanged versus 2026-09-04."
+  "notes": "2026-09-06 daily verification. All tracked USD amounts unchanged versus 2026-09-05."
 }

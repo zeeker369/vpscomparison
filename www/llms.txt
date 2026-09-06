@@ -44,7 +44,7 @@ Secondary Asia routes:
 - For managed WordPress, compare the provider's published capacity boundary: visits, server bandwidth, storage, CDN allowance, and site count where available.
 - Missing managed-hosting capacity is treated as uncertainty, not as proof that a plan can handle high traffic.
 - Match billing to runtime: prepaid intro pricing for always-on workloads, monthly managed hosting for WordPress operations, and hourly/per-second billing for short-lived infrastructure.
-- The current Finder database snapshot is dated 5 Sep 2026. All 21 tracked products were verified that day; USD amounts were unchanged from 4 Sep. Stale records would still show their real last-check date. Confirm the merchant cart before payment.
+- The current Finder database snapshot is dated 6 Sep 2026. All 21 tracked products were verified that day; USD amounts were unchanged from 5 Sep. Stale records would still show their real last-check date. Confirm the merchant cart before payment.
 - SiteGround and Kinsta have active affiliate links in the current affiliate data. WP Engine currently does not; WP Engine review CTAs use normal official merchant links.
 - SiteGround is reviewed and linked from the managed WordPress comparison, but is not yet inserted into the Finder product/ranking dataset.
 - Product facts, editorial fit scores, verification state, and affiliate links are separate data layers. Paid relationships do not define eligibility.
